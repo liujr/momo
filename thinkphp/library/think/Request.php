@@ -397,7 +397,6 @@ class Request
      */
     public function pathinfo()
     {
-        echo 'path4'.$_SERVER['PATH_INFO'];
         //if (is_null($this->pathinfo)) {
             if (isset($_GET[$this->config->get('var_pathinfo')])) {
                 // 判断URL里面是否有兼容模式参数
@@ -407,8 +406,7 @@ class Request
                 // CLI模式下 index.php module/controller/action/params/...
                 $_SERVER['PATH_INFO'] = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
             }
-            echo 'path5'.$_SERVER['PATH_INFO'];
-            echo 'path6'.isset($_SERVER['PATH_INFO']);
+
             // 分析PATHINFO信息
             if (!isset($_SERVER['PATH_INFO'])) {
                 foreach ($this->config->get('pathinfo_fetch') as $type) {
@@ -419,11 +417,10 @@ class Request
                     }
                 }
             }
-            echo 'path1:'.$_SERVER['PATH_INFO'].'-----';
-            echo 'path2:'.empty($_SERVER['PATH_INFO']);
+
             $this->pathinfo = empty($_SERVER['PATH_INFO']) ? '/' : ltrim($_SERVER['PATH_INFO'], '/');
         //}
-            echo 'path3:'.$this->pathinfo;
+
         return $this->pathinfo;
     }
 

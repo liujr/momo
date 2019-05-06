@@ -16,9 +16,8 @@ $http->on('WorkerStart',function(swoole_server $server,$worker_id){
     // 1. 加载基础文件
     require __DIR__ . '/../thinkphp/base.php';
 });
-$http->on('request',function($request,$response) use($http){
+$http->on('request',function($request,$response){
         //将swoole请求头信息转换为php的请求头
-        print_r($request->server);
         if(isset($request->server)){
             foreach($request->server as $k=>$v){
                 $_SERVER[strtoupper($k)] = $v;
@@ -31,7 +30,6 @@ $http->on('request',function($request,$response) use($http){
                 $_SERVER[strtoupper($k)] = $v;
             }
         }
-        print_r($_SERVER);
         //将swoole请get信息转换为php的get
         if(isset($request->get)){
             foreach($request->get as $k=>$v){
