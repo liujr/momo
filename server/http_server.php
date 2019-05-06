@@ -18,6 +18,7 @@ $http->on('WorkerStart',function(swoole_server $server,$worker_id){
 });
 $http->on('request',function($request,$response){
         //将swoole请求头信息转换为php的请求头
+        $_SERVER = [];
         if(isset($request->server)){
             foreach($request->server as $k=>$v){
                 $_SERVER[strtoupper($k)] = $v;
@@ -31,6 +32,7 @@ $http->on('request',function($request,$response){
             }
         }
         //将swoole请get信息转换为php的get
+        $_GET = [];
         if(isset($request->get)){
             foreach($request->get as $k=>$v){
                 $_GET[$k] = $v;
@@ -38,6 +40,7 @@ $http->on('request',function($request,$response){
         }
         
         //将swoole请post信息转换为php的post
+        $_POST = [];
         if(isset($request->post)){
             foreach($request->post as $k=>$v){
                 $_POST[$k] = $v;
