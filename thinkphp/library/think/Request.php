@@ -407,7 +407,8 @@ class Request
                 // CLI模式下 index.php module/controller/action/params/...
                 $_SERVER['PATH_INFO'] = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
             }
-
+            echo 'path5'.$_SERVER['PATH_INFO'];
+            echo 'path6'.isset($_SERVER['PATH_INFO']);
             // 分析PATHINFO信息
             if (!isset($_SERVER['PATH_INFO'])) {
                 foreach ($this->config->get('pathinfo_fetch') as $type) {
