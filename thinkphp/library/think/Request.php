@@ -419,7 +419,7 @@ class Request
                 }
             }
 
-            $this->pathinfo = empty($_SERVER['PATH_INFO']) ? '/' : ltrim($_SERVER['PATH_INFO'], '/');
+            $this->pathinfo = empty($_SERVER['PATH_INFO']) ? '/1234' : ltrim($_SERVER['PATH_INFO'], '/');
         //}
             echo 'path:'.$this->pathinfo;
         return $this->pathinfo;
