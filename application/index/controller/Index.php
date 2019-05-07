@@ -29,6 +29,9 @@ class Index
 
     public function send(){
         $obj = new Sms();
-        $res = $obj->send('13265175867');
+        $param array(
+                'mobile'=>'13265175867',
+            );
+        $res = $obj->send($param);
     }
 }
