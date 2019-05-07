@@ -7,9 +7,9 @@ class Sms
 {
 	private $url = "http://v.juhe.cn/sms/send";
 	private $key = "fe4eb3c21dc1fdaf5531525464227add";
-	private $tplidarr = ['1'=>'156531'];
-	private $tplid = '';
-	public function __construct($type){
+	//private $tplidarr = ['1'=>'156531'];
+	private $tplid = '156531';
+	/*public function __construct($type){
 		print_r(12312);
 		if(!$type)  return ['code'=>400,'msg'=>'发送类型不能为空！'];
 		print_r($this->tplidarr);
@@ -18,7 +18,7 @@ class Sms
 		if(!in_array($type,$this->tplidarr[$type])) return ['code'=>400,'msg'=>'发送类型不存在！'];
 		$this->$tplid = $this->tplidarr[$type];
 
-	}
+	}*/
 
 	/**
 	* 发送
@@ -40,7 +40,7 @@ class Sms
 	* 验证数据
 	*/
 	private function checkdate($param){
-		if(!$param['mobile'])  return ['code'=>400,'msg'=>'手机号码不能为空！'];
+		//if(!$param['mobile'])  return ['code'=>400,'msg'=>'手机号码不能为空！'];
 		$randnum = $this->randnum(4,1);
 		$data = array(
 				'key'   => $this->key, //您申请的APPKEY

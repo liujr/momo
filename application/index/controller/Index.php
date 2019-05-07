@@ -28,7 +28,7 @@ class Index
 
 
     public function send(){
-        $obj = new Sms(1);
+        $obj = new Sms();
         $res = $obj->send('13265175867');
     }
 }
