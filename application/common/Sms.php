@@ -7,18 +7,15 @@ class Sms
 {
 	private $url = "http://v.juhe.cn/sms/send";
 	private $key = "fe4eb3c21dc1fdaf5531525464227add";
-	//private $tplidarr = ['1'=>'156531'];
-	private $tplid = '156531';
-	/*public function __construct($type){
-		print_r(12312);
+	private $tplidarr = ['1'=>'156531'];
+	private $tplid = '';
+	public function __construct($type){
 		if(!$type)  return ['code'=>400,'msg'=>'发送类型不能为空！'];
-		print_r($this->tplidarr);
-		print_r($this->tplidarr);
 		print_r(in_array($type, $this->tplidarr[$type]));
 		if(!in_array($type,$this->tplidarr[$type])) return ['code'=>400,'msg'=>'发送类型不存在！'];
 		$this->$tplid = $this->tplidarr[$type];
 
-	}*/
+	}
 
 	/**
 	* 发送
@@ -27,13 +24,13 @@ class Sms
 		$data = $this->checkdate($param);
 		print_r($data);
 		$paramstring = http_build_query($data);
-		$content = $this->post($this->url, $paramstring);
-		$result = json_decode($content, true);
+		//$content = $this->post($this->url, $paramstring);
+		/*$result = json_decode($content, true);
 		if ($result) {
 		    var_dump($result);
 		} else {
 		    //请求异常
-		}
+		}*/
 	}
 
 	/**
