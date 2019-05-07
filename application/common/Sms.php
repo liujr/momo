@@ -11,6 +11,9 @@ class Sms
 	private $tplid = '';
 	public function __construct($type){
 		if(!$type)  return ['code'=>400,'msg'=>'发送类型不能为空！'];
+		print_r($this->tplidarr);
+		print_r($this->tplidarr);
+		print_r(in_array($type, $this->tplidarr[$type]));
 		if(!in_array($type, $this->tplidarr[$type])) return ['code'=>400,'msg'=>'发送类型不存在！'];
 		$this->$tplid = $this->tplidarr[$type];
 
