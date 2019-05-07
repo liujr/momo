@@ -45,7 +45,7 @@ class Sms
 		$data = array(
 				'key'   => $this->key, //您申请的APPKEY
 			    'mobile'    => $param['mobile'], //接受短信的用户手机号码
-			    'tpl_id'    => $this->$tplid, //您申请的短信模板ID，根据实际情况修改
+			    'tpl_id'    => $this->tplid, //您申请的短信模板ID，根据实际情况修改
 			    'tpl_value' =>'#code#='.$randnum //您设置的模板变量，根据实际情况修改
 			);
 		return $data;
