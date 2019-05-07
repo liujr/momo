@@ -37,7 +37,7 @@ class Sms
 	*/
 	private function checkdate($param){
 		if(!$param['mobile'])  return ['code'=>400,'msg'=>'手机号码不能为空！'];
-		$randnum = randCode(4,1);
+		$randnum = randnum(4,1);
 		$data = array(
 				'key'   => $this->key, //您申请的APPKEY
 			    'mobile'    => $param['mobile'], //接受短信的用户手机号码

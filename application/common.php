@@ -57,7 +57,7 @@ function post($url, $params = false, $ispost = 0)
 * -1，数字+大小写字母+特殊字符
 * @return string
 */
-function randCode($length = 4, $type = 0) {
+function randnum($length = 4, $type = 0) {
     $arr = array(1 => "0123456789", 2 => "abcdefghijklmnopqrstuvwxyz", 3 => "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 4 => "~@#$%^&*(){}[]|");
     if ($type == 0) {
         array_pop($arr);
