@@ -1,5 +1,6 @@
 <?php
 namespace app\index\controller;
+use app\common\Sms;
 
 class Index
 {
@@ -23,5 +24,11 @@ class Index
     }
     public function test3(){
     	echo 333;
+    }
+
+
+    public function send(){
+        $obj = new Sms(1);
+        $res = $obj->send('13265175867');
     }
 }
