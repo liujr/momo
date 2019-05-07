@@ -36,7 +36,7 @@ class Sms
 	* 验证数据
 	*/
 	private function checkdate($param){
-		//if(!$param['mobile'])  return ['code'=>400,'msg'=>'手机号码不能为空！'];
+		if(!$param['mobile'])  return ['code'=>400,'msg'=>'手机号码不能为空！'];
 		$randnum = $this->randnum(4,1);
 		$data = array(
 				'key'   => $this->key, //您申请的APPKEY
