@@ -33,5 +33,6 @@ class Index
                 'mobile'=>'',
             );
         $res = $obj->send($param);
+        print_r($res);
     }
 }
