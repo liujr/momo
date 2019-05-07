@@ -5,10 +5,10 @@ namespace app\common;
 */
 class Sms
 {
-	$url = "http://v.juhe.cn/sms/send";
-	$key = "fe4eb3c21dc1fdaf5531525464227add";
-	$tplidarr = ['1'=>'156531'];
-	$tplid = '';
+	private $url = "http://v.juhe.cn/sms/send";
+	private $key = "fe4eb3c21dc1fdaf5531525464227add";
+	private $tplidarr = ['1'=>'156531'];
+	private $tplid = '';
 	public function __construct($type){
 		if(!$type)  return ['code'=>400,'msg'=>'发送类型不能为空！'];
 		if(!in_array($type, $this->tplidarr[$type])) return ['code'=>400,'msg'=>'发送类型不存在！'];
