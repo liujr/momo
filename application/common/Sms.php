@@ -23,7 +23,7 @@ class Sms
 		$data = $this->checkdate($param);
 		print_r($data);die;
 		$paramstring = http_build_query($data);
-		$content = $this->post($url, $paramstring);
+		$content = $this->post($this->url, $paramstring);
 		$result = json_decode($content, true);
 		if ($result) {
 		    var_dump($result);
