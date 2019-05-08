@@ -32,6 +32,7 @@ class Sms
 		if ($result['error_code'] == 0) {
 		    //redis
             $redis  = new \swoole\Coroutine\Redis();
+            print_r($redis);
             $redis->connect(config('redis.host'), config('redis.port'));
             $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],config('redis.sms_out_time'));
 		} else {
