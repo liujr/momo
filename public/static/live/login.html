@@ -116,9 +116,8 @@
 				event.preventDefault();
 				var formData = $('form').serialize();
 				// TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-				$.get("https://www.easy-mock.com/mock/5ab1188bddac7967e4398146/example/query?"+formData, function (data) {
-					console.log("https://www.easy-mock.com/mock/5ab1188bddac7967e4398146/example/query?" + formData);
-					// location.href='index.html';
+				$.post("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
+
 				});
 			});
 
