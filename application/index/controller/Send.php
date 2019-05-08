@@ -10,8 +10,7 @@ class Send
      */
     public function index(){
         try{
-            $mobile = input('mobile');
-
+            $mobile = intval($_GET['mobile']);
             $obj = new Sms('1');
             $param = array(
                 'mobile'=>$mobile,
