@@ -12,8 +12,8 @@ class Sms
 	private $tplidarr = ['1'=>'156531'];
 	private $tplid = '';
 	public function __construct($type){
-		if(!$type)  Common::E('发送类型不能为空！');//return Common::show(config('code.error'),'');
-		if(!array_key_exists ($type,$this->tplidarr)) Common::E('发送类型不存在！');//return Common::show(config('code.error'),'');
+		if(!$type)  Common::E('发送类型不能为空！');
+		if(!array_key_exists ($type,$this->tplidarr)) Common::E('发送类型不存在！');
 		$this->tplid = $this->tplidarr[$type];
 
 	}
@@ -35,10 +35,10 @@ class Sms
 	}
 
 	/**
-	* 验证数据
+	* 验证数据和组装数据
 	*/
 	private function checkdate($param){
-		if(!$param['mobile'])  Common::E('手机号码不能为空！');//return Common::show(config('code.error'),'手机号码不能为空！');
+		if(!$param['mobile'])  Common::E('手机号码不能为空！');
 		$randnum = Common::randnum(4,1);
 		$data = array(
 				'key'   => $this->key, //您申请的APPKEY

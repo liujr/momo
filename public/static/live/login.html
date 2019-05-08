@@ -77,7 +77,7 @@
 		登录
 	</header>
 	<form class="login" id="form">
-		<h2>singwa体育赛事图文直播平台</h2>
+		<h2>体育赛事图文直播平台</h2>
 		<div class="login-item">
 			<input type="text" placeholder="手机号" class="phone-num" name="phone_num"/>
 			<button type="button" id="authCodeBtn">验证码</button>
@@ -95,7 +95,7 @@
 		  $('#authCodeBtn').click(function (event) {
 
 			    var phone_num = $(" input[ name='phone_num' ] ").val()
-				url = "http://singwa.swoole.com:8811?s=index/login&phone_num="+phone_num;
+				url = "http://momo.mmrui.cn:8811/?s=index/send/index&phone_num="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
 				// $.post()
 				$.get(url, function (data) {
