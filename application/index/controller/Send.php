@@ -16,8 +16,7 @@ class Send
             $param = array(
                 'mobile'=>$mobile,
             );
-            print_r($param);
-            //$res = $obj->send($param);
+            $res = $obj->send($param);
             return Common::show(config('code.success'),'发送成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
