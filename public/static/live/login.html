@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="./assert/iconfont/iconfont.css">
 	<link rel="shortcut icon" href="./favicon.ico">
 	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="/public/layer/layer.js"></script>
 	<style>
 		body {
 			background: #eee;
@@ -94,7 +95,8 @@
 			// 获取验证吗
 		  $('#authCodeBtn').click(function (event) {
 
-			    var phone_num = $(" input[ name='phone_num' ] ").val()
+			    var phone_num = $(" input[ name='phone_num' ] ").val();
+              layer.msg('hello');
 				url = "http://momo.mmrui.cn:8811/?s=index/send/index&phone_num="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
 				// $.post()
