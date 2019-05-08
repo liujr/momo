@@ -96,10 +96,7 @@
 		  $('#authCodeBtn').click(function (event) {
 
 			    var phone_num = $(" input[ name='mobile' ] ").val();
-			    if(!phone_num){
-			        layer.msg('手机号码不能为空');
-			        return false;
-                }
+              	checkmobile(phone_num);
 				url = "http://momo.mmrui.cn:8811/?s=index/send/index&mobile="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
 				$.get(url, function (data) {
@@ -121,6 +118,22 @@
 
 				});
 			});
+
+			function checkmobile(phone_num){
+                var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if(!phone_num){
+                    layer.msg('手机号码不能为空');
+                    return false;
+                }
+                if(!phone_num.length !=11){
+                    layer.msg('输入有效的手机号码');
+                    return false;
+                }
+                if(!myreg.test(phone_num)){
+                    layer.msg('输入有效的手机号码');
+                    return false;
+                }
+			}
 
 			// 返回上一页
 			$back.click(function (e) {
