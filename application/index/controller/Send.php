@@ -10,7 +10,7 @@ class Send
      */
     public function index(){
         try{
-            $obj = new Sms(1);
+            $obj = new Sms('1');
             $param = array(
                 'mobile'=>'13265175867',
             );
