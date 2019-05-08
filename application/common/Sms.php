@@ -31,7 +31,7 @@ class Sms
 		if ($result['error_code'] == 0) {
             $redis = new \Swoole\Coroutine\Redis();
             $redis->connect(config('redis.host'), config('redis.port'));
-            $redis->set(config('redis.port').$data['mobile'],$data['randnum'],config('redis.sms_out_time'));
+            $redis->set(config('redis.smskey').$data['mobile'],$data['randnum'],config('redis.sms_out_time'));
 		} else {
             Common::E($result['reason']);
 		}
