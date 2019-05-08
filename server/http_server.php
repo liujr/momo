@@ -40,6 +40,7 @@ $http->on('request',function($request,$response){
         }
         
         //将swoole请post信息转换为php的post
+    print_r($request);
         print_r($request->post);
 
         $_POST = [];
