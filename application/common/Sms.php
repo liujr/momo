@@ -24,7 +24,7 @@ class Sms
 	*/
 	public function send($param){
 		$data = $this->checkdate($param);
-		print_r($data);
+		//print_r($data);
 		/*$paramstring = http_build_query($data['senddata']);
 		$content = Common::post($this->url, $paramstring);
 		$result = json_decode($content, true);*/
