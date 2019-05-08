@@ -40,17 +40,12 @@ $http->on('request',function($request,$response){
         }
         
         //将swoole请post信息转换为php的post
-    print_r($request);
-        print_r($request->post);
-
         $_POST = [];
-    print_r($_POST);
         if(isset($request->post)){
             foreach($request->post as $k=>$v){
                 $_POST[$k] = $v;
             }
         }
-    print_r($_POST);
         ob_start(); //打开缓冲区
 
         // 2. 执行应用
