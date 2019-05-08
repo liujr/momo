@@ -102,7 +102,7 @@
                 }
 				url = "http://momo.mmrui.cn:8811/?s=index/send/index&mobile="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
-				$.post(url, function (data) {
+				$.get(url, function (data) {
 					if (data.status == 'ok') {
 						alert('发送完成');
 					}
@@ -117,7 +117,7 @@
 				event.preventDefault();
 				var formData = $('form').serialize();
 				// TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-				$.post("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
+				$.get("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
 
 				});
 			});

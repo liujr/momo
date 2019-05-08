@@ -10,8 +10,8 @@ class Send
      */
     public function index(){
         try{
-            print_r($_POST);
-            $mobile = intval($_POST['mobile']);
+
+            $mobile = intval($_GET['mobile']);
             if(empty($mobile )) Common::E('手机号码不能为空');
             $obj = new Sms('1');
             $param = array(
