@@ -83,6 +83,10 @@ class Common
         ];
 	    echo json_encode($data);
     }
+    //抛出异常
+	static public function E($tag='',$code=0){
+	    throw new \think\Exception($tag,$code);
+	}
 
 }
 
