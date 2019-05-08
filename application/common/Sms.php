@@ -1,7 +1,6 @@
 <?php
 namespace app\common;
 use app\common\Common;
-use app\common\Redis;
 use think\Exception;
 /**
 * 短信发送（聚合短信）
@@ -30,10 +29,9 @@ class Sms
 		$result = json_decode($content, true);*/
         $result  = ['error_code'=>0];
 		if ($result['error_code'] == 0) {
-            print_r(Redis::getkey('smskey',$data['mobile']));
-            /*$redis = new \Swoole\Coroutine\Redis();
+            $redis = new \Swoole\Coroutine\Redis();
             $redis->connect(config('redis.host'), config('redis.port'));
-            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],config('redis.sms_out_time'));*/
+            $redis->set(config('redis.port').$data['mobile'],$data['randnum'],config('redis.sms_out_time'));
 		} else {
             Common::E($result['reason']);
 		}
