@@ -13,7 +13,6 @@ class Sms
 	private $tplid = '';
 	public function __construct($type){
 		if(!$type)  Common::E('发送类型不能为空！');//return Common::show(config('code.error'),'');
-        print_r(in_array($type,$this->tplidarr));
 		if(!in_array($type,$this->tplidarr)) Common::E('发送类型不存在！');//return Common::show(config('code.error'),'');
 		$this->tplid = $this->tplidarr[$type];
 
