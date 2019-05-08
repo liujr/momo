@@ -30,11 +30,10 @@ class Sms
 		$result = json_decode($content, true);*/
         $result  = ['error_code'=>0];
 		if ($result['error_code'] == 0) {
-            $redis = new \Swoole\Coroutine\Redis();
-            print_r($redis);
             print_r(Redis::getkey('smskey',$data['mobile']));
-            $redis->connect('127.0.0.1', 6379);
-            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],config('redis.sms_out_time'));
+            /*$redis = new \Swoole\Coroutine\Redis();
+            $redis->connect(config('redis.host'), config('redis.port'));
+            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],config('redis.sms_out_time'));*/
 		} else {
             Common::E($result['reason']);
 		}
