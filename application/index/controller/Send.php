@@ -10,12 +10,13 @@ class Send
      */
     public function index(){
         try{
-            $mobile = intval($_GET['mobile']);
+            $mobile = intval($_POST['mobile']);
+            if(empty($mobile )) Common::E('手机号码不能为空');
             $obj = new Sms('1');
             $param = array(
                 'mobile'=>$mobile,
             );
-            $res = $obj->send($param);
+            $obj->send($param);
             return Common::show(config('code.success'),'发送成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
