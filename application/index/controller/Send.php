@@ -10,12 +10,14 @@ class Send
      */
     public function index(){
         try{
-            $mobile = input('mobile',0);
+            $mobile = input('mobile');
+
             $obj = new Sms('1');
             $param = array(
                 'mobile'=>$mobile,
             );
-            $res = $obj->send($param);
+            print_r($param);
+            //$res = $obj->send($param);
             return Common::show(config('code.success'),'发送成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
