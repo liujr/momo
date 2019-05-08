@@ -28,6 +28,7 @@ class Index
 
 
     public function send(){
+        header("content-type:text/html;charset=utf-8");
         $obj = new Sms(1);
         $param = array(
                 'mobile'=>'13265175867',
