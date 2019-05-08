@@ -1,6 +1,7 @@
 <?php
 namespace app\common;
 use app\common\Common;
+use app\common\Redis;
 use think\Exception;
 /**
 * 短信发送（聚合短信）
@@ -23,15 +24,18 @@ class Sms
 	*/
 	public function send($param){
 		$data = $this->checkdate($param);
-		print_r($data);
-		$paramstring = http_build_query($data);
-		//$content = Common::post($this->url, $paramstring);
-		/*$result = json_decode($content, true);
-		if ($result) {
-		    var_dump($result);
+		/*$paramstring = http_build_query($data['senddata']);
+		$content = Common::post($this->url, $paramstring);
+		$result = json_decode($content, true);*/
+        $result  = ['error_code'=>0];
+		if ($result['error_code'] == 0) {
+		    //redis
+            $redis  = new \swoole\Coroutine\Redis();
+            $redis->connect(config('redis.host'), config('redis.port'));
+            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],Redis::getkey('sms_out_time'));
 		} else {
-		    //请求异常
-		}*/
+            Common::E($result['reason']);
+		}
 	}
 
 	/**
@@ -41,10 +45,14 @@ class Sms
 		if(!$param['mobile'])  Common::E('手机号码不能为空！');
 		$randnum = Common::randnum(4,1);
 		$data = array(
-				'key'   => $this->key, //您申请的APPKEY
-			    'mobile'    => $param['mobile'], //接受短信的用户手机号码
-			    'tpl_id'    => $this->tplid, //您申请的短信模板ID，根据实际情况修改
-			    'tpl_value' =>'#code#='.$randnum //您设置的模板变量，根据实际情况修改
+				'senddata' =>[
+				    'key'   => $this->key, //您申请的APPKEY
+                    'mobile'    => $param['mobile'], //接受短信的用户手机号码
+                    'tpl_id'    => $this->tplid, //您申请的短信模板ID，根据实际情况修改
+                    'tpl_value' =>'#code#='.$randnum //您设置的模板变量，根据实际情况修改
+                ],
+                'mobile' =>$param['mobile'],
+                'randnum' =>$randnum
 			);
 		return $data;
 	}
