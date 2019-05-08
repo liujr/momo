@@ -33,7 +33,7 @@ class Sms
 		    //redis
             $redis  = new \swoole\Coroutine\Redis();
             $redis->connect(config('redis.host'), config('redis.port'));
-            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],Redis::getkey('sms_out_time'));
+            $redis->set(Redis::getkey('smskey',$data['mobile']),$data['randnum'],config('redis.sms_out_time'));
 		} else {
             Common::E($result['reason']);
 		}
