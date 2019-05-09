@@ -8,7 +8,7 @@ class Login {
      */
     public function login($mobile){
         if(empty($mobile)) Common::E('电话号码不能为空');
-        $data = ['mobile'=>$mobile];
+        $data = ['mobile'=>$mobile,'userid'=>0];
         $info = Common::D('login','Login')->getInfo($data);
         print_r(1111111111);
         /*$userid = $info['userid'];

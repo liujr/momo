@@ -13,9 +13,7 @@ class Login{
      * 获取一条用户信息
      */
     public function getInfo($param){
-        print_r($param);
         if($param['userid']) $where['userid'] = $param['userid'];
-        print_r(12121);
         if($param['mobile']) $where['mobile'] = $param['mobile'];
         $where['datastatus'] = 1;
         $info = Db::name('user')->where($where)->find();
