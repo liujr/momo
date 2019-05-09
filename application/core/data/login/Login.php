@@ -12,10 +12,9 @@ class Login{
     /**
      * 获取一条用户信息
      */
-    public function getInfo($userid=0,$mobile=''){
-        if(empty($userid) && empty($mobile)) Common::E('用户不存在');
-        if($userid) $where['userid'] = $userid;
-        if($mobile) $where['mobile'] = $mobile;
+    public function getInfo($param){
+        if($param['userid']) $where['userid'] = $param['userid'];
+        if($param['mobile']) $where['mobile'] = $param['mobile'];
         $where['datastatus'] = 1;
         $info = Db::name('user')->where($where)->find();
         return $info;
