@@ -100,15 +100,26 @@
               	if(res == false) return false;
 				url = "http://momo.mmrui.cn:8811/?s=index/send/index&mobile="+phone_num;
 				$(this).html('已发送').attr('disabled', true);
+				var _this = $(this);
 				$.get(url, function (data) {
-					if (data.status == 'ok') {
-						alert('发送完成');
-					}
-					// if (result.status != 'ok') {
-					// 	alert('网络错误');
-					// }
+					if(data.code ==100){
+					    counttime(_this);
+                    }
 				});
 			});
+
+		  	//倒计时
+			function counttime(_this){
+                _this.html('60S');
+                var id = setInterval(function() {
+                    var html = parseInt(_this.text()) - 1 + 'S';
+                    _this.text(html);
+                }, 1000);
+                setTimeout(function() {
+                    clearInterval(id);
+                    _this.html('验证码');
+                }, 60000);
+			}
 
 			// 提交表单
 			$submitBtn.click(function (event) {
