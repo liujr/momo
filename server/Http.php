@@ -22,6 +22,7 @@ class Http{
         $this->http->on('task',[$this,'onTask']);
         $this->http->on('finish',[$this,'onFinish']);
         $this->http->on('close',[$this,'onClose']);
+        $this->http->start();
     }
 
     /**
