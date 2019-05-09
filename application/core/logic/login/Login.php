@@ -1,7 +1,7 @@
 <?php
 namespace logic\login;
 use app\common\Common;
-use think\Session;
+use app\common\Redis;
 class Login {
     /*
      * 手机号码登录
@@ -14,7 +14,8 @@ class Login {
         if(!$info){
             $userid = Common::D('login','Login')->add($data);
         }
-        Session('userid',$userid);
+        //登录 成功之后保存到redis
+        Redis::getInstance()->set($mobile,$userid);
         return ['userid'=>$userid];
     }
 
