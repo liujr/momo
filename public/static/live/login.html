@@ -99,21 +99,22 @@
               	var res = checkmobile(phone_num);
               	if(res == false) return false;
 				url = "http://momo.mmrui.cn:8811/?s=index/send/index&mobile="+phone_num;
-				$(this).html('已发送').attr('disabled', true);
+				$(this).attr('disabled', true);
 				var _this = $(this);
 				$.get(url, function (data) {
-				    var data = eval("("+data+")");;
-				    console.log(data);
-				    console.log(data.code);
+                    _this.attr('disabled', false);
+				    var data = eval("("+data+")");
 					if(data.code ==100){
 					    counttime(_this);
-                    }
+                    }else if(data.code ==101){
+                        layer.msg(data.msg);
+                        return false;
+					}
 				});
 			});
 
 		  	//倒计时
 			function counttime(_this){
-			    console.log('1233321');
                 _this.html('60S');
                 var id = setInterval(function() {
                     var html = parseInt(_this.text()) - 1 + 'S';
