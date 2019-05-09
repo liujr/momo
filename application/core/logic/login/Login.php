@@ -14,7 +14,7 @@ class Login {
         if(!$info){
             $userid = Common::D('login','Login')->add($data);
         }
-        Session::set('userid',$userid);
+        Session('userid',$userid);
         return ['userid'=>$userid];
     }
 
