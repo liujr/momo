@@ -102,12 +102,12 @@
 				$(this).attr('disabled', true);
 				var _this = $(this);
 				$.get(url, function (data) {
-                    _this.attr('disabled', false);
 				    var data = eval("("+data+")");
 					if(data.code ==100){
 					    counttime(_this);
                     }else if(data.code ==101){
                         layer.msg(data.msg);
+                        _this.attr('disabled', false);
                         return false;
 					}
 				});
@@ -123,6 +123,7 @@
                 setTimeout(function() {
                     clearInterval(id);
                     _this.html('验证码');
+                    _this.attr('disabled', false);
                 }, 60000);
 			}
 
