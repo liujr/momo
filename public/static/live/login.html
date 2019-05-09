@@ -130,7 +130,12 @@
 			// 提交表单
 			$submitBtn.click(function (event) {
 				event.preventDefault();
-				var formData = $('form').serialize();
+                var code = $(" input[ name='code' ] ").val();
+                var phone_num = $(" input[ name='mobile' ] ").val();
+                var res = checkmobile(phone_num);
+                if(res == false) return false;
+				//var formData = $('form').serialize();
+                var formData = 'mobile='+phone_num+'&code='+code;
 				console.log(formData);
 				$.get("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
 
