@@ -131,7 +131,7 @@
 			$submitBtn.click(function (event) {
 				event.preventDefault();
 				var formData = $('form').serialize();
-				// TODO: 请求后台接口跳转界面，前端跳转或者后台跳
+				console.log(formData);
 				$.get("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
 
 				});
