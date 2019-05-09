@@ -117,5 +117,5 @@ class Http{
 
 
 }
-
+new Http();
  ?>
