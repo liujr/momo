@@ -102,6 +102,7 @@
 				$(this).html('已发送').attr('disabled', true);
 				var _this = $(this);
 				$.get(url, function (data) {
+				    var data = eval(data);
 				    console.log(data);
 				    console.log(data.code);
 					if(data.code ==100){
