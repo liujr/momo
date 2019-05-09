@@ -23,18 +23,24 @@ class Http{
         $this->http->on('finish',[$this,'onFinish']);
         $this->http->on('close',[$this,'onClose']);
     }
-}
 
-
-
-$http->on('WorkerStart',function(swoole_server $server,$worker_id){
-    
-    // 定义应用目录
-    define('APP_PATH', __DIR__ . '/../application/');
-    // 1. 加载基础文件
-    require __DIR__ . '/../thinkphp/base.php';
-});
-$http->on('request',function($request,$response){
+    /**
+     * WorkerStart回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onWorkerStart($server,$worker_id){
+        // 定义应用目录
+        define('APP_PATH', __DIR__ . '/../application/');
+        // 1. 加载基础文件
+        require __DIR__ . '/../thinkphp/base.php';
+    }
+    /**
+     * Request回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onRequest($request,$response){
         //将swoole请求头信息转换为php的请求头
         $_SERVER = [];
         if(isset($request->server)){
@@ -56,7 +62,7 @@ $http->on('request',function($request,$response){
                 $_GET[$k] = $v;
             }
         }
-        
+
         //将swoole请post信息转换为php的post
         $_POST = [];
         if(isset($request->post)){
@@ -69,16 +75,60 @@ $http->on('request',function($request,$response){
         // 2. 执行应用
         try{
             // 执行应用并响应
-        think\Container::get('app', [APP_PATH])
-            ->run()
-            ->send();
+            think\Container::get('app', [APP_PATH])
+                ->run()
+                ->send();
         }catch (\Exception $e){
             $response->end($e->getMessage());
         };
-        
+
         $res = ob_get_contents();//获取当前缓冲区内容
         ob_end_clean();// 清空（擦除）缓冲区并关闭输出缓冲
-		$response->end($res);
+        $response->end($res);
+    }
+
+    /**
+     * onTask回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onTask($server,$taskid,$workerid,$data){
+        print_r($data);
+        sleep(10);
+        return "on task finish";
+    }
+    /**
+     * onFinish回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onFinish($server,$taskid,$data){
+       echo "taskId:{$taskid}\n";
+        echo "finish-data-success:{$data}\n";
+    }
+    /**
+     * onClose回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onClose($ws,$fd){
+       echo "clientid:{$fd}\n";
+    }
+
+
+}
+
+
+
+$http->on('WorkerStart',function(swoole_server $server,$worker_id){
+    
+    // 定义应用目录
+    define('APP_PATH', __DIR__ . '/../application/');
+    // 1. 加载基础文件
+    require __DIR__ . '/../thinkphp/base.php';
+});
+$http->on('request',function($request,$response){
+
         //$http->close();
 });
 
