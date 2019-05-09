@@ -10,13 +10,12 @@ class Login {
         if(empty($mobile)) Common::E('电话号码不能为空');
         $data = ['mobile'=>$mobile,'userid'=>0];
         $info = Common::D('login','Login')->getInfo($data);
-        print_r(1111111111);
-        /*$userid = $info['userid'];
+        $userid = $info['userid'];
         if(!$info){
             $userid = Common::D('login','Login')->add($data);
         }
         Session::set('userid',$userid);
-        return ['userid'=>$userid];*/
+        return ['userid'=>$userid];
     }
 
 

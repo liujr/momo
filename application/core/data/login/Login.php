@@ -27,7 +27,6 @@ class Login{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        print_r($insertData);
         $result = Db::name('user')->insert($insertData);
 
         return $result;
