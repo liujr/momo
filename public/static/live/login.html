@@ -102,6 +102,7 @@
 				$(this).html('已发送').attr('disabled', true);
 				var _this = $(this);
 				$.get(url, function (data) {
+				    console.log(data.code);
 					if(data.code ==100){
 					    counttime(_this);
                     }
@@ -110,6 +111,7 @@
 
 		  	//倒计时
 			function counttime(_this){
+			    console.log('1233321');
                 _this.html('60S');
                 var id = setInterval(function() {
                     var html = parseInt(_this.text()) - 1 + 'S';
