@@ -88,6 +88,18 @@ class Common
 	    throw new \think\Exception($tag,$code);
 	}
 
+    /**
+     * 调用数据层模型
+     * @param $dir 模块
+     * @param $name 方法
+     */
+    static public function D($dir,$name,$model='data'){
+        if(!$dir) self::E('请指定访问的模块');
+        if(!$name) self::E('请指定访问的方法');
+        $class = '\\'.$model.'\\'.$dir.'\\'.$name;
+        return new $class;
+    }
+
 }
 
 
