@@ -11,12 +11,12 @@ class Login {
         $data = ['mobile'=>$mobile];
         $info = Common::D('login','Login')->getInfo($data);
         print_r(1111111111);
-        $userid = $info['userid'];
+        /*$userid = $info['userid'];
         if(!$info){
             $userid = Common::D('login','Login')->add($data);
         }
         Session::set('userid',$userid);
-        return ['userid'=>$userid];
+        return ['userid'=>$userid];*/
     }
 
 
