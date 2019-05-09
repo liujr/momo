@@ -138,7 +138,14 @@
                 var formData = 'mobile='+phone_num+'&code='+code;
 				console.log(formData);
 				$.get("http://momo.mmrui.cn:8811/?s=index/login/index&"+formData, function (data) {
-
+                    var data = eval("("+data+")");
+                    if(data.code == 100){
+                        $.session.set('userid', data.data.userid);
+                        layer.msg($.session.get('userid'));
+					}else if(data.code ==101){
+                        layer.msg(data.msg);
+                        return false;
+                    }
 				});
 			});
 
