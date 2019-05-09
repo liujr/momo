@@ -27,8 +27,8 @@ return [
     'auto_bind_module'       => false,
     // 注册的根命名空间
     'root_namespace'         => [
-        'logic'  => ROOT_PATH.'application/core/logic/',
-        'data'   => ROOT_PATH.'application/core/data/',
+        'logic'  => APP_PATH.'/core/logic/',
+        'data'   => APP_PATH.'/core/data/',
     ],
     // 默认输出类型
     'default_return_type'    => 'html',
