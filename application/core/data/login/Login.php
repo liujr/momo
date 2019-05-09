@@ -28,6 +28,7 @@ class Login{
         $data = $this->checkData($param);
         $insertData = $this->data($data);
         $result = Db::name('user')->insert($insertData);
+        print_r(Db::name('user')->fetchsql());
         return $result;
     }
 
