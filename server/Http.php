@@ -96,13 +96,13 @@ class Http{
      */
     public function onTask($server,$taskid,$workerid,$data){
         try{
-           echo $data['controller'];
-            echo 111;
-            /*$obj  = new app\core\task. '\\'.$data['controller'];
+           $class = 'app'.'\\'.'core'.'\\'.'task'.'\\'.$data['controller'];
+            $obj  = new $class();
+            print_r($obj);
             $method = $data['method'];
             if(!$obj)  app\common\Common::E('不存在该类');
             if(!$method)  app\common\Common::E('方法名不能为空');
-            $obj->$method($data['data']);*/
+            $obj->$method($data['data']);
         }catch (\Exception $e){
           echo $e->getMessage();
         };
