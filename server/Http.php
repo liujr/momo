@@ -96,9 +96,9 @@ class Http{
      */
     public function onTask($server,$taskid,$workerid,$data){
         try{
-           $class = 'app'.'\\'.'core'.'\\'.'task'.'\\'.$data['controller'];
-            $obj  = new $class();
-            print_r($obj);
+            $class = "\\task\\".$data['controller'];
+            if(!class_exists($class))   app\common\Common::E($data['controller'].'类不存在');
+            $obj =  new $class();
             $method = $data['method'];
             if(!$obj)  app\common\Common::E('不存在该类');
             if(!$method)  app\common\Common::E('方法名不能为空');
