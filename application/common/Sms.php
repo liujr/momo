@@ -29,18 +29,6 @@ class Sms
             'data'          =>$data
         );
         $_POST['http']->task($senddata);
-		//print_r($data);
-		/*$paramstring = http_build_query($data['senddata']);
-		$content = Common::post($this->url, $paramstring);
-		$result = json_decode($content, true);*/
-        /*$result  = ['error_code'=>0];
-		if ($result['error_code'] == 0) {
-            $redis = new \Swoole\Coroutine\Redis();
-            $redis->connect(config('redis.host'), config('redis.port'));
-            $redis->set(config('redis.smskey').$data['mobile'],$data['randnum'],config('redis.sms_out_time'));
-		} else {
-            Common::E($result['reason']);
-		}*/
 	}
 
 	/**

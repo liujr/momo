@@ -7,15 +7,17 @@ class SmsTask{
      * 发送登录手机验证码
      */
     public function sendSms($param){
-        $data = [
+        /*发送手机号
+          $data = [
             'key' =>$param['key'],
             'tpl_id' =>$param['tpl_id'],
             'tpl_value' =>$param['tpl_value'],
             'mobile'    => $param['mobile'],
         ];
         $paramstring = http_build_query($data);
-        //$content = Common::post($param['url'], $paramstring);
-        //$result = json_decode($content, true);
+        $content = Common::post($param['url'], $paramstring);
+        $result = json_decode($content, true);
+        */
         $result  = ['error_code'=>0];
 		if ($result['error_code'] == 0) {
             Redis::getInstance()->set(config('redis.smskey').$param['mobile'],$param['randnum'],config('redis.sms_out_time'));
