@@ -14,13 +14,13 @@ class SmsTask{
             'mobile'    => $param['mobile'],
         ];
         $paramstring = http_build_query($data);
-        $content = Common::post($param['url'], $paramstring);
-        $result = json_decode($content, true);
-        print_r($result);
-        //$result  = ['error_code'=>0];
+        //$content = Common::post($param['url'], $paramstring);
+        //$result = json_decode($content, true);
+        $result  = ['error_code'=>0];
 		if ($result['error_code'] == 0) {
             Redis::getInstance()->set(config('redis.smskey').$param['mobile'],$param['randnum'],config('redis.sms_out_time'));
-            /*$redis = new \Swoole\Coroutine\Redis();
+            /*异步redis
+             * $redis = new \Swoole\Coroutine\Redis();
             $redis->connect(config('redis.host'), config('redis.port'));
             $redis->set(config('redis.smskey').$data['mobile'],$data['randnum'],config('redis.sms_out_time'));*/
 		} else {
