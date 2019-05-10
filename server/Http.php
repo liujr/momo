@@ -96,6 +96,7 @@ class Http{
      */
     public function onTask($server,$taskid,$workerid,$data){
         try{
+            print_r($data['controller']);
             $obj  = new app\core\task. '\\'.$data['controller'];
             $method = $data['method'];
             if(!$obj)  app\common\Common::E('不存在该类');
