@@ -98,10 +98,9 @@ class Http{
         try{
             $class = "\\task\\".$data['controller'];
             if(!class_exists($class))   app\common\Common::E($data['controller'].'类不存在');
+            if(!$data['method'])  app\common\Common::E('方法名不能为空');
             $obj =  new $class();
             $method = $data['method'];
-            if(!$obj)  app\common\Common::E('不存在该类');
-            if(!$method)  app\common\Common::E('方法名不能为空');
             $obj->$method($data['data']);
         }catch (\Exception $e){
           echo $e->getMessage();
