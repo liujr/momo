@@ -34,7 +34,7 @@ class Http{
         // 定义应用目录
         define('APP_PATH', __DIR__ . '/../application/');
         // 1. 加载基础文件
-        require __DIR__ . '/../thinkphp/base.php';
+        require __DIR__ . '/../thinkphp/start.php';
     }
     /**
      * Request回调
@@ -66,6 +66,7 @@ class Http{
 
         //将swoole请post信息转换为php的post
         $_POST = [];
+        $_POST['http'] = $this->http;
         if(isset($request->post)){
             foreach($request->post as $k=>$v){
                 $_POST[$k] = $v;
@@ -94,9 +95,16 @@ class Http{
      * @param $worker_id
      */
     public function onTask($server,$taskid,$workerid,$data){
-        print_r($data);
-        sleep(10);
-        return "on task finish";
+        try{
+            $obj  = new \task. '\\'.$data['controller'];
+            $method = $data['method'];
+            if(!$obj)  app\common\Common::E('不存在该类');
+            if(!$method)  app\common\Common::E('方法名不能为空');
+            $obj->$method($data['data']);
+        }catch (\Exception $e){
+          echo $e->getMessage();
+        };
+
     }
     /**
      * onFinish回调

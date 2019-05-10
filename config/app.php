@@ -29,6 +29,7 @@ return [
     'root_namespace'         => [
         'logic'  => APP_PATH.'/core/logic/',
         'data'   => APP_PATH.'/core/data/',
+        'task'   => APP_PATH.'/core/task/',
     ],
     // 默认输出类型
     'default_return_type'    => 'html',
