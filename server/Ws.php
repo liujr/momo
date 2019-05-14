@@ -6,7 +6,7 @@ class Ws{
     const PORT = 8811;
     public $ws = null;
     public function __construct(){
-        $this->ws = new \swoole_http_server(self::HOST,self::PORT);
+        $this->ws = new \swoole_websocket_server(self::HOST,self::PORT);
 
         $this->ws->set(
             [
@@ -16,7 +16,8 @@ class Ws{
                 'task_worker_num' =>4,
             ]
         );
-
+        $this->ws->on('open',[$this,'onopen']);
+        $this->ws->on('message',[$this,'onMessage']);
         $this->ws->on('workerstart',[$this,'onWorkerStart']);
         $this->ws->on('request',[$this,'onRequest']);
         $this->ws->on('task',[$this,'onTask']);
@@ -115,6 +116,22 @@ class Ws{
     public function onFinish($server,$taskid,$data){
        echo "taskId:{$taskid}\n";
         echo "finish-data-success:{$data}\n";
+    }
+    /**
+     * onOpen回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onOpen($ws, $request){
+
+    }
+    /**
+     * onMessage回调
+     * @param $server
+     * @param $worker_id
+     */
+    public function onMessage($ws, $frame){
+        
     }
     /**
      * onClose回调
