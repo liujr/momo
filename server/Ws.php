@@ -147,7 +147,7 @@ class Ws{
      */
     public function onClose($ws,$fd){
        echo "close---clientid:{$fd}\n";
-       
+
     }
 
 

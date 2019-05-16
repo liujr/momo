@@ -4,6 +4,7 @@ var socket = new WebSocket('ws://momo.mmrui.cn:8811');
 // 打开Socket
 socket.onopen = function(event) {
 // 发送一个初始化消息
+    console.log(event);
     console.log('success')
 }
 
