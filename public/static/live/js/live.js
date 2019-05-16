@@ -1,5 +1,5 @@
 // 创建一个Socket实例
-var socket = new WebSocket('ws://http://momo.mmrui.cn:8811');
+var socket = new WebSocket('ws://momo.mmrui.cn:8811');
 
 // 打开Socket
 socket.onopen = function(event) {
@@ -9,7 +9,7 @@ socket.onopen = function(event) {
 
 // 监听消息
 socket.onmessage = function(event) {
-    document.write(event.data)
+    console.log(event.data)
 };
 
 // 监听Socket的关闭
