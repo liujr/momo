@@ -146,7 +146,8 @@ class Ws{
      * @param $worker_id
      */
     public function onClose($ws,$fd){
-       echo "clientid:{$fd}\n";
+       echo "close---clientid:{$fd}\n";
+        $this->ws->push($fd,'close');
     }
 
 
