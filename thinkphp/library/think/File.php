@@ -334,7 +334,6 @@ class File extends SplFileObject
             $this->error = '存在同名文件' . $filename;
             return false;
         }
-        print_r($filename);
         /* 移动文件 */
         if ($this->isTest) {
             rename($this->filename, $filename);
