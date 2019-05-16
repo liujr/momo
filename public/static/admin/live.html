@@ -162,8 +162,8 @@
       // 文件上传成功，给item添加成功class, 用样式标记上传成功。
       uploader.on( 'uploadSuccess', function( file, response) {
           console.log(response);
-        if(response.status == 1) {
-          $('#'+file.id).append('<input type="hidden" name="image" value="'+response.data.image+'"/>');
+        if(response.code == 100) {
+          $('#'+file.id).append('<input type="hidden" name="image" value="'+response.data.img+'"/>');
         }
         $( '#'+file.id ).addClass('upload-state-done');
       });
