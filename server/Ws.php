@@ -130,7 +130,7 @@ class Ws{
      * @param $worker_id
      */
     public function onOpen($ws, $request){
-
+        echo "当前fd:{$ws->fd}\n";
     }
     /**
      * onMessage回调
