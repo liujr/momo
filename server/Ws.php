@@ -68,7 +68,7 @@ class Ws{
         $_FILES = [];
         if(isset($request->files)){
             foreach($request->files as $k=>$v){
-                $_GET[$k] = $v;
+                $_FILES[$k] = $v;
             }
         }
 
