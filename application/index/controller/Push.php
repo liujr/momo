@@ -9,7 +9,7 @@ class Push
      */
     public function index(){
         try{
-           print_r($_GET);
+           $_POST['http']->push(json_encode($_GET));
             return Common::show(config('code.success'),'上传成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
