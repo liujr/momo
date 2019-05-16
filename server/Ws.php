@@ -64,6 +64,13 @@ class Ws{
                 $_GET[$k] = $v;
             }
         }
+        //将swoole请get信息转换为php的get
+        $_FILES = [];
+        if(isset($request->files)){
+            foreach($request->files as $k=>$v){
+                $_GET[$k] = $v;
+            }
+        }
 
         //将swoole请post信息转换为php的post
         $_POST = [];
