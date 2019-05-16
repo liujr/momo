@@ -325,7 +325,6 @@ class File extends SplFileObject
         $filename = $path . $saveName;
 
         // 检测目录
-        echo dirname($filename);
         if (false === $this->checkPath(dirname($filename))) {
             return false;
         }
