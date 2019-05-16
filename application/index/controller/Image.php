@@ -11,6 +11,7 @@ class Image
         try{
            $file = request()->file('file');
             $info = $file->move('../public/static/upload');
+            print_r($info);
             if($info){
                 $data = ['img'=>config('url.host').'/'.$info->getSaveName()];
                 return Common::show(config('code.success'),'上传成功',$data);
