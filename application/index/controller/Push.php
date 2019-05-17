@@ -17,6 +17,7 @@ class Push
             ];
             $data = [
                     'type' =>intval($_GET['type']),
+                    'time' =>date('H:i:s'),
                     'title'  =>!empty($teams[$_GET['team_id']]['name']) ? $teams[$_GET['team_id']]['name']:'直播员',
                      'logo'  =>!empty($teams[$_GET['team_id']]['logo']) ? $teams[$_GET['team_id']]['logo']:'',
                      'content'  =>!empty($_GET['content']) ? $_GET['content']:'',

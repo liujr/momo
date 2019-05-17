@@ -23,6 +23,7 @@ function mypush(data){
         var html = '<div class="frame">';
                 html  += '<h3 class="frame-header">';
                 html  += '<i class="icon iconfont icon-shijian"></i>第'+data.type+'节';
+                html +=data.time;
                 html  += '</h3>';
                 html  += '<div class="frame-item">';
                 html  += '<span class="frame-dot"></span>';
