@@ -130,6 +130,7 @@ class Ws{
      * @param $worker_id
      */
     public function onOpen($ws, $request){
+        app\common\Redis::getInstance()->sAdd(config('redis.online_key'),$request->fd);
         echo "当前fd:{$request->fd}\n";
     }
     /**
@@ -146,8 +147,9 @@ class Ws{
      * @param $worker_id
      */
     public function onClose($ws,$fd){
+        $res = app\common\Redis::getInstance()->sIsmember(config('redis.online_key'),$fd);
+        if($res) app\common\Redis::getInstance()->sRem(config('redis.online_key'),$fd);
        echo "close---clientid:{$fd}\n";
-
     }
 
 

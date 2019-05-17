@@ -55,6 +55,51 @@ class Redis
         return $this->redis->get($key);
     }
 
+    /**
+     * 保存集合
+     * @param $key
+     * @param $value
+     */
+    public function sAdd($key,$value){
+        if(!$key) Common::E('key不能为空');
+        if(!$value) Common::E('value不能为空');
+        return $this->redis->sAdd($key);
+    }
+
+    /**
+     * 删除一个或多个集合
+     * @param $key
+     * @param $value
+     * @return int
+     */
+    public function sRem($key,$value){
+        if(!$key) Common::E('key不能为空');
+        if(!$value) Common::E('value不能为空');
+        return $this->redis->sRem($key,$value);
+    }
+
+    /**
+     * 判断集合是否存在该值
+     * @param $key
+     * @param $value
+     * @return bool
+     */
+    public function sIsmember($key,$value){
+        if(!$key) Common::E('key不能为空');
+        if(!$value) Common::E('value不能为空');
+        return $this->redis->sIsmember($key,$value);
+    }
+
+    /**
+     * 返回集合所有值
+     * @param $key
+     * @return array
+     */
+    public function sMembers($key){
+        if(!$key) Common::E('key不能为空');
+        return $this->redis->sMembers($key);
+    }
+
 
 
 }
