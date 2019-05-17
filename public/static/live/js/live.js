@@ -34,6 +34,9 @@ function mypush(data){
                 html +=data.title;
                 html  += '</div>';
                 html  += '<p>'+data.content+'</p>';
+                if(data.image){
+                html +='<p><img src="'+data.image+'" width="40%" /></p>';
+                }
                 html  += '</div>';
                 html  += '</div>';
                 $('#match-result').prepend(html);
