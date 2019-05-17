@@ -2,15 +2,19 @@
 namespace app\index\controller;
 use think\Exception;
 use app\common\Common;
+use app\common\Redis;
 class Push
 {
     /**
-     * 发送短信
+     * 推送数据
      */
     public function index(){
         try{
-            $_POST['http']->push(3, json_encode($_GET));
-            return Common::show(config('code.success'),'上传成功');
+            $res = Redis::getInstance()->sMembers(config('redis.online_key'));
+            foreach ($res as $k=>$v){
+                $_POST['http']->push($v, json_encode($_GET));
+            }
+            return Common::show(config('code.success'),'保存成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
         }
