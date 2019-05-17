@@ -6,7 +6,7 @@ class SmsTask{
     /**
      * 发送登录手机验证码
      */
-    public function sendSms($param){
+    public function sendSms($server,$param){
         /*发送手机号
           $data = [
             'key' =>$param['key'],

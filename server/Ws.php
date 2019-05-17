@@ -109,7 +109,7 @@ class Ws{
             if(!$data['method'])  app\common\Common::E('方法名不能为空');
             $obj =  new $class();
             $method = $data['method'];
-            $obj->$method($data['data']);
+            $obj->$method($server,$data['data']);
         }catch (\Exception $e){
           echo $e->getMessage();
         };

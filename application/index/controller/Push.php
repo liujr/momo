@@ -22,10 +22,14 @@ class Push
                      'content'  =>!empty($_GET['content']) ? $_GET['content']:'',
                     'image'  =>!empty($_GET['image']) ? $_GET['image']:'',
             ];
-            $res = Redis::getInstance()->sMembers(config('redis.online_key'));
-            foreach ($res as $k=>$v){
-                $_POST['http']->push($v, json_encode($data));
-            }
+
+            $senddata = array(
+                'controller' =>'PushTask',
+                'method'     =>'push',
+                'data'          =>$data
+            );
+            $_POST['http']->task($senddata);
+
             return Common::show(config('code.success'),'保存成功');
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
