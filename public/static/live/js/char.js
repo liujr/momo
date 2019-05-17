@@ -1,5 +1,5 @@
 $(function(){
-    $('.mysubmit').onkeydown(function(event){
+    $('.mysubmit').keydown(function(event){
         if(event.keyCode == 13){
             var text = $(this).val();
             var _this = $(this);
