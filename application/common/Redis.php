@@ -63,7 +63,7 @@ class Redis
     public function sAdd($key,$value){
         if(!$key) Common::E('key不能为空');
         if(!$value) Common::E('value不能为空');
-        return $this->redis->sAdd($key);
+        return $this->redis->sAdd($key,$value);
     }
 
     /**
