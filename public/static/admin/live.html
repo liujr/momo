@@ -196,7 +196,12 @@
 
               layer.msg(data.msg);
             if (data.code == 100) {
-                window.location.href='';
+                setTimeout(function() {
+
+                    window.location.href='';
+
+                },2000);
+
             }
           }, 'json');
         });
