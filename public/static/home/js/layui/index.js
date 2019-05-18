@@ -18,8 +18,10 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 	function getData(json){
 		url = '/home/menu/ajaxLists';
 		data = {pid:json};
-		$.post(url,data,function($res){
-            dataStr = $res.data.json;
+		$.post(url,data,function(res){
+			
+			console.log(res.data.json);
+            dataStr = res.data.json;
             //重新渲染左侧菜单
             tab.render(dataStr);
 		},'json');
