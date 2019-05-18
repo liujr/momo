@@ -7,7 +7,14 @@ class MenuLists{
 
     public function lists(){
         $where['status'] = 1;
-        $info = Db::name('menu')->where($where)->select();
-        return $info;
+        $list = Db::name('menu')->where($where)->select();
+        return $list;
+    }
+
+    public function listsBypid(){
+        $where['status'] = 1;
+        $where['pid'] = 0;
+        $list = Db::name('menu')->where($where)->select();
+        return $list;
     }
 }

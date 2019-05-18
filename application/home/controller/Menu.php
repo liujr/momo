@@ -3,11 +3,10 @@
  * 后台菜单
  */
 namespace app\home\controller;
-use app\common\Common;
-class Menu{
+class Menu extends Base {
 
     /**
-     *
+     *获取左边菜单列表
      */
     public function ajaxLists(){
         try{
@@ -18,4 +17,5 @@ class Menu{
             Common::show(config('code.error'),$e->getMessage());
         }
     }
+
 }

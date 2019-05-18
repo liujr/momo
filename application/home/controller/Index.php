@@ -1,11 +1,11 @@
 <?php
 namespace app\home\controller;
-use app\common\Sms;
-
-class Index
-{
+class Index extends Base {
     public function index() {
-        return view();
+        $MenuObj = new \logic\menu\Menu();
+        $data = $MenuObj->listsBypid();
+        $this->assign(get_defined_vars());
+        return $this->fetch();
     }
 
 }
