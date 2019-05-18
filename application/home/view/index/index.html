@@ -35,7 +35,7 @@
 					</li>
 				</ul>
 				<ul class="layui-nav topLevelMenus" pc>
-					{volist name="list.list" id="vo"  key="k"}
+					{volist name="data.list" id="vo"  key="k"}
 					<li class="layui-nav-item {$k==1 ? 'layui-this':''} " data-menu="{$vo['id']}" >
 						<a href="javascript:;"><i class="layui-icon" data-icon="{$vo['icon']}">{$vo['icon']}</i>
 							<cite>{$vo['menuname']}</cite></a>
