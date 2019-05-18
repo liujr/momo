@@ -20,7 +20,6 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		data = {pid:json};
 		$.post(url,data,function(res){
 
-			console.log(res.data);
             dataStr = res.data;
             //重新渲染左侧菜单
             tab.render(dataStr);
