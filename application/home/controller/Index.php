@@ -1,5 +1,5 @@
 <?php
-namespace app\index\controller;
+namespace app\home\controller;
 use app\common\Sms;
 
 class Index
