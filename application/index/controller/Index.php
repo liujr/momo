@@ -11,6 +11,6 @@ class Index
     }
 
     public function home(){
-        return $this->fetch();
+        return view();
     }
 }
