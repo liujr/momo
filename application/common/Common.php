@@ -117,8 +117,12 @@ static public function nodeMerge($node,$pidname='pid',$pid=0,$access=null,$nid='
                 if(is_array($access)){
                     $v['isIn']=in_array($v[$nid],$access) ? 'checked':'';
                 }
-                $v[$childrenName] = self::nodeMerge($node,$pidname,$v[$nid],$access,$nid);
-                $arr[]=$v;
+                $value['id'] =$v['id'];
+                $value['title'] =$v['menuname'];
+                $value['href'] =$v['menuurl'];
+                $value['icon'] =$v['icon'];
+                $value[$childrenName] = self::nodeMerge($node,$pidname,$v[$nid],$access,$nid);
+                $arr[]=$value;
             }
         }
         return $arr;
