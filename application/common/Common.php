@@ -119,7 +119,7 @@ static public function nodeMerge($node,$pidname='pid',$pid=0,$access=null,$nid='
                 }
                 $value['id'] =$v['id'];
                 $value['title'] =$v['menuname'];
-                $value['href'] =$v['menuurl'];
+                $value['href'] =$v['menuurl']?$v['menuurl']:'';
                 $value['icon'] =$v['icon'];
                 $value[$childrenName] = self::nodeMerge($node,$pidname,$v[$nid],$access,$nid);
                 $arr[]=$value;
