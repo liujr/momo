@@ -16,10 +16,10 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 
 	//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
 	function getData(json){
-		$.post(url,data,function($res){
+		/*$.post(url,data,function($res){
 
-		});
-		/*$.getJSON(tab.tabConfig.url,function(data){
+		});*/
+		$.getJSON(tab.tabConfig.url,function(data){
 
 			if(json == "contentManagement"){
 				dataStr = data.contentManagement;
@@ -38,7 +38,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
                 //重新渲染左侧菜单
                 tab.render();
             }
-		})*/
+		})
 	}
 	//页面加载时判断左侧菜单是否显示
 	//通过顶部菜单获取左侧菜单
