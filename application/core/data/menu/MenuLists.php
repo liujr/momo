@@ -8,7 +8,8 @@ class MenuLists{
     public function lists($param = array()){
         if($param['pid']) $where['pid'] = $param['pid'];
         $where['status'] = 1;
-        $info = Db::name('menu')->where($where)->select();
+        $field = '*';
+        $info = Db::name('menu')->field($field)->where($where)->select();
         return $info;
     }
 }
