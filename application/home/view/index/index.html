@@ -27,18 +27,23 @@
 					<li class="layui-nav-item" data-menu="contentManagement">
 						<a href="javascript:;"><i class="seraph icon-caidan"></i><cite>后台管理</cite></a>
 						<dl class="layui-nav-child">
-							<dd class="layui-this" data-menu="contentManagement"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>内容管理</cite></a></dd>
+							{volist name="data.list" id="vo"  key="k"}
+							<dd class="" data-menu="{$vo['id']}">
+								<a href="javascript:;"><cite>{$vo['menuname']}</cite>
+								</a>
+							</dd>
+							{/volist}
+							<!--<dd class="layui-this" data-menu="contentManagement"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>内容管理</cite></a></dd>
 							<dd data-menu="memberCenter"><a href="javascript:;"><i class="seraph icon-icon10" data-icon="icon-icon10"></i><cite>用户中心</cite></a></dd>
 							<dd data-menu="systemeSttings"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>系统设置</cite></a></dd>
-							<dd data-menu="seraphApi"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a></dd>
+							<dd data-menu="seraphApi"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a></dd>-->
 						</dl>
 					</li>
 				</ul>
 				<ul class="layui-nav topLevelMenus" pc>
 					{volist name="data.list" id="vo"  key="k"}
 					<li class="layui-nav-item {$k==1 ? 'layui-this':''} " data-menu="{$vo['id']}" >
-						<a href="javascript:;"><i class="layui-icon" data-icon="{$vo['icon']}">{$vo['icon']}</i>
-							<cite>{$vo['menuname']}</cite></a>
+						<a href="javascript:;"><cite>{$vo['menuname']}</cite></a>
 					</li>
 					{/volist}
 					<!--<li class="layui-nav-item layui-this" data-menu="contentManagement">
