@@ -8,11 +8,9 @@
 
 namespace app\home\controller;
 use \think\Controller;
-use app\common\Common;
+
 class Base extends Controller{
 
-    public function __construct(){
-        parent::__construct();
-    }
+
 
 }
