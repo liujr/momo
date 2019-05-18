@@ -35,7 +35,13 @@
 					</li>
 				</ul>
 				<ul class="layui-nav topLevelMenus" pc>
-					<li class="layui-nav-item layui-this" data-menu="contentManagement">
+					{volist name="list.list" id="vo"  key="k"}
+					<li class="layui-nav-item {$k==1 ? 'layui-this':''} " data-menu="{$vo['id']}" >
+						<a href="javascript:;"><i class="layui-icon" data-icon="{$vo['icon']}">{$vo['icon']}</i>
+							<cite>{$vo['menuname']}</cite></a>
+					</li>
+					{/volist}
+					<!--<li class="layui-nav-item layui-this" data-menu="contentManagement">
 						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>内容管理</cite></a>
 					</li>
 					<li class="layui-nav-item" data-menu="memberCenter" pc>
@@ -46,7 +52,7 @@
 					</li>
 					<li class="layui-nav-item" data-menu="seraphApi" pc>
 						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a>
-					</li>
+					</li>-->
 				</ul>
 			    <!-- 顶部右侧菜单 -->
 			    <ul class="layui-nav top_menu">

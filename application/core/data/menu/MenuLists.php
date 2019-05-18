@@ -15,6 +15,11 @@ class MenuLists{
         $where['status'] = 1;
         $where['pid'] = 0;
         $list = Db::name('menu')->where($where)->select();
-        return $list;
+        $total  = Db::name('menu')->where($where)->count();
+        return [
+            'list'=>$list,
+            'total' =>$total
+        ];
+
     }
 }
