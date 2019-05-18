@@ -5,8 +5,9 @@ use app\common\Common;
 use think\Db;
 class MenuLists{
 
-    public function lists(){
+    public function lists($pid){
         $where['status'] = 1;
+        $where['pid'] =$pid;
         $list = Db::name('menu')->where($where)->select();
         return $list;
     }

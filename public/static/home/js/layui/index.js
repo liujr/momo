@@ -17,10 +17,12 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 	//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
 	function getData(json){
 		url = '/home/menu/ajaxLists';
-		data = {};
+		data = {pid:json};
 		$.post(url,data,function($res){
-
-		});
+            dataStr = $res.data;
+            //重新渲染左侧菜单
+            tab.render(dataStr);
+		},'json');
 		/*$.getJSON(tab.tabConfig.url,function(data){
 
 			if(json == "contentManagement"){
@@ -56,6 +58,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		//渲染顶部窗口
 		tab.tabMove();
 	})
+    getData($('.topLevelMenus').children("li:first-child").data('menu'));
 
 	//隐藏左侧导航
 	$(".hideMenu").click(function(){
@@ -69,7 +72,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 	})
 
 	//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
-	getData("contentManagement");
+	/*getData("contentManagement");*/
 
 	//手机设备的简单适配
     $('.site-tree-mobile').on('click', function(){
