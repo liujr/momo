@@ -21,7 +21,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		$.post(url,data,function(res){
 
 			console.log(res.data[json]);
-            dataStr = res.data.json;
+            dataStr = res.data[json];
             //重新渲染左侧菜单
             tab.render(dataStr);
 		},'json');
