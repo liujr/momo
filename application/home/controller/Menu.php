@@ -3,7 +3,7 @@
  * 后台菜单
  */
 namespace app\home\controller;
-
+use app\common\Common;
 class Menu{
 
     /**
