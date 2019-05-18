@@ -19,7 +19,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		url = '/home/menu/ajaxLists';
 		data = {pid:json};
 		$.post(url,data,function($res){
-            dataStr = $res.data;
+            dataStr = $res.data.json;
             //重新渲染左侧菜单
             tab.render(dataStr);
 		},'json');
@@ -58,6 +58,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		//渲染顶部窗口
 		tab.tabMove();
 	})
+
     getData($('.topLevelMenus').children("li:first-child").data('menu'));
 
 	//隐藏左侧导航
