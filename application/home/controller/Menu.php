@@ -11,8 +11,9 @@ class Menu extends Base {
      */
     public function ajaxLists(){
         try{
+            $pid = input('pid');
             $MenuObj = new \logic\menu\Menu();
-            $data = $MenuObj->lists();
+            $data = $MenuObj->lists($pid);
             Common::show(config('code.success'),'菜单返回成功',$data);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
