@@ -8,8 +8,8 @@ class Menu{
         /**
          *获取左边菜单列表
          */
-        public function lists($pid){
-            $res =  Common::D('menu','MenuLists')->lists($pid);
+        public function lists(){
+            $res =  Common::D('menu','MenuLists')->lists();
             $data = Common::nodeMerge($res);
             return $data;
         }
