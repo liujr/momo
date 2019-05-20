@@ -49,6 +49,27 @@
                 <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
             </td>
         </tr>
+        {volist name="v1.children" id="v2"}
+        <tr style="display:none" class="nodelist nodelist_{$v1['id']} data-id="{$v2['id']}">
+            <td class="td_left">
+                <div class="layui-table-cell" style="color:#1E9FFF">|-- {$v2['menuname']}</div>
+            </td>
+            <td class="td_left">
+                <div class="layui-table-cell ">{$v2['menuurl']}</div>
+            </td>
+            <td class="td_left">
+                <div class="layui-table-cell ">{$v2['remark']}</div>
+            </td>
+            <td class="td_left">
+                <div class="layui-table-cell ">{$v2['sort']}</div>
+            </td>
+            <td class="td_center">
+                <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加节点</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
+            </td>
+        </tr>
+        {/volist}
         {/volist}
         </tbody>
     </table>
