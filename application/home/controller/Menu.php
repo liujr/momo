@@ -27,8 +27,6 @@ class Menu extends Base {
             'list' =>$menulist,
             'total' =>count($menulist),
         );
-        echo '<pre>';
-        var_dump($menulist);die;
         $this->assign(get_defined_vars());
         return $this->fetch();
     }
