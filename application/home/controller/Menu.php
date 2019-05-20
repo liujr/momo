@@ -20,4 +20,8 @@ class Menu extends Base {
         }
     }
 
+    public function lists(){
+        return $this->fetch();
+    }
+
 }
