@@ -66,6 +66,25 @@
                 <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
             </td>
         </tr>
+        {volist name="v2.children" id="v3"}
+        <tr style="display:none" class="nodelist nodelist_{$v2['id']}" data-id="{$v3['id']}">
+            <td class="td_left">
+                <div class="layui-table-cell" style="color:#009688">|-- |-- {$v3['title']}</div>
+            </td>
+            <td class="td_left">
+                <div class="layui-table-cell ">{$v3['href']}</div>
+            </td>
+            <td class="td_left">
+                <div class="layui-table-cell ">{$v3['remark']}</div>
+            </td>
+            <td class="td_center">
+                <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加节点</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="editCode layui-btn layui-btn-xs">设置权限码</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
+            </td>
+        </tr>
+        {/volist}
         {/volist}
         {/volist}
         </tbody>
