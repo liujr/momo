@@ -23,6 +23,11 @@ class Menu extends Base {
     public function lists(){
         $MenuObj = new \logic\menu\Menu();
         $menulist = $MenuObj->lists(0);
+        $menulist = array(
+            'list' =>$menulist,
+            'total' =>count($menulist),
+        );
+        echo '<pre>';
         var_dump($menulist);die;
         $this->assign(get_defined_vars());
         return $this->fetch();
