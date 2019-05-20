@@ -24,9 +24,6 @@
                 <div class="layui-table-cell "><span>备注</span></div>
             </th>
             <th>
-                <div class="layui-table-cell "><span>排序</span></div>
-            </th>
-            <th>
                 <div class="layui-table-cell "><span>操作</span></div>
             </th>
         </tr>
@@ -38,16 +35,13 @@
         {volist name="menulist.list" id="v1"}
         <tr class="nodelist" data-id="{$v1['id']}">
             <td class="td_left">
-                <div class="layui-table-cell ">{$v1['menuname']}</div>
+                <div class="layui-table-cell ">{$v1['title']}</div>
             </td>
             <td class="td_left">
-                <div class="layui-table-cell ">{$v1['menuurl']}</div>
+                <div class="layui-table-cell ">{$v1['hred']}</div>
             </td>
             <td class="td_left">
                 <div class="layui-table-cell ">{$v1['remark']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v1['sort']}</div>
             </td>
             <td class="td_center">
                 <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加菜单</a>&nbsp;&nbsp;
