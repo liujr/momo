@@ -62,17 +62,17 @@
     layui.use(['layer','form'], function(){
         var layer = layui.layer;
         var form = layui.form;
-        var plat = {$plat};
+        /*var plat = {$plat};*/
         //条件选择
-        form.on("submit(reload)",function(fromdata){
+       /* form.on("submit(reload)",function(fromdata){
             var gk = '';
             $.each(fromdata.field,function(k,v){
                 if( v ) gk += k+'='+v+'&';
             });
             window.location.href = '/menu/lists?'+gk;
-        });
+        });*/
         //显示隐藏子节点
-        $('.nodelist .td_left').click(function(){
+      /*  $('.nodelist .td_left').click(function(){
             var nodeId = $(this).parents('.nodelist').data('id');
             var depth = $(this).parents('.nodelist').data('depth')+1;
             var showSubNode = $('.nodelist_'+nodeId+'.depth_'+depth);
@@ -82,9 +82,9 @@
             }else{
                 showSubNode.show();
             }
-        });
+        });*/
         //添加节点
-        $(document).delegate('.addNode','click',function(){
+        /*$(document).delegate('.addNode','click',function(){
             var This = $(this);
             var id = $(this).parents('.nodelist').data('id');
             var index = layer.open({
@@ -107,9 +107,9 @@
                 }
             })
             layer.full(index);
-        });
+        });*/
         //修改节点
-        $(document).delegate('.editNode','click',function(){
+       /* $(document).delegate('.editNode','click',function(){
             var This = $(this);
             var id = $(this).parents('.nodelist').data('id');
             var index = layer.open({
@@ -121,9 +121,9 @@
                 }
             });
             layer.full(index);
-        });
+        });*/
         //删除节点
-        $(document).delegate('.delNode','click',function(){
+       /* $(document).delegate('.delNode','click',function(){
             var This = $(this);
             layer.confirm('您确定要删除当前节点？',function(){
                 var id = This.parents('.nodelist').data('id');
@@ -132,9 +132,9 @@
                     if(data.code==1) This.parents('.nodelist').remove();
                 },'json');
             });
-        });
+        });*/
         //设置权限码
-        $(document).delegate('.editCode','click',function(){
+       /* $(document).delegate('.editCode','click',function(){
             var id = $(this).parents('.nodelist').data('id');
             var index = layer.open({
                 title : false,
@@ -142,7 +142,7 @@
                 content : ['/menu/editcode/id/'+id]
             });
             layer.full(index);
-        });
+        });*/
     });
 
 </script>
