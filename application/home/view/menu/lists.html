@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody>
-        {if condition="$menulist['msg']"}
+        {if condition="$menulist['total'] eq 0 "}
         <tr class="td_center"><td colspan="5">{$menulist['msg']}</td></tr>
         {/if}
         {volist name="menulist.list" id="v1"}
