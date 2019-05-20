@@ -21,6 +21,9 @@ class Menu extends Base {
     }
 
     public function lists(){
+        $MenuObj = new \logic\menu\Menu();
+        $menulist = $MenuObj->lists(0);
+        $this->assign(get_defined_vars());
         return $this->fetch();
     }
 
