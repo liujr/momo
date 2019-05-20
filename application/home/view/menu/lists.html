@@ -109,17 +109,15 @@
             window.location.href = '/menu/lists?'+gk;
         });*/
         //显示隐藏子节点
-      /*  $('.nodelist .td_left').click(function(){
+    $('.nodelist .td_left').click(function(){
             var nodeId = $(this).parents('.nodelist').data('id');
-            var depth = $(this).parents('.nodelist').data('depth')+1;
-            var showSubNode = $('.nodelist_'+nodeId+'.depth_'+depth);
-            var hideSubNode = $('.nodelist_'+nodeId);
+            var showSubNode = $('.nodelist_'+nodeId);
             if(showSubNode.is(':visible') == true){
-                hideSubNode.hide();
+                showSubNode.hide();
             }else{
                 showSubNode.show();
             }
-        });*/
+        });
         //添加节点
         /*$(document).delegate('.addNode','click',function(){
             var This = $(this);
