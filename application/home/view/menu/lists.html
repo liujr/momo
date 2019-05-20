@@ -36,7 +36,7 @@
         <tr class="td_center"><td colspan="5">{$menulist['msg']}</td></tr>
         {/if}
         {volist name="menulist.list" id="v1"}
-        <tr class="nodelist depth_{$v1['depth']}" data-depth="{$v1['depth']}" data-id="{$v1['id']}">
+        <tr class="nodelist" data-id="{$v1['id']}">
             <td class="td_left">
                 <div class="layui-table-cell ">{$v1['menuname']}</div>
             </td>
@@ -55,70 +55,6 @@
                 <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
             </td>
         </tr>
-        {volist name="v1.children" id="v2"}
-        <tr style="display:none" class="nodelist nodelist_{$v1['id']} depth_{$v2['depth']}" data-depth="{$v2['depth']}" data-id="{$v2['id']}">
-            <td class="td_left">
-                <div class="layui-table-cell" style="color:#1E9FFF">|-- {$v2['menuname']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v2['menuurl']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v2['remark']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v2['sort']}</div>
-            </td>
-            <td class="td_center">
-                <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加节点</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
-            </td>
-        </tr>
-        {volist name="v2.children" id="v3"}
-        <tr style="display:none" class="nodelist nodelist_{$v1['id']} nodelist_{$v2['id']} depth_{$v3['depth']}" data-depth="{$v3['depth']}" data-id="{$v3['id']}">
-            <td class="td_left">
-                <div class="layui-table-cell" style="color:#009688">|-- |-- {$v3['menuname']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v3['menuurl']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v3['remark']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v3['sort']}</div>
-            </td>
-            <td class="td_center">
-                <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加节点</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="editCode layui-btn layui-btn-xs">设置权限码</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
-            </td>
-        </tr>
-        {volist name="v3.children" id="v4"}
-        <tr style="display:none" class="nodelist nodelist_{$v1['id']} nodelist_{$v2['id']} nodelist_{$v3['id']} depth_{$v4['depth']}" data-depth="{$v4['depth']}" data-id="{$v4['id']}">
-            <td class="td_left">
-                <div class="layui-table-cell" style="color:#FF5722">|-- |-- |-- {$v4['menuname']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v4['menuurl']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v4['remark']}</div>
-            </td>
-            <td class="td_left">
-                <div class="layui-table-cell ">{$v4['sort']}</div>
-            </td>
-            <td class="td_center">
-                <a href="javascript:;" class="editCode layui-btn layui-btn-xs">设置权限码</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
-            </td>
-        </tr>
-        {/volist}
-        {/volist}
-        {/volist}
         {/volist}
         </tbody>
     </table>
