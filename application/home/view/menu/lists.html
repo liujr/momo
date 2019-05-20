@@ -67,7 +67,7 @@
             </td>
         </tr>
         {volist name="v2.children" id="v3"}
-        <tr style="display:none" class="nodelist nodelist_{$v2['id']}" data-id="{$v3['id']}">
+        <tr style="display:none" class="nodelist nodelist_{$v1['id']} nodelist_{$v2['id']}" data-id="{$v3['id']}">
             <td class="td_left">
                 <div class="layui-table-cell" style="color:#009688">|-- |-- {$v3['title']}</div>
             </td>
