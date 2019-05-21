@@ -156,7 +156,7 @@
                 var id = This.parents('.nodelist').data('id');
                 $.post('/home/menu/del',{'id':id},function(data){
                     layer.msg(data.msg);
-                    if(data.code==1) This.parents('.nodelist').remove();
+                    if(data.code==100) This.parents('.nodelist').remove();
                 },'json');
             });
         });
