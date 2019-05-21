@@ -71,7 +71,7 @@ class Menu extends Base {
             $MenuObj = new \logic\menu\Menu();
             if(!Request()->isPost()){
                 $id = input('id');
-                $info= $MenuObj->info(['id'=>$id]);
+                $info= $MenuObj->info(['id'=>$id,'pid'=>0]);
                 $this->assign(get_defined_vars());
                 return $this->fetch();
             }
