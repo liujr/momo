@@ -44,9 +44,11 @@ class Menu extends Base {
      */
     public function add(){
         try{
-            echo 222;die;
-            if(!Request()->isPost()) return $this->fetch();
-            echo 1111;die;
+            $pid = input('pid');
+            if(!Request()->isPost()){
+                $this->assign(get_defined_vars());
+                return $this->fetch();
+            }
             $data = $this->checkdate();
             $MenuObj = new \logic\menu\Menu();
             $res= $MenuObj->add($data);
