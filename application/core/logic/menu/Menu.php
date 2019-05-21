@@ -62,5 +62,12 @@ class Menu{
         $res =  Common::D('menu','Menu')->edit($param);
         return $res;
     }
+    public function del($id){
+        $num =  Common::D('menu','Menu')->count($id);
+        if($num >0) Common::E('存在子节点不能删除');
+        $res =  Common::D('menu','Menu')->del($id);
+        return $res;
+
+    }
 
 }

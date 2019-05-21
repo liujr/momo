@@ -16,6 +16,18 @@ class Menu{
     }
 
     /**
+     * 统计当前id有没有子节点
+     * @param $id
+     * @return int|string
+     */
+    public function count($id){
+       $where['pid'] = $id;
+        $where['status'] = 1;
+        $num = Db::name('menu')->where($where)->count();
+        return $num;
+    }
+
+    /**
      * 添加数据
      * @param $param
      */
@@ -36,6 +48,16 @@ class Menu{
         $data = $this->checkData($param);
         $insertData = $this->data($data);
         $result = Db::name('menu')->where(['id'=>$param['id']])->update($insertData);
+        return $result;
+    }
+
+    /**
+     * 删除数据
+     * @param $id
+     */
+    public function del($id){
+        if($id) Common::E('非法访问！');
+        $result = Db::name('menu')->where(['id'=>$id])->update(['status'=>2]);
         return $result;
     }
 

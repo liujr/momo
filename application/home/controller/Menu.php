@@ -65,8 +65,6 @@ class Menu extends Base {
     }
 
     public function edit(){
-
-
         try{
             $MenuObj = new \logic\menu\Menu();
             $id = input('id');
@@ -84,6 +82,18 @@ class Menu extends Base {
             if(!Request()->isPost()) $this->error($e->getMessage());
             Common::show(config('code.error'),$e->getMessage());
         }
+    }
+
+    public function del(){
+        try{
+            $id = input('id');
+            $MenuObj = new \logic\menu\Menu();
+            $res= $MenuObj->del($id);
+            Common::show(config('code.success'),'删除菜单成功',$res);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+
     }
 
     /**
