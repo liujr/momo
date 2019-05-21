@@ -47,8 +47,11 @@ class Menu extends Base {
             $MenuObj = new \logic\menu\Menu();
             $pid = input('pid');
             if(!Request()->isPost()){
-                $menuinfo= $MenuObj->info(['pid'=>$pid]);
-                if(!$menuinfo) $menuinfo['menuname'] = '顶级节点';
+                if($pid == 0){
+                   $menuinfo['menuname'] = '顶级节点';
+                }else{
+                    $menuinfo= $MenuObj->info(['pid'=>$pid]);
+                }
                 $this->assign(get_defined_vars());
                 return $this->fetch();
             }
