@@ -42,7 +42,7 @@
 
 {block name="script"}
 <script>
-layui.use(['form','iconSelect'], function(){
+layui.use(['form'], function(){
     var form = layui.form;
     var index = parent.layer.getFrameIndex(window.name);
     form.on('submit(savemenu)',function(obj){
@@ -58,15 +58,6 @@ layui.use(['form','iconSelect'], function(){
     });
     $('.closeBtn').click(function(){
         parent.layer.close(index);
-    });
-    $('#iconSelect').click(function(){
-        var iconHtml = iconSelect.getIconHtml();
-        var index = layer.open({
-            title : "复制图标",
-            type : 1,
-            area:['550px','400px'],
-            content : iconHtml
-        });
     });
 });
 </script>
