@@ -79,7 +79,7 @@
             </td>
             <td class="td_center">
                 <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加节点</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="editCode layui-btn layui-btn-xs">设置权限码</a>&nbsp;&nbsp;
+               <!-- <a href="javascript:;" class="editCode layui-btn layui-btn-xs">设置权限码</a>&nbsp;&nbsp;-->
                 <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
                 <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
             </td>
@@ -136,30 +136,30 @@
             layer.full(index);
         });
         //修改节点
-       /* $(document).delegate('.editNode','click',function(){
+       $(document).delegate('.editNode','click',function(){
             var This = $(this);
             var id = $(this).parents('.nodelist').data('id');
             var index = layer.open({
                 title : false,
                 type : 2,
-                content : ['/menu/editmenu/id/'+id+'/plat/'+plat],
+                content : ['/home/menu/edit/id/'+id],
                 end:function(){
                     location.reload();
                 }
             });
             layer.full(index);
-        });*/
+        });
         //删除节点
-       /* $(document).delegate('.delNode','click',function(){
+       $(document).delegate('.delNode','click',function(){
             var This = $(this);
             layer.confirm('您确定要删除当前节点？',function(){
                 var id = This.parents('.nodelist').data('id');
-                $.post('/menu/delmenu',{'id':id},function(data){
+                $.post('/home/menu/del',{'id':id},function(data){
                     layer.msg(data.msg);
                     if(data.code==1) This.parents('.nodelist').remove();
                 },'json');
             });
-        });*/
+        });
         //设置权限码
        /* $(document).delegate('.editCode','click',function(){
             var id = $(this).parents('.nodelist').data('id');

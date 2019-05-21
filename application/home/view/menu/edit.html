@@ -9,60 +9,25 @@
 </div>
 <form class="layui-form layui-row" action="">
     <input type="hidden" name="id" value="{$menuinfo['id']}" />
-    <input type="hidden" name="plat" value="{$plat}" />
+    <input type="hidden" name="pid" value="{$menuinfo['pid']}" />
     <div class="layui-col-xs12 layui-col-sm8">
         <div class="layui-form-item">
             <label class="layui-form-label">节点名称：</label>
-            <div class="layui-input-inline">
+            <div class="layui-input-block">
                 <input type="text" name="menuname" value="{$menuinfo['menuname']}" class="layui-input" lay-verify="required" placeholder="请输入节点名称">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">节点：</label>
-            <div class="layui-form-mid">
-                {$menuinfo['menuurl']}
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点：</label>
-            <div class="layui-input-inline">
-                <select name="pid">
-                    {if condition="$menuinfo['depth'] neq 1"}
-                        {volist name="menulist.list" id="vo"}
-                            <option value="{$vo['id']}" {$vo['id']==$menuinfo['pid']?'selected':''}>{$vo['menuname']}</option>
-                        {/volist}
-                    {/if}
-                </select>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">权限码：</label>
             <div class="layui-input-block">
-                {volist name="codelist.list" id="vo"}
-                    {if condition="in_array($vo['code'],explode(',',$menuinfo['code']))"}
-                        <div class="layui-form-checkbox layui-form-checked layui-disabled"><span>{$vo['name']}【{$vo['code']}】</span><i class="layui-icon"></i></div>
-                    {/if}
-                {/volist}
+                <input type="text" name="menuurl" value="{$menuinfo['menuurl']}" class="layui-input" lay-verify="required" placeholder="请输入节点路径  如：/home/menu/add 顶级节点或者目录添加：null">
             </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点图标：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="icon" value="{:str_replace('&','&amp;',$menuinfo['icon'])}" class="layui-input" placeholder="请输入节点图标">
-            </div>
-            <!-- <i class="layui-form-mid layui-icon showicon">{$menuinfo['icon']}</i> -->
-            <a href="javascript:;" class="layui-btn layui-btn-sm" id="iconSelect">复制图标</a>
-        </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label">节点备注：</label>
-            <div class="layui-input-inline">
+            <div class="layui-input-block">
                 <input type="text" name="remark" value="{$menuinfo['remark']}" class="layui-input" placeholder="请输入节点备注">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点排序：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="sort" value="{$menuinfo['sort']}" class="layui-input" lay-verify="number" placeholder="请输入节点排序">
             </div>
         </div>
         <div class="layui-form-item">

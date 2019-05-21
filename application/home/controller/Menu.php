@@ -69,15 +69,16 @@ class Menu extends Base {
 
         try{
             $MenuObj = new \logic\menu\Menu();
+            $id = input('id');
             if(!Request()->isPost()){
-                $id = input('id');
-                $info= $MenuObj->info(['id'=>$id,'pid'=>0]);
+                $menuinfo= $MenuObj->info(['id'=>$id,'pid'=>0]);
                 $this->assign(get_defined_vars());
                 return $this->fetch();
             }
 
             $data = $this->checkdate();
-            $res= $MenuObj->add($data);
+            $data['id'] =$id;
+            $res= $MenuObj->edit($data);
             Common::show(config('code.success'),'修改菜单成功',$res);
         }catch (\Exception $e){
             if(!Request()->isPost()) $this->error($e->getMessage());
