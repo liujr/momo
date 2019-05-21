@@ -46,6 +46,7 @@ class Menu extends Base {
         try{
             $MenuObj = new \logic\menu\Menu();
             $pid = input('pid');
+            echo $pid;die;
             if(!Request()->isPost()){
                 if($pid == 0){
                    $menuinfo['menuname'] = '顶级节点';
