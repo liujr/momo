@@ -52,7 +52,7 @@ layui.use(['form'], function(){
     form.on('submit(savemenu)',function(obj){
         $.post('/home/menu/add',obj.field,function(data){
             layer.msg(data.msg);
-            if(data.code==1){
+            if(data.code==100){
                 setTimeout(function(){
                     location.reload();
                 },1000);
