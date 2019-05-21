@@ -29,13 +29,6 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">节点图标：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="icon" class="layui-input" placeholder="请输入节点图标">
-            </div>
-            <a href="javascript:;" class="layui-btn layui-btn-sm" id="iconSelect">复制图标</a>
-        </div>
-        <div class="layui-form-item">
             <label class="layui-form-label">节点备注：</label>
             <div class="layui-input-inline">
                 <input type="text" name="remark" class="layui-input" placeholder="请输入节点备注">
@@ -53,7 +46,7 @@
 
 {block name="script"}
 <script>
-layui.use(['form','iconSelect'], function(){
+layui.use(['form'], function(){
     var form = layui.form;
     var index = parent.layer.getFrameIndex(window.name);
     form.on('submit(savemenu)',function(obj){
@@ -68,16 +61,8 @@ layui.use(['form','iconSelect'], function(){
         return false;
     });
     $('.closeBtn').click(function(){
-        layer.closeAll();
-    });
-    $('#iconSelect').click(function(){
-        var iconHtml = iconSelect.getIconHtml();
-        var index = layer.open({
-            title : "复制图标",
-            type : 1,
-            area:['550px','400px'],
-            content : iconHtml
-        });
+        console.log(2313132);
+        parent.layer.close(index);
     });
 });
 </script>
