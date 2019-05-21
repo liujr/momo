@@ -38,7 +38,10 @@
         //获取验证码
         $(document).on('click','.getcode',function(){
             var account = $(" input[ name='account' ] ").val();
-            if(!account) layer.msg('请输入用户名');
+            if(!account){
+                layer.msg('请输入用户名');
+                return false;
+            }
             $.post('/home/login/getcode',{account:account},function($data){
                 console.log($data);
             });
