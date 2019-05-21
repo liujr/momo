@@ -56,7 +56,8 @@ class Menu extends Base {
                 return $this->fetch();
             }
             $data = $this->checkdate();
-
+            echo '<pre>';
+            print_r($data);die;
             $res= $MenuObj->add($data);
             Common::show(config('code.success'),'添加菜单成功',$res);
         }catch (\Exception $e){

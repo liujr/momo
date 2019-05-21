@@ -68,7 +68,7 @@ layui.use(['form','iconSelect'], function(){
         return false;
     });
     $('.closeBtn').click(function(){
-        parent.layer.close(index);
+        layer.closeAll();
     });
     $('#iconSelect').click(function(){
         var iconHtml = iconSelect.getIconHtml();
