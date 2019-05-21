@@ -19,7 +19,7 @@ class Login extends Controller{
         try{
             $account = input('account');
             if(!$account) Common::E('用户名不能为空');
-            $randnum = Common::randnum(4,1);//随机获取4位数
+            $randnum = Common::randnum(4,0);//随机获取4位数
             Redis::getInstance()->set(config('config.admin_login').$account,$randnum,config('config.admin_login_out'));
             return Common::show(config('code.success'),'发送成功',['code'=>$randnum]);
         }catch (\Exception $e){
