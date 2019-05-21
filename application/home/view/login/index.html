@@ -16,13 +16,17 @@
 </head>
 <body class="loginBody">
 <form class="layui-form">
-    <div class="layui-form-item input-item" style="margin-top: 50px;">
-        <label class="layui-form-label">用户名</label>
-        <input type="text" placeholder="请输入用户名" autocomplete="off" id="account" class="layui-input" lay-verify="required">
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="menuurl" class="layui-input" lay-verify="required" placeholder="请输入节点路径  如：/home/menu/add 顶级节点或者目录添加：null">
+        </div>
     </div>
-    <div class="layui-form-item input-item">
-        <label class="layui-form-label">密码</label>
-        <input type="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input" lay-verify="required">
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码：</label>
+        <div class="layui-input-block">
+            <input type="text" name="menuurl" class="layui-input" lay-verify="required" placeholder="请输入节点路径  如：/home/menu/add 顶级节点或者目录添加：null">
+        </div>
     </div>
     <div class="layui-form-item input-item" id="imgCode">
         <label class="layui-form-label">验证码</label>
