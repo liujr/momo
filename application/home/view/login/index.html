@@ -45,7 +45,7 @@
             }
             var _this = $(this);
             $(this).attr('status', 2);
-            $.post('/home/login/getcode',{account:account},function($data){
+            $.post('/home/login/getcode',{account:account},function(data){
                 if(data.code ==100){
                     counttime(_this);
                 }else if(data.code ==101){
