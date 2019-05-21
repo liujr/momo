@@ -42,6 +42,7 @@
                 layer.msg('请输入用户名');
                 return false;
             }
+            $(this).attr('disabled', true);
             $.post('/home/login/getcode',{account:account},function($data){
                 console.log($data);
             });
