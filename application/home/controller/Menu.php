@@ -44,14 +44,14 @@ class Menu extends Base {
      */
     public function add(){
         try{
-            if(!$this->isPost()) return $this->fetch();
+            if(!Request()->isPost()) return $this->fetch();
 
             $data = $this->checkdate();
             $MenuObj = new \logic\menu\Menu();
             $res= $MenuObj->add($data);
             Common::show(config('code.success'),'添加菜单成功',$res);
         }catch (\Exception $e){
-            if(!$this->isPost()) $this->error($e->getMessage());
+            if(!Request()->isPost()) $this->error($e->getMessage());
             Common::show(config('code.error'),$e->getMessage());
         }
     }
@@ -61,7 +61,7 @@ class Menu extends Base {
 
         try{
             $MenuObj = new \logic\menu\Menu();
-            if(!$this->isPost()){
+            if(!Request()->isPost()){
                 $id = input('id');
                 $info= $MenuObj->info($id);
                 $this->assign(get_defined_vars());
@@ -72,7 +72,7 @@ class Menu extends Base {
             $res= $MenuObj->add($data);
             Common::show(config('code.success'),'修改菜单成功',$res);
         }catch (\Exception $e){
-            if(!$this->isPost()) $this->error($e->getMessage());
+            if(!Request()->isPost()) $this->error($e->getMessage());
             Common::show(config('code.error'),$e->getMessage());
         }
     }
