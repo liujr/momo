@@ -35,8 +35,6 @@ class Menu{
         if(!$param['id']) Common::E('非法访问！');
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        echo '<pre>';
-        print_r($insertData);die;
         $result = Db::name('menu')->where(['id'=>$param['id']])->update($insertData);
         return $result;
     }
