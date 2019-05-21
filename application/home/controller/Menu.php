@@ -56,8 +56,6 @@ class Menu extends Base {
                 return $this->fetch();
             }
             $data = $this->checkdate();
-            echo '<pre>';
-            print_r($data);die;
             $res= $MenuObj->add($data);
             Common::show(config('code.success'),'添加菜单成功',$res);
         }catch (\Exception $e){
@@ -95,7 +93,6 @@ class Menu extends Base {
         $pid = input('pid');
         $menuurl = input('menuurl');
         $menuname = input('menuname');
-        $icon = input('icon');
         $remark = input('remark');
         if(!$menuurl) Common::show(config('code.error'),'访问路径不能为空');
         if(!$menuname) Common::show(config('code.error'),'菜单名称不能为空');
@@ -103,7 +100,6 @@ class Menu extends Base {
             'pid' =>$pid,
             'menuurl'=>$menuurl,
             'menuname' =>$menuname,
-            'icon' =>$icon,
             'remark' =>$remark
         ];
     }

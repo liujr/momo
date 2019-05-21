@@ -22,6 +22,8 @@ class Menu{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
+        echo '<pre>';
+        print_r($insertData);die;
         $result = Db::name('menu')->insert($insertData);
         return $result;
     }
@@ -55,7 +57,6 @@ class Menu{
             'pid' =>$param['pid'],
             'menuname'    =>$param['menuname'],
             'menuurl' =>$param['menuurl'],
-            'icon'    =>$param['icon'],
             'remark'  => $param['remark'],
         );
         return $data;
