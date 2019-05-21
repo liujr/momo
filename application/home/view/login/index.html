@@ -48,7 +48,7 @@
             $.post('/home/login/getcode',{account:account},function(data){
                 data = eval("("+data+")");
                 if(data.code ==100){
-                    layer.msg('验证码为：'+data.data.code,{time:10000,offset: '150px'});
+                    layer.msg('验证码为：'+data.data.code,{time:60000,offset: '150px'});
                     counttime(_this);
                 }else if(data.code ==101){
                     layer.msg(data.msg);
