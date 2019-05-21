@@ -60,9 +60,9 @@
 
         //倒计时
         function counttime(_this){
-            _this.html('60Sgu');
+            _this.html('60 S后过期');
             var id = setInterval(function() {
-                var html = parseInt(_this.text()) - 1 + 'S';
+                var html = parseInt(_this.text()) - 1 + '  S后过期';
                 _this.text(html);
             }, 1000);
             setTimeout(function() {
