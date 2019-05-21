@@ -23,29 +23,44 @@ class Menu{
             return $data;
         }
 
-        public function info($id){
-            $res =  Common::D('menu','Menu')->info(['id'=>$id]);
+    /**
+     * 获取顶部菜单
+     * @return mixed
+     */
+        public function listsBypid(){
+            $res =  Common::D('menu','MenuLists')->listsBypid();
             return $res;
         }
+
+
+    /**
+     * 获取详情
+     * @param $id
+     * @return mixed
+     */
+    public function info($id){
+        $res =  Common::D('menu','Menu')->info(['id'=>$id]);
+        return $res;
+    }
 
     /**
      * 添加数据
      * @param $param
      * @return mixed
      */
-        public function add($param){
-            $res =  Common::D('menu','Menu')->add($param);
-            return $res;
-        }
+    public function add($param){
+        $res =  Common::D('menu','Menu')->add($param);
+        return $res;
+    }
 
     /**
      * 修改数据
      * @param $param
      * @return mixed
      */
-        public function edit($param){
-            $res =  Common::D('menu','Menu')->edit($param);
-            return $res;
-        }
+    public function edit($param){
+        $res =  Common::D('menu','Menu')->edit($param);
+        return $res;
+    }
 
 }
