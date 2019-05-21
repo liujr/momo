@@ -23,8 +23,28 @@ class Menu{
             return $data;
         }
 
-        public function listsBypid(){
-            $res =  Common::D('menu','MenuLists')->listsBypid();
+        public function info($id){
+            $res =  Common::D('menu','Menu')->info(['id'=>$id]);
+            return $res;
+        }
+
+    /**
+     * 添加数据
+     * @param $param
+     * @return mixed
+     */
+        public function add($param){
+            $res =  Common::D('menu','Menu')->add($param);
+            return $res;
+        }
+
+    /**
+     * 修改数据
+     * @param $param
+     * @return mixed
+     */
+        public function edit($param){
+            $res =  Common::D('menu','Menu')->edit($param);
             return $res;
         }
 

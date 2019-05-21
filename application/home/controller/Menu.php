@@ -20,15 +20,84 @@ class Menu extends Base {
         }
     }
 
+    /**
+     * 菜单列表
+     * @return mixed
+     */
     public function lists(){
-        $MenuObj = new \logic\menu\Menu();
-        $menulist = $MenuObj->lists(0);
-        $menulist = array(
-            'list' =>$menulist,
-            'total' =>count($menulist),
-        );
-        $this->assign(get_defined_vars());
-        return $this->fetch();
+        try{
+            $MenuObj = new \logic\menu\Menu();
+            $menulist = $MenuObj->lists(0);
+            $menulist = array(
+                'list' =>$menulist,
+                'total' =>count($menulist),
+            );
+            $this->assign(get_defined_vars());
+            return $this->fetch();
+        }catch (\Exception $e){
+            $this->error($e->getMessage());
+        }
     }
+
+    /**
+     * 添加菜单
+     */
+    public function add(){
+        try{
+            if(!$this->isPost()) return $this->fetch();
+
+            $data = $this->checkdate();
+            $MenuObj = new \logic\menu\Menu();
+            $res= $MenuObj->add($data);
+            Common::show(config('code.success'),'添加菜单成功',$res);
+        }catch (\Exception $e){
+            if(!$this->isPost()) $this->error($e->getMessage());
+            Common::show(config('code.error'),$e->getMessage());
+        }
+    }
+
+    public function edit(){
+
+
+        try{
+            $MenuObj = new \logic\menu\Menu();
+            if(!$this->isPost()){
+                $id = input('id');
+                $info= $MenuObj->info($id);
+                $this->assign(get_defined_vars());
+                return $this->fetch();
+            }
+
+            $data = $this->checkdate();
+            $res= $MenuObj->add($data);
+            Common::show(config('code.success'),'修改菜单成功',$res);
+        }catch (\Exception $e){
+            if(!$this->isPost()) $this->error($e->getMessage());
+            Common::show(config('code.error'),$e->getMessage());
+        }
+    }
+
+    /**
+     * 检测数据合法性
+     * @return array
+     */
+    private function checkdate(){
+        $pid = input('pid');
+        $menuurl = input('menuurl');
+        $menuname = input('menuname');
+        $icon = input('icon');
+        $remark = input('remark');
+        if(!$menuurl) Common::show(config('code.error'),'访问路径不能为空');
+        if(!$menuname) Common::show(config('code.error'),'菜单名称不能为空');
+        return [
+            'pid' =>$pid,
+            'menuurl'=>$menuurl,
+            'menuname' =>$menuname,
+            'icon' =>$icon,
+            'remark' =>$remark
+        ];
+    }
+
+
 
 }
