@@ -47,6 +47,7 @@
             $(this).attr('status', 2);
             $.post('/home/login/getcode',{account:account},function(data){
                 if(data.code ==100){
+                    console.log(33333);
                     counttime(_this);
                 }else if(data.code ==101){
                     layer.msg(data.msg);
