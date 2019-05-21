@@ -50,7 +50,7 @@ class Menu extends Base {
                 if($pid == 0){
                    $menuinfo['menuname'] = '顶级节点';
                 }else{
-                    $menuinfo= $MenuObj->info(['id'=>$pid]);
+                    $menuinfo= $MenuObj->info(['id'=>$pid,'pid'=>0]);
                 }
                 $this->assign(get_defined_vars());
                 return $this->fetch();
