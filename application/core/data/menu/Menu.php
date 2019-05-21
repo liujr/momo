@@ -56,7 +56,7 @@ class Menu{
      * @param $id
      */
     public function del($id){
-        if($id) Common::E('非法访问！');
+        if(!$id) Common::E('非法访问！');
         $result = Db::name('menu')->where(['id'=>$id])->update(['status'=>2]);
         return $result;
     }
