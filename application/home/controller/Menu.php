@@ -44,6 +44,7 @@ class Menu extends Base {
      */
     public function add(){
         try{
+            echo 222;die;
             if(!Request()->isPost()) return $this->fetch();
             echo 1111;die;
             $data = $this->checkdate();
