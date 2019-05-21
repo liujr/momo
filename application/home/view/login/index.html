@@ -39,8 +39,8 @@
         $(document).on('click','.getcode',function(){
             var account = $(" input[ name='account' ] ").val();
             if(!account) layer.msg('请输入用户名');
-            $.post(url,{account:account},function(){
-
+            $.post('/home/login/getcode',{account:account},function($data){
+                console.log($data);
             });
         });
 
