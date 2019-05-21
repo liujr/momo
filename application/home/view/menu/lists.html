@@ -99,15 +99,6 @@
     layui.use(['layer','form'], function(){
         var layer = layui.layer;
         var form = layui.form;
-        /*var plat = 1;*/
-        //条件选择
-       /* form.on("submit(reload)",function(fromdata){
-            var gk = '';
-            $.each(fromdata.field,function(k,v){
-                if( v ) gk += k+'='+v+'&';
-            });
-            window.location.href = '/menu/lists?'+gk;
-        });*/
         //显示隐藏子节点
     $('.nodelist .td_left').click(function(){
             var nodeId = $(this).parents('.nodelist').data('id');
@@ -119,13 +110,13 @@
             }
         });
         //添加节点
-        /*$(document).delegate('.addNode','click',function(){
+        $(document).delegate('.addNode','click',function(){
             var This = $(this);
             var id = $(this).parents('.nodelist').data('id');
             var index = layer.open({
                 title : false,
                 type : 2,
-                content : ['/menu/addmenu/pid/'+id+'/plat/'+plat],
+                content : ['/menu/add/pid/'+id],
                 end:function(){
                     location.reload();
                 }
@@ -136,13 +127,13 @@
             var index = layer.open({
                 title : false,
                 type : 2,
-                content : ['/menu/addmenu/pid/0/plat/'+plat],
+                content : ['/menu/add/pid/0'],
                 end:function(){
                     location.reload();
                 }
             })
             layer.full(index);
-        });*/
+        });
         //修改节点
        /* $(document).delegate('.editNode','click',function(){
             var This = $(this);
