@@ -47,6 +47,8 @@
             $(this).attr('status', 2);
             $.post('/home/login/getcode',{account:account},function(data){
                 data = eval("("+data+")");
+                console.log(data);
+                console.log(data.code);
                 if(data.code ==100){
                     console.log(33333);
                     counttime(_this);
