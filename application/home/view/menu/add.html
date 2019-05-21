@@ -57,7 +57,7 @@ layui.use(['form','iconSelect'], function(){
     var form = layui.form;
     var index = parent.layer.getFrameIndex(window.name);
     form.on('submit(savemenu)',function(obj){
-        $.post('/sysmenu/addmenu',obj.field,function(data){
+        $.post('/home/menu/add',obj.field,function(data){
             layer.msg(data.msg);
             if(data.code==1){
                 setTimeout(function(){
