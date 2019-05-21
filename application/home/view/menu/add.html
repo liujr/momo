@@ -9,7 +9,6 @@
 </div>
 <form class="layui-form layui-row" action="">
     <input type="hidden" name="pid" value="{$pid}" />
-    <input type="hidden" name="plat" value="{$plat}" />
     <div class="layui-col-xs12 layui-col-sm8">
         <div class="layui-form-item">
             <label class="layui-form-label">上级节点：</label>
@@ -26,14 +25,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">节点：</label>
             <div class="layui-input-inline">
-                <select name="id">
-                    <option value="0">----</option>
-                    {if condition="$pid neq 0"}
-                        {volist name="menulist.list" id="vo"}
-                            <option value="{$vo['id']}">{$vo['menuurl']}</option>
-                        {/volist}
-                    {/if}
-                </select>
+                <input type="text" name="menuurl" class="layui-input" lay-verify="required" placeholder="请输入节点路径">
             </div>
         </div>
         <div class="layui-form-item">
@@ -47,12 +39,6 @@
             <label class="layui-form-label">节点备注：</label>
             <div class="layui-input-inline">
                 <input type="text" name="remark" class="layui-input" placeholder="请输入节点备注">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点排序：</label>
-            <div class="layui-input-inline">
-                <input type="text" name="sort" value="50" class="layui-input" lay-verify="number" placeholder="请输入节点排序">
             </div>
         </div>
         <div class="layui-form-item">

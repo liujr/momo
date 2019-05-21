@@ -44,13 +44,16 @@ class Menu extends Base {
      */
     public function add(){
         try{
+            $MenuObj = new \logic\menu\Menu();
             $pid = input('pid');
             if(!Request()->isPost()){
+                $menuinfo= $MenuObj->info(['pid'=>$pid]);
+                if(!$menuinfo) $menuinfo['menuname'] = '顶级节点';
                 $this->assign(get_defined_vars());
                 return $this->fetch();
             }
             $data = $this->checkdate();
-            $MenuObj = new \logic\menu\Menu();
+
             $res= $MenuObj->add($data);
             Common::show(config('code.success'),'添加菜单成功',$res);
         }catch (\Exception $e){
@@ -66,7 +69,7 @@ class Menu extends Base {
             $MenuObj = new \logic\menu\Menu();
             if(!Request()->isPost()){
                 $id = input('id');
-                $info= $MenuObj->info($id);
+                $info= $MenuObj->info(['id'=>$id]);
                 $this->assign(get_defined_vars());
                 return $this->fetch();
             }

@@ -38,8 +38,8 @@ class Menu{
      * @param $id
      * @return mixed
      */
-    public function info($id){
-        $res =  Common::D('menu','Menu')->info(['id'=>$id]);
+    public function info($param=[]){
+        $res =  Common::D('menu','Menu')->info($param);
         return $res;
     }
 
