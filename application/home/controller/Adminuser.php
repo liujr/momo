@@ -54,6 +54,7 @@ class Adminuser extends Base{
                 return $this->fetch();
             }
             $data = $this->getdata();
+            $data['id'] = $id;
             $res = $obj->edit($data);
             Common::show(config('code.success'),'修改管理员成功',$res);
         }catch (\Exception $e){
