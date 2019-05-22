@@ -50,7 +50,6 @@ class Adminuser{
         if(!$param['password']) Common::E('密码不能为空');
         if(!$param['name']) Common::E('姓名不能为空');
         if(!$param['mobile']) Common::E('手机号码不能为空');
-        echo Common::is_mobile($param['mobile']);die;
         if(!Common::is_mobile($param['mobile'])) Common::E('手机号码不合法');
         if(!Common::is_mobile($param['account'])) Common::E('账号只能输英文数字组合');
         return [
