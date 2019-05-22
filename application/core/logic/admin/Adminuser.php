@@ -41,6 +41,7 @@ class Adminuser{
      */
     public function edit($param){
         $data = $this->checkdata($param);
+        $data['id'] =$param['id'];
         $res = Common::D('admin','Adminuser')->edit($data);
         return $res;
     }
@@ -65,8 +66,6 @@ class Adminuser{
         if(strlen($param['account']) < 5  ||  strlen($param['account']) > 10) Common::E('账号5-10位数字和字母的组合');
         if(strlen($param['password']) < 6 ||  strlen($param['password']) > 16) Common::E('密码6-16位数字和字母的组合');
         if(!Common::is_mobile($param['mobile'])) Common::E('手机号码不合法');
-
-
         return [
             'account' =>$param['account'],
             'password' =>md5(md5($param['password']).$param['account']),
