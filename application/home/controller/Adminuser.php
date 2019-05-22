@@ -10,8 +10,10 @@ class Adminuser extends Base{
     public function lists(){
         try{
             $keyword = input('keyword');
+            $page = input('page',1);
+            $limit = input('limit',20);
             $obj = new \logic\admin\Adminuser();
-            $lists= $obj->lists(['keyword'=>$keyword]);
+            $lists= $obj->lists(['keyword'=>$keyword,'page'=>$page,'limit'=>$limit]);
             $this->assign(get_defined_vars());
             return $this->fetch();
         }catch (\Exception $e){
