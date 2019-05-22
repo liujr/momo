@@ -13,6 +13,17 @@ class Adminuser{
     }
 
     /**
+     * 管理员详情
+     * @param $id
+     * @return mixed
+     */
+    public function info($id){
+        if(!$id) Common::E('非法访问');
+        $lists = Common::D('admin','Adminuser')->info($id);
+        return $lists;
+    }
+
+    /**
      * 添加管理员
      * @param $param
      * @return mixed

@@ -24,6 +24,17 @@ class Adminuser{
     }
 
     /**
+     * 管理员详情
+     * @param $id
+     * @return mixed
+     */
+    public function info($id){
+        $where['id'] = $id;
+        $info = Db::name('admin_user')->where($where)->find();
+        return $info;
+    }
+
+    /**
      * 添加管理员
      * @param $param
      * @return bool
