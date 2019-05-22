@@ -32,14 +32,14 @@
         <tr class="td_center"><td colspan="4">暂无数据</td></tr>
         {/if}
         {volist name="lists.lists" id="v"}
-        <tr>
+        <tr class="nodelist">
             <td class="td_left">{$v['account']}</td>
             <td class="td_left">{$v['name']}</td>
             <td class="td_left">{$v['mobile']}</td>
             <td class="td_left">{$v['groupid']}</td>
             <td class="td_center">
-                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
+                <a href="javascript:;" class="editNode layui-btn layui-btn-xs" data-id="{$v['id']}">修改</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs" data-id="{$v['id']}">删除</a>
             </td>
         </tr>
         {/volist}
@@ -69,12 +69,11 @@
         });
         //修改节点
         $(document).delegate('.editNode','click',function(){
-            var This = $(this);
-            var id = $(this).parents('.nodelist').data('id');
+            var id = $(this).data('id');
             var index = layer.open({
                 title : false,
                 type : 2,
-                content : ['/home/menu/edit/id/'+id],
+                content : ['/home/adminuser/edit/id/'+id],
                 end:function(){
                     location.reload();
                 }
@@ -85,8 +84,8 @@
         $(document).delegate('.delNode','click',function(){
             var This = $(this);
             layer.confirm('您确定要删除当前节点？',function(){
-                var id = This.parents('.nodelist').data('id');
-                $.post('/home/menu/del',{'id':id},function(data){
+                var id = This.data('id');
+                $.post('/home/adminuser/del',{'id':id},function(data){
                     layer.msg(data.msg);
                     if(data.code==100) This.parents('.nodelist').remove();
                 },'json');
