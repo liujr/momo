@@ -1,5 +1,5 @@
 <?php
-namespace logic\adminuser;
+namespace logic\admin;
 use app\common\Common;
 class Adminuser{
 

@@ -1,5 +1,5 @@
 <?php
-namespace data\login;
+namespace data\admin;
 use app\common\Common;
 use think\Db;
 class Adminuser{
@@ -31,6 +31,8 @@ class Adminuser{
     public function add($param){
         $data = $this->getdata($param);
         $data['addtime'] = time();
+        echo '<pre>';
+        print_r($data);die;
         $ret =  Db::name("admin_user")->insert($data);
         if(!$ret) Common::E("添加管理员失败");
         return true;
