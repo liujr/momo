@@ -54,7 +54,7 @@ class Adminuser{
     public function edit($param){
         if(!$param['id']) Common::E('非法访问！');
         $data = $this->getdata($param);
-        $ret =  Db::name("admin_user")->update($data);
+        $ret =  Db::name("admin_user")->where(['id'=>$param['id']])->update($data);
         if(!$ret) Common::E("添加管理员失败");
         return true;
     }
