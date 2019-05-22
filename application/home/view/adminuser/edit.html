@@ -1,0 +1,64 @@
+{extend name="public/base" /}
+{block name="title"}添加节点{/block}
+
+{block name="main"}
+<div class="layui-tab" id="Js_title_navigation">
+    <ul class="layui-tab-title">
+        <li class="layui-this">修改节点</li>
+    </ul>
+</div>
+<form class="layui-form layui-row" action="">
+    <input type="hidden" name="id" value="{$menuinfo['id']}" />
+    <input type="hidden" name="pid" value="{$menuinfo['pid']}" />
+    <div class="layui-col-xs12 layui-col-sm8">
+        <div class="layui-form-item">
+            <label class="layui-form-label">节点名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="menuname" value="{$menuinfo['menuname']}" class="layui-input" lay-verify="required" placeholder="请输入节点名称">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">节点：</label>
+            <div class="layui-input-block">
+                <input type="text" name="menuurl" value="{$menuinfo['menuurl']}" class="layui-input" lay-verify="required" placeholder="请输入节点路径  如：/home/menu/add 顶级节点或者目录添加：null">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">节点备注：</label>
+            <div class="layui-input-block">
+                <input type="text" name="remark" value="{$menuinfo['remark']}" class="layui-input" placeholder="请输入节点备注">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="savemenu">立即提交</button>
+                <a href="javascript:;" class="layui-btn layui-btn-primary closeBtn">取消</a>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block name="script"}
+<script>
+layui.use(['form'], function(){
+    var form = layui.form;
+    var index = parent.layer.getFrameIndex(window.name);
+    form.on('submit(savemenu)',function(obj){
+        $.post('/home/menu/edit',obj.field,function(data){
+            layer.msg(data.msg);
+            if(data.code==100){
+                setTimeout(function(){
+                    parent.layer.close(index);
+                },1000);
+            }
+        },'json');
+        return false;
+    });
+    $('.closeBtn').click(function(){
+        parent.layer.close(index);
+    });
+});
+</script>
+{/block}

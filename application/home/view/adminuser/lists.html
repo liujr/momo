@@ -71,40 +71,16 @@
 {/block}
 
 {block name="script"}
-<!--<script>
+<script>
     layui.use(['layer','form'], function(){
         var layer = layui.layer;
         var form = layui.form;
-        //显示隐藏子节点
-        $('.nodelist .td_left').click(function(){
-            var nodeId = $(this).parents('.nodelist').data('id');
-            var showSubNode = $('.nodelist_'+nodeId);
-            if(showSubNode.is(':visible') == true){
-                showSubNode.hide();
-            }else{
-                showSubNode.show();
-            }
-        });
-        //添加节点
-        $(document).delegate('.addNode','click',function(){
-            var This = $(this);
-            var id = $(this).parents('.nodelist').data('id');
-            console.log(id);
-            var index = layer.open({
-                title : false,
-                type : 2,
-                content : ['/home/menu/add/pid/'+id],
-                end:function(){
-                    location.reload();
-                }
-            })
-            layer.full(index);
-        });
+
         $('.addTopMenu').click(function(){
             var index = layer.open({
                 title : false,
                 type : 2,
-                content : ['/home/menu/add/pid/0'],
+                content : ['/home/adminuser/add/'],
                 end:function(){
                     location.reload();
                 }
@@ -137,5 +113,5 @@
             });
         });
     });
-</script>-->
+</script>
 {/block}
