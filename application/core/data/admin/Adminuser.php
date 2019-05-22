@@ -13,7 +13,7 @@ class Adminuser{
         $limit = $param['limit']?$param['limit']:20;
         if(!empty($param['keyword']))$where['account|mobile']=array("like","%".$param['keyword']."%");
         $where['status'] = 1;
-        $list = Db::name('admin_user')->where($where)->page($page)->limit($limit)->list();
+        $list = Db::name('admin_user')->where($where)->page($page)->limit($limit)->select();
         $total = Db::name('admin_user')->where($where)->count();
         return [
             'lists' => $list,
