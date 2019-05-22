@@ -17,52 +17,32 @@
 </blockquote>
 <!--列表-->
 <form class="layui-form">
-    <table class="layui-table">
-        <colgroup>
-            <col width="150">
-            <col width="150">
-            <col width="200">
-            <col>
-        </colgroup>
+    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
         <thead>
         <tr>
-            <th>人物</th>
-            <th>民族</th>
-            <th>出场时间</th>
-            <th>格言</th>
+            <th>账号</th>
+            <th>姓名</th>
+            <th>手机</th>
+            <th>角色</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
+        {if condition="$lists['total'] eq 0 "}
+        <tr class="td_center"><td colspan="4">暂无数据</td></tr>
+        {/if}
+        {volist name="lists.lists" id="v"}
         <tr>
-            <td>贤心</td>
-            <td>汉族</td>
-            <td>1989-10-14</td>
-            <td>人生似修行</td>
+            <td class="td_left">{$v['account']}</td>
+            <td class="td_left">{$v['name']}</td>
+            <td class="td_left">{$v['mobile']}</td>
+            <td class="td_left">{$v['groupid']}</td>
+            <td class="td_center">
+                <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
+                <a href="javascript:;" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
+            </td>
         </tr>
-        <tr>
-            <td>张爱玲</td>
-            <td>汉族</td>
-            <td>1920-09-30</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-        </tr>
-        <tr>
-            <td>Helen Keller</td>
-            <td>拉丁美裔</td>
-            <td>1880-06-27</td>
-            <td> Life is either a daring adventure or nothing.</td>
-        </tr>
-        <tr>
-            <td>岳飞</td>
-            <td>汉族</td>
-            <td>1103-北宋崇宁二年</td>
-            <td>教科书再滥改，也抹不去“民族英雄”的事实</td>
-        </tr>
-        <tr>
-            <td>孟子</td>
-            <td>华夏族（汉族）</td>
-            <td>公元前-372年</td>
-            <td>猿强，则国强。国强，则猿更强！ </td>
-        </tr>
+        {/volist}
         </tbody>
     </table>
 </form>

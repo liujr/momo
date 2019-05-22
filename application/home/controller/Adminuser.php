@@ -9,6 +9,9 @@ class Adminuser extends Base{
      */
     public function lists(){
         try{
+            $keyword = input('keyword');
+            $obj = new \logic\admin\Adminuser();
+            $lists= $obj->lists(['keyword'=>$keyword]);
             $this->assign(get_defined_vars());
             return $this->fetch();
         }catch (\Exception $e){
