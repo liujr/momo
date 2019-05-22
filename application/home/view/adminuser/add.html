@@ -7,7 +7,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">账号：</label>
             <div class="layui-input-block">
-                <input type="text" name="account" required  lay-verify="required|account" placeholder="请输入账号英文数字组合" autocomplete="off" class="layui-input">
+                <input type="text" name="account" required  lay-verify="required|account" placeholder="请输入账号5-10位数字和字母的组合" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -47,18 +47,18 @@ layui.use(['form'], function(){
     //自定义验证规则  
     form.verify({
         account: function(value){
-            if(value.length < 5){
-                return '账号至少得5个字符';
-            }
+            var reg = '^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{5,10}$';
+            if(!value.match(reg)) return '5-10位数字和字母的组合';
+
         }, 
         pwd: function(value){
-            var reg = '^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$'
+            var reg = '^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$';
             if(!value.match(reg)) return '6-16位数字和字母的组合';
         }
     });
 
     form.on('submit(savemenu)',function(obj){
-        $.post('/home/menu/add',obj.field,function(data){
+        $.post('/home/adminuser/add',obj.field,function(data){
             layer.msg(data.msg);
             if(data.code==100){
                 setTimeout(function(){
