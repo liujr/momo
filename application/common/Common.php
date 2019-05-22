@@ -172,7 +172,9 @@ static public function nodeMerge($node,$pidname='pid',$pid=0,$access=null,$nid='
     @return boolean
      ***************************************************/
     static public function is_mobile($mobile) {
-        return preg_match("/^1[3-9][0-9]{9}$/", trim($mobile));
+        if(preg_match("/^1[3-9][0-9]{9}$/", trim($mobile)))  return true;
+        return false;
+
     }
     /**判断是否是字母和数字或字母数字的组合
     @param $mobile 手机号码
