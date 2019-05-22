@@ -51,8 +51,8 @@ class Adminuser{
         if(!$param['name']) Common::E('姓名不能为空');
         if(!$param['mobile']) Common::E('手机号码不能为空');
         if(!Common::is_menber_english($param['account'])) Common::E('账号只能输英文数字组合');
-        if(count($param['account']) < 5 ||  count($param['account']) > 10) Common::E('账号5-10位数字和字母的组合');
-        if(count($param['password']) < 6 ||  count($param['password']) > 16) Common::E('密码6-16位数字和字母的组合');
+        if(strlen($param['account']) < 5  ||  strlen($param['account']) > 10) Common::E('账号5-10位数字和字母的组合');
+        if(strlen($param['password']) < 6 ||  strlen($param['password']) > 16) Common::E('密码6-16位数字和字母的组合');
         if(!Common::is_mobile($param['mobile'])) Common::E('手机号码不合法');
 
 
