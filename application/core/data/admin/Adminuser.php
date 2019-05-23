@@ -34,6 +34,13 @@ class Adminuser{
         return $info;
     }
 
+    public function getInfo($param){
+        $where['account'] = $param['account'];
+        $where['password'] =$param['password'];
+        $info = Db::name('admin_user')->where($where)->find();
+        return $info;
+    }
+
     /**
      * 添加管理员
      * @param $param

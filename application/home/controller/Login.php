@@ -15,13 +15,31 @@ class Login extends Controller{
         return $this->fetch();
     }
 
+    /**
+     * 获取验证码
+     */
     public function getcode(){
         try{
             $account = input('account');
             if(!$account) Common::E('用户名不能为空');
             $randnum = Common::randnum(4,0);//随机获取4位数
-            Redis::getInstance()->set(config('config.admin_login').$account,$randnum,config('config.admin_login_out'));
+            Redis::getInstance()->set(config('config.admin_login_code').$account,$randnum,config('config.admin_login_out'));
             return Common::show(config('code.success'),'发送成功',['code'=>$randnum]);
+        }catch (\Exception $e){
+            return Common::show(config('code.error'),$e->getMessage());
+        }
+    }
+
+    public function login(){
+        try{
+            $data = [
+                'account' => input('account'),
+                'password' => input('password'),
+                'code'  =>input('code'),
+            ];
+            $LoginObj = new \logic\login\Login();
+            $res = $LoginObj->adminLogin($data);
+            return Common::show(config('code.success'),'发送成功',$res);
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
         }
