@@ -240,6 +240,10 @@ class Index extends Base{
 
     }
 
+    public function userInfo(){
+
+    }
+
 
 
 }

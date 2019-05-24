@@ -436,7 +436,7 @@ layui.use(['layim', 'laytpl'], function(layim){
                     title: '修改个人资料',
                     maxmin: false, //开启最大化最小化按钮
                     area: ['800px', '600px'],
-                    content: chat_user_url
+                    content: '/chart/user/info'
                 });
             });
         });
