@@ -74,6 +74,7 @@
 
             //监听提交
         form.on('submit(login)', function(data){
+            console.log(data);
             $.post('/home/login/login',data.field,function(data){
                 data = eval("("+data+")");
                 if(data.code ==100){
