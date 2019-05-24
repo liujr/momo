@@ -74,10 +74,18 @@
 
             //监听提交
         form.on('submit(login)', function(data){
-            layer.alert(JSON.stringify(data.field), {
+            $.post('/home/login/login',data.field,function(data){
+                data = eval("("+data+")");
+                if(data.code ==100){
+
+                }else if(data.code ==101){
+
+                }
+            });
+            /*layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             })
-            return false;
+            return false;*/
         });
 
 

@@ -32,6 +32,7 @@ class Login {
         $info = Common::D('admin','Adminuser')->getInfo(['account'=>$param['account'],'password'=>$password]);
         if(!$info)Common::E("账号/密码错误");
         session(config('config.admin_user_login'),$info['id']);
+        echo session(config('config.admin_user_login'));
     }
 
 }

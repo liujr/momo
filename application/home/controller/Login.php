@@ -39,7 +39,7 @@ class Login extends Controller{
             ];
             $LoginObj = new \logic\login\Login();
             $res = $LoginObj->adminLogin($data);
-            return Common::show(config('code.success'),'发送成功',$res);
+            return Common::show(config('code.success'),'登录成功',$res);
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
         }
