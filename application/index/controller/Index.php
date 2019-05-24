@@ -13,4 +13,5 @@ class Index
     public function home(){
         return view();
     }
+
 }
