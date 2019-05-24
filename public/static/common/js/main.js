@@ -9,20 +9,20 @@ layui.use(['layim', 'laytpl'], function(layim){
 
         //初始化接口
         init: {
-            url: "{:url('index/getList')}"
+            url: "/chart/index/getList"
             ,data: {}
         }
         //查看群员接口
         ,members: {
-            url:  "{:url('index/memberListUrl')}"
+            url:  "/chart/index/memberListUrl"
             ,data: {}
         }
 
         ,uploadImage: {
-            url: "{:url('index/uploadImgUrl')}"
+            url: "/chart/index/uploadImgUrl'"
         }
         ,uploadFile: {
-            url: "{:url('index/uploadFileUrl')}"
+            url: "/chart/index/uploadFileUrl'"
         }
 
         //扩展工具栏
@@ -45,7 +45,7 @@ layui.use(['layim', 'laytpl'], function(layim){
 
     });
 
-    socket = new WebSocket('ws://127.0.0.1:8282');
+    socket = new WebSocket('ws://momo.mmrui.cn:8811');
     //连接成功时触发
     socket.onopen = function(){
         // 登录
