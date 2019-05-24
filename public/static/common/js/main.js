@@ -14,15 +14,15 @@ layui.use(['layim', 'laytpl'], function(layim){
         }
         //查看群员接口
         ,members: {
-            url: member_list_url
+            url:  "{:url('index/memberListUrl')}"
             ,data: {}
         }
 
         ,uploadImage: {
-            url: upload_img_url
+            url: "{:url('index/uploadImgUrl')}"
         }
         ,uploadFile: {
-            url: upload_file_url
+            url: "{:url('index/uploadFileUrl')}"
         }
 
         //扩展工具栏
@@ -39,9 +39,9 @@ layui.use(['layim', 'laytpl'], function(layim){
             },
         ]
         ,initSkin: '3.jpg' //1-5 设置初始背景
-        ,msgbox: msg_box_url//消息盒子页面地址，若不开启，剔除该项即可
-        ,find: find_url //发现页面地址，若不开启，剔除该项即可
-        ,chatLog: chatlog_url //聊天记录页面地址，若不开启，剔除该项即可
+        //,msgbox: msg_box_url//消息盒子页面地址，若不开启，剔除该项即可
+        //,find: find_url //发现页面地址，若不开启，剔除该项即可
+        //,chatLog: chatlog_url //聊天记录页面地址，若不开启，剔除该项即可
 
     });
 
