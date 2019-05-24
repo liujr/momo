@@ -10,7 +10,8 @@ class User extends Base{
             'status'  =>'online',
             'sign'      =>'在深邃的编码世界，做一枚轻盈的纸飞机',
             'avatar' =>'http://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg',
-            'sex'     =>1
+            'sex'     =>1,
+            'age'    =>12
         ];
         $this->assign(get_defined_vars());
         return $this->fetch();
