@@ -14,7 +14,7 @@ class Index extends Base{
             'id'       =>100000,
             'status'  =>'online',
             'sign'      =>'在深邃的编码世界，做一枚轻盈的纸飞机',
-            'avatar' =>'http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=3816855932,222796832&os=692710638,1083426816&simid=0,0&pn=83&rn=1&di=149160&ln=3354&fr=&fmq=1390280702008_R&fm=&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=1e&oriquery=%E5%A4%B4%E5%83%8F&objurl=http%3A%2F%2Fd.hiphotos.baidu.com%2Fexp%2Fw%3D500%2Fsign%3D19a55be3f1d3572c66e29cdcba126352%2F1b4c510fd9f9d72a732d1c17d72a2834349bbb6a.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined',
+            'avatar' =>'http://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg',
         ];
 
         $friend = [
