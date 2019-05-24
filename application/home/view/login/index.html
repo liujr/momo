@@ -80,14 +80,12 @@
             var code = $(" input[ name='code' ] ").val();
             $.post('/home/login/login',{account:account,password:pwd,code:code},function(data){
                 data = eval("("+data+")");
-                /*if(data.code ==100){
-                    layer.msg('验证码为：'+data.data.code+'  区分大小写',{time:60000,offset: '150px'});
-                    counttime(_this);
+                if(data.code ==100){
+                    window.location.href='/home/index/index';
                 }else if(data.code ==101){
-                    layer.msg(data.msg);
-                    _this.attr('status', 1);
+                    window.location.href='';
                     return false;
-                }*/
+                }
             });
         });
 

@@ -11,6 +11,14 @@ use \think\Controller;
 
 class Base extends Controller{
 
+    public function __construct(){
+        parent::__construct();
+        $this->checklogin();
+    }
 
+    public function checklogin(){
+        $res = session(config('config.admin_user_login'));
+        if(!$res) $this->redirect('/home/login/index');
+    }
 
 }
