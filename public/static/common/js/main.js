@@ -9,7 +9,7 @@ layui.use(['layim', 'laytpl'], function(layim){
 
         //初始化接口
         init: {
-            url: user_list_url
+            url: "{:url('index/getList')}"
             ,data: {}
         }
         //查看群员接口
