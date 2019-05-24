@@ -8,11 +8,11 @@
 
 namespace app\home\controller;
 use \think\Controller;
-
+use think\Request;
 class Base extends Controller{
-
-    public function __construct(){
-        parent::__construct();
+    protected $request;
+    public function __construct(Request $request){
+        parent::__construct($request);
         $this->checklogin();
     }
 
