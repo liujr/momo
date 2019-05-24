@@ -78,7 +78,7 @@
             var account = $(" input[ name='account' ] ").val();
             var pwd = $(" input[ name='pwd' ] ").val();
             var code = $(" input[ name='code' ] ").val();
-            $.post('/home/login/getcode',{account:account,pwd:pwd,code:code},function(data){
+            $.post('/home/login/login',{account:account,pwd:pwd,code:code},function(data){
                 data = eval("("+data+")");
                 /*if(data.code ==100){
                     layer.msg('验证码为：'+data.data.code+'  区分大小写',{time:60000,offset: '150px'});
