@@ -5,6 +5,7 @@ namespace app\home\controller;
 use \think\Controller;
 use app\common\Common;
 use app\common\Redis;
+use app\common\Captcha;
 class Login extends Controller{
 
     /**
@@ -51,5 +52,9 @@ class Login extends Controller{
         $this->error('退出成功','/home/login/index');
     }
 
-
+    public function getcodes(){
+        $obj = new Captcha();
+        $res = $obj->entry();
+        echo $res;
+    }
 }
