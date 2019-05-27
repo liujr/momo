@@ -8,7 +8,7 @@ class Base extends Controller{
 
 
     public function initialize(){
-        $res = session(config('config.admin_user_login'));
+        $res = cookie(config('config.admin_user_login'));
         if(!$res) $this->redirect('/home/login/index');
     }
 
