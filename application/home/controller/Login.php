@@ -51,9 +51,5 @@ class Login extends Controller{
         $this->error('退出成功','/home/login/index');
     }
 
-    public function aaa(){
-        $v = new \Think\Verify();
-        $res = $v->entry();//调用这个entry()方法就可生成验证码
-        echo $res;
-    }
+
 }
