@@ -137,7 +137,7 @@ class Captcha
         $this->_color = imagecolorallocate($this->_image, mt_rand(1, 150), mt_rand(1, 150), mt_rand(1, 150));
         // 验证码使用随机字体
         $ttfPath = __DIR__ . '/../assets/' . ($this->useZh ? 'zhttfs' : 'ttfs') . '/';
-
+        echo $ttfPath;die;
         if (empty($this->fontttf)) {
             $dir  = dir($ttfPath);
             $ttfs = [];
