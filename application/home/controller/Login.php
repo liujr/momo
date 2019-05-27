@@ -5,7 +5,6 @@ namespace app\home\controller;
 use \think\Controller;
 use app\common\Common;
 use app\common\Redis;
-use app\common\Captcha;
 class Login extends Controller{
 
     /**
