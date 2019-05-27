@@ -80,7 +80,6 @@
             $.post('/home/login/login',{account:account,password:pwd,code:code},function(data){
                 data = eval("("+data+")");
                 layer.msg(data.msg,{time:2000});
-                return;
                 if(data.code ==100){
                     setTimeout(function(){
                         window.location.href='/home/index/index';
