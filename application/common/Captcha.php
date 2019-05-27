@@ -194,7 +194,6 @@ class Captcha
         imagepng($this->_image);
         $content = ob_get_clean();
         imagedestroy($this->_image);
-        return $content;
         return response($content, 200, ['Content-Length' => strlen($content)])->contentType('image/png');
     }
 
