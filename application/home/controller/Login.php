@@ -55,6 +55,7 @@ class Login extends Controller{
     public function getcodes(){
         $obj = new Captcha();
         $res = $obj->entry();
-        print_r($res);
+        echo  '<img src="' . $res . '" alt="captcha" />';
+
     }
 }
