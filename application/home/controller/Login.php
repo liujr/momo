@@ -56,6 +56,6 @@ class Login extends Controller{
         $obj = new Captcha();
         $res = $obj->entry();
         echo '<pre>';
-        print_r($res->data['protected']);
+        print_r(request()->data);
     }
 }
