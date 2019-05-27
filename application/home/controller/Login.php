@@ -43,8 +43,9 @@ class Login extends Controller{
         }catch (\Exception $e){
             return Common::show(config('code.error'),$e->getMessage());
         }
-
     }
 
-    
+    public function loginout(){
+        
+    }
 }
