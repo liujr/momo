@@ -72,7 +72,7 @@ class Response
         $type = empty($type) ? 'null' : strtolower($type);
 
         $class = false !== strpos($type, '\\') ? $type : '\\think\\response\\' . ucfirst($type);
-
+        echo $class;die;
         if (class_exists($class)) {
             return new $class($data, $code, $header, $options);
         } else {

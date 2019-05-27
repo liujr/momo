@@ -502,7 +502,6 @@ if (!function_exists('response')) {
      */
     function response($data = [], $code = 200, $header = [], $type = 'html')
     {
-        var_dump($data);
         return Response::create($data, $type, $code, $header);
     }
 }
