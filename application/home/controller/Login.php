@@ -46,6 +46,8 @@ class Login extends Controller{
     }
 
     public function loginout(){
-        
+        cookie(config('config.admin_user_login'),null);
+        cookie('admin_user_name',null);
+        $this->error('退出成功','/home/login/index');
     }
 }

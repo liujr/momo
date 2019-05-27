@@ -80,8 +80,9 @@
             var code = $(" input[ name='code' ] ").val();
             $.post('/home/login/login',{account:account,password:pwd,code:code},function(data){
                 data = eval("("+data+")");
+                layer.msg(data.data.code,{time:2000});
                 if(data.code ==100){
-                    window.location.href='/home/index/index';
+                    setTimeout(function(){ window.location.href='/home/index/index';},2000);
                 }else if(data.code ==101){
                     window.location.href='';
                     return false;

@@ -31,7 +31,8 @@ class Login {
         $password =md5(md5($param['password']).$param['account']);
         $info = Common::D('admin','Adminuser')->getInfo(['account'=>$param['account'],'password'=>$password]);
         if(!$info)Common::E("账号/密码错误");
-        session(config('config.admin_user_login'),$info['id']);
+        cookie(config('config.admin_user_login'),$info['id']);
+        cookie('admin_user_name',$param['account']);
         return $info['id'];
     }
 
