@@ -47,7 +47,6 @@ class Response
     {
         $this->data($data);
 
-        echo 12121;die;
         if (!empty($options)) {
             $this->options = array_merge($this->options, $options);
         }
