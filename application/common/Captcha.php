@@ -189,13 +189,14 @@ class Captcha
         $secode['verify_time'] = time(); // 验证码创建时间
         session($key . $id, $secode, '');
 
-        ob_start();
+       // ob_start();
+        header('Content-Type: image/png');
         // 输出图像
         imagepng($this->_image);
-        $content = ob_get_clean();
+        //$content = ob_get_clean();
         imagedestroy($this->_image);
 
-        return response($content, 200, ['Content-Length' => strlen($content)])->contentType('image/png');
+       // return response($content, 200, ['Content-Length' => strlen($content)])->contentType('image/png');
     }
 
     /**
