@@ -52,9 +52,4 @@ class Login extends Controller{
         $this->error('退出成功','/home/login/index');
     }
 
-    public function getcodes(){
-        $obj = new Captcha();
-       $obj->entry();
-
-    }
 }
