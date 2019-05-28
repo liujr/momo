@@ -5,7 +5,7 @@ use think\Db;
 class AreaList{
 
     public function getlist($param){
-
+        if(!$param['ids']) Common::E('省市区id不存在');
         $where[] =['id','in',$param['ids']];
         $list = Db::name('area')->where($where)->select();
         $total  = Db::name('area')->where($where)->count();
