@@ -26,8 +26,7 @@ class Login extends Base{
         curl_close($ch);
 
         $myCity = json_decode($myCity, true);
-        echo '<pre>';
-        print_r($myCity);die;
+
         if('中国' != $myCity['data']['country']){
             $local = ['110000', '110100', '110101'];  //默认定位北京东城
         }else{
