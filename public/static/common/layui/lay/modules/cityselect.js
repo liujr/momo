@@ -23,6 +23,7 @@ layui.config({
             city: function () { return $(citySelect.$form).find('select[name=city]'); },
         },
         Init: function (myform,pCode,cCode,aCode) {
+            console.log(312);
             var othis = this;
             if (pCode)
                 othis.$defaultVal.pCode = pCode;
