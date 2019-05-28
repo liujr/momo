@@ -8,7 +8,7 @@ class User{
      * 获取一条用户信息
      */
     public function info($param){
-        if($param['id']) $where['id'] = $param['id'];
+        if($param['userid']) $where['userid'] = $param['userid'];
         if($param['mobile']) $where['mobile'] = $param['mobile'];
         $where['datastatus'] = 1;
         $info = Db::name('user')->where($where)->find();

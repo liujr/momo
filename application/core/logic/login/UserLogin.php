@@ -7,7 +7,7 @@ class UserLogin{
     public function login($param){
         if(!$param['mobile']) Common::E('电话号码不能为空');
         if(!$param['password']) Common::E('密码不能为空');
-        $info = Common::D('user','User')->info(['mobile'=>$param['mobile']]);
+        $info = Common::D('user','User')->info(['mobile'=>$param['mobile'],'userid'=>0]);
         return $info;
     }
 
