@@ -1,4 +1,4 @@
-layui.use(['form', 'layer'], function () {
+layui.use(['form', 'layer','cityselect'], function () {
     var form = layui.form();
     var layer = layui.layer;
     form.verify({
@@ -49,6 +49,8 @@ layui.use(['form', 'layer'], function () {
         });
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     });
+
+    layui.cityselect.Init('register_form', p_code, c_code, a_code);
 });
 
 
@@ -66,6 +68,7 @@ Nick.GetLength = function (str) {
 
 
 //省市区三级联动
+/*
 $(function () {
 
     layui.use(['cityselect'], function () {
@@ -73,3 +76,4 @@ $(function () {
         layui.cityselect.Init('register_form', p_code, c_code, a_code);
     });
 });
+*/
