@@ -139,8 +139,8 @@ class WsChart{
      * @param $worker_id
      */
     public function onMessage($ws, $frame){
-        echo '<pre>';
-        print_r($frame);
+        echo "Message: {$frame->data}\n";
+        $ws->push($frame->fd, "server: {$frame->data}");
     }
     /**
      * onClose回调 连接被关闭时回调此函数
