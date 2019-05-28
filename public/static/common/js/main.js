@@ -49,8 +49,8 @@ layui.use(['layim', 'laytpl'], function(layim){
     //连接成功时触发
     socket.onopen = function(){
         // 登录
-        var login_data = '{"type":"init","id":"' + uid + '", "username":"' + uname + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
-        socket.send( login_data );
+        /*var login_data = '{"type":"init","id":"' + uid + '", "username":"' + uname + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
+        socket.send( login_data );*/
         console.log("websocket握手成功!");
     };
 

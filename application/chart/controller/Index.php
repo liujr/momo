@@ -240,7 +240,7 @@ class Index extends Base{
 
     }
 
-    
+
     public function  msgBoxUrl(){
 
     }
