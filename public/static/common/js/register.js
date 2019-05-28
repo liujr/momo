@@ -22,7 +22,7 @@ layui.use(['form', 'layer'], function () {
             var index = layer.load(1, {
                 shade: [0.1, '#fff'] //0.1透明度的白色背景
             });
-            $.post(do_register_url, post_data, function(res){
+            $.post('/chart/login/doRegister', post_data, function(res){
                 layer.close(index);
                 if(1 == res.code){
                     layer.ready(function(){

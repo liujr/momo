@@ -44,7 +44,8 @@ class Login extends Base{
     public function doRegister() {
         if(request()->isAjax()){
             $param = input('post.');
-
+            echo '<pre>';
+            print_r($param);die;
             //TODO 理论上应该对所有的传入参数做正则校验,此处为了节省时间，暂时未做
             if($param['pwd'] != $param['repwd']){
                 return json(['code' => -1, 'data' => '', 'msg' => '两次密码输入不一致']);
