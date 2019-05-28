@@ -23,6 +23,10 @@ layui.config({
             city: function () { return $(citySelect.$form).find('select[name=city]'); },
         },
         Init: function (myform,pCode,cCode,aCode) {
+            console.log(myform);
+            console.log(pCode);
+            console.log(cCode);
+            console.log(aCode);
             var othis = this;
             if (pCode)
                 othis.$defaultVal.pCode = pCode;
@@ -52,7 +56,6 @@ layui.config({
             othis.defaultSelected();
             //更新
             form.render('select');
-            return;
             //监听
             form.on('select(province)', function (data) {
                 othis.$selects.city().html('<option value="">请选择市</option>').parent().hide();
