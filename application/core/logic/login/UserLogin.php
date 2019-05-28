@@ -12,7 +12,7 @@ class UserLogin{
         if($param['province']) $areaids[] = $param['province'];
         if($param['city']) $areaids[] = $param['city'];
         if($param['area']) $areaids[] = $param['area'];
-        print_r($areaids);die;
+        print_r(explode(',',$areaids));die;
         $lists = Common::D('area','Area')->getlis();
 
     }
