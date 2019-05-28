@@ -1,6 +1,8 @@
 <?php
 namespace app\chart\controller;
 use app\common\Common;
+use think\validate\ValidateRule;
+
 class Login extends Base{
 
     /**
@@ -15,6 +17,7 @@ class Login extends Base{
         try{
             if(!request()->isAjax()) Common::E('非法访问');
             $param = input('post.');
+            print_r($param);die;
             $obj = new \logic\login\UserLogin();
             $info = $obj->login($param);
             if(!$info) Common::E('用户不存在');
