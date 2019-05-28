@@ -6,7 +6,7 @@ class AreaList{
 
     public function getlist($param){
 
-        $where['id'] = 110101;
+        $where['id'] =['in',$param['ids']];
         $list = Db::name('area')->where($where)->select();
         $total  = Db::name('area')->where($where)->count();
         return [
