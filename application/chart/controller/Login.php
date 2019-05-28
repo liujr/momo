@@ -17,11 +17,10 @@ class Login extends Base{
         try{
             if(!request()->isAjax()) Common::E('非法访问');
             $param = input('post.');
-            print_r($param);die;
             $obj = new \logic\login\UserLogin();
             $info = $obj->login($param);
             if(!$info) Common::E('用户不存在');
-            $pwd = md5(md5($param['pwd']).$param['mobile']);
+            $pwd = md5(md5($param['password']).$param['mobile']);
             if($pwd != $info['password']) Common::E('密码错误');
             //设置用户上线
             $obj->saveisonline(['userid'=>$info['userid'],'is_online'=>2]);
