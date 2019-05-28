@@ -5,9 +5,7 @@ use think\Db;
 class AreaList{
 
     public function getlist($param){
-        if($param['ids']) $where['id'] = array('in',$param['ids']);
-        echo '<pre>';
-        print_r($where);die;
+        if($param['ids']) $where['id'] = $param['ids'];
         $list = Db::name('area')->where($where)->select();
         echo Db::name('area')->fetchSql();die;
         $total = Db::name('area')->where($where)->count();
