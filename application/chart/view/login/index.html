@@ -34,8 +34,14 @@
         $(document).on('click','.mylogin',function(){
             var mobile = $(" input[ name='mobile' ] ").val();
             var pwd = $(" input[ name='pwd' ] ").val();
-            if(!mobile) layer.msg('手机号不能为空',{time:2000});
-            if(!pwd) layer.msg('密码不能为空',{time:2000});
+            if(!mobile){
+                layer.msg('手机号不能为空',{time:2000});
+                return false;
+            }
+            if(!pwd){
+                layer.msg('密码不能为空',{time:2000});
+                return false;
+            }
             $.post('/chart/login/doLogin',{mobile:mobile,password:pwd},function(data){
                 data = eval("("+data+")");
                 layer.msg(data.msg,{time:2000});
