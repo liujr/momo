@@ -9,6 +9,7 @@ class User{
      */
     public function info($param){
         if($param['id']) $where['id'] = $param['id'];
+        if($param['mobile']) $where['mobile'] = $param['mobile'];
         $where['datastatus'] = 1;
         $info = Db::name('user')->where($where)->find();
         return $info;
@@ -35,6 +36,17 @@ class User{
         $data = $this->checkData($param);
         $insertData = $this->data($data);
         $result = Db::name('user')->where(['id'=>$param['id']])->update($insertData);
+        return $result;
+    }
+
+    /**
+     * 修改用户上下线
+     * @param $userid
+     * @return int|string
+     */
+    public function saveisonline($param){
+        if(!$param['userid']) Common::E('非法访问！');
+        $result = Db::name('user')->where(['id'=>$param['userid']])->update(['is_online'=>$param['is_online']]);
         return $result;
     }
 

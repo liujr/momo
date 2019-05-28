@@ -4,6 +4,19 @@ use app\common\Common;
 
 class UserLogin{
 
+    public function login($param){
+        if(!$param['mobile']) Common::E('电话号码不能为空');
+        if(!$param['pwd']) Common::E('密码不能为空');
+        $info = Common::D('user','User')->info(['mobile'=>$param['mobile']]);
+        return $info;
+    }
+
+
+    /**
+     * 注册
+     * @param $param
+     * @return mixed
+     */
     public function register($param){
         if(!$param['mobile']) Common::E('电话号码不能为空');
         if(!$param['pwd']) Common::E('密码不能为空');
@@ -41,5 +54,15 @@ class UserLogin{
         ];
         return Common::D('user','User')->add($insertData);
 
+    }
+
+    /**
+     * 修改用户上下线
+     * @param $param
+     * @return mixed
+     */
+    public function saveisonline($param){
+        if(!$param['userid']) Common::E('用户不存在');
+        return Common::D('user','User')->saveisonline($param);
     }
 }
