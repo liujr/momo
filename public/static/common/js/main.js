@@ -39,9 +39,9 @@ layui.use(['layim', 'laytpl'], function(layim){
             },
         ]
         ,initSkin: '3.jpg' //1-5 设置初始背景
-        //,msgbox: msg_box_url//消息盒子页面地址，若不开启，剔除该项即可
-        //,find: find_url //发现页面地址，若不开启，剔除该项即可
-        //,chatLog: chatlog_url //聊天记录页面地址，若不开启，剔除该项即可
+        ,msgbox: "/chart/index/msgBoxUrl"//消息盒子页面地址，若不开启，剔除该项即可
+        ,find: "/chart/index/findUrl" //发现页面地址，若不开启，剔除该项即可
+        ,chatLog: "/chart/index/chatlogUrl" //聊天记录页面地址，若不开启，剔除该项即可
 
     });
 

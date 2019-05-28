@@ -240,7 +240,14 @@ class Index extends Base{
 
     }
 
-    public function userInfo(){
+    
+    public function  msgBoxUrl(){
+
+    }
+    public function  findUrl(){
+
+    }
+    public function  chatlogUrl(){
 
     }
 
