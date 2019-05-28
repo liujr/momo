@@ -1,5 +1,6 @@
 {extend name="public/base" /}
 {block name="title"}登录{/block}
+{block name="css"}
 <style>
     .loginBody{ height:100%;}
     .loginBody{ background-color:#ccc;}
@@ -7,6 +8,7 @@
     #imgCode{ position:relative;}
     #imgCode div{ position:absolute; top:1px; right:1px; cursor:pointer;}
 </style>
+{/block}
 {block name="main"}
 <body class="loginBody">
 <form class="layui-form" action="" method="post">
