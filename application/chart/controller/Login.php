@@ -25,7 +25,7 @@ class Login extends Base{
             //设置用户上线
             $obj->saveisonline(['userid'=>$info['userid'],'is_online'=>2]);
             session('mobile', $info['mobile']);
-            session('userid', $info['id']);
+            session('userid', $info['userid']);
             session('sign', $info['sign']);
             session('avatar', $info['avatar']);
             Common::show(config('code.success'),'登录成功');
