@@ -44,7 +44,6 @@
             }
             $.post('/chart/login/doLogin',{mobile:mobile,password:pwd},function(data){
                 data = eval("("+data+")");
-                return false;
                 layer.msg(data.msg,{time:2000});
                 if(data.code ==100){
                     setTimeout(function(){
@@ -54,7 +53,6 @@
                     setTimeout(function(){
                         window.location.href='';
                     },2000);
-                    return false;
                 }
             });
         });
