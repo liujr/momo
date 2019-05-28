@@ -46,7 +46,7 @@ class User{
      */
     public function saveisonline($param){
         if(!$param['userid']) Common::E('非法访问！');
-        $result = Db::name('user')->where(['id'=>$param['userid']])->update(['is_online'=>$param['is_online']]);
+        $result = Db::name('user')->where(['userid'=>$param['userid']])->update(['is_online'=>$param['is_online']]);
         return $result;
     }
 
