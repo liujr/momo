@@ -11,6 +11,7 @@ layui.use(['form', 'layer'], function () {
 
     //监听提交表单
     form.on('submit(*)', function (data) {
+        console.log(data);return;
         layer.ready(function () {
             var post_data = data.field;
             if (post_data['pwd'] != post_data['repwd']) {
