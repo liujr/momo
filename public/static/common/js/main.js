@@ -60,8 +60,9 @@ layui.use(['layim', 'laytpl'], function(layim){
 
     //监听收到的消息
     socket.onmessage = function(res){
-        console.log(res.data);
+
         var data = eval("("+res.data+")");
+        console.log(data);
         switch(data['message_type']){
             // 服务端ping客户端
             case 'ping':
