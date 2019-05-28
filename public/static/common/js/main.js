@@ -49,8 +49,12 @@ layui.use(['layim', 'laytpl'], function(layim){
     //连接成功时触发
     socket.onopen = function(){
         // 登录
-        /*var login_data = '{"type":"init","id":"' + uid + '", "username":"' + uname + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
-        socket.send( login_data );*/
+        uid = 1;
+        uname ='admin';
+        avatar='http://tva3.sinaimg.cn/crop.0.0.750.750.180/5033b6dbjw8etqysyifpkj20ku0kuwfw.jpg';
+        sign = '在夜深人静的地方，想起了他...';
+        var login_data = '{"type":"init","id":"' + uid + '", "username":"' + uname + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
+        socket.send( login_data );
         console.log("websocket握手成功!");
     };
 
