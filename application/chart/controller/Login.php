@@ -21,6 +21,7 @@ class Login extends Base{
             $info = $obj->login($param);
             if(!$info) Common::E('用户不存在');
             $pwd = md5(md5($param['password']).$param['mobile']);
+            echo $pwd;die;
             if($pwd != $info['password']) Common::E('密码错误');
             //设置用户上线
             $obj->saveisonline(['userid'=>$info['userid'],'is_online'=>2]);
