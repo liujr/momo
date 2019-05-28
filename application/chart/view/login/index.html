@@ -2,15 +2,14 @@
 {block name="title"}登录{/block}
 {block name="css"}
 <style>
-    .loginBody{ height:100%;}
-    .loginBody{ background-color:#ccc;}
-    .loginBody form.layui-form{ padding:0 20px; width:400px; height:300px; position:absolute; left:50%; top:50%; margin:-150px 0 0 -200px; -webkit-box-sizing:border-box;-moz-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; background:#fff;-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; box-shadow:0 0 50px #009688;}
+    .childrenBody{ height:100%;}
+    .childrenBody{ background-color:#ccc;}
+    .childrenBody form.layui-form{ padding:0 20px; width:400px; height:300px; position:absolute; left:50%; top:50%; margin:-150px 0 0 -200px; -webkit-box-sizing:border-box;-moz-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; background:#fff;-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; box-shadow:0 0 50px #009688;}
     #imgCode{ position:relative;}
     #imgCode div{ position:absolute; top:1px; right:1px; cursor:pointer;}
 </style>
 {/block}
 {block name="main"}
-<body class="loginBody">
 <form class="layui-form" action="" method="post">
     <div class="layui-form-item" style="margin-top: 20px;">
         <input type="text" name="account" class="layui-input" lay-verify="required" placeholder="用户名">
@@ -26,7 +25,6 @@
         <div  class="layui-btn layui-block mylogin">登录</div>
     </div>
 </form>
-</body>
 {/block}
 
 {block name="script"}
