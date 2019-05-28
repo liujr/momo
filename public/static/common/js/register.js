@@ -1,17 +1,13 @@
 layui.use(['form', 'layer'], function () {
-    var layer = layui.layer;
     var form = layui.form();
-    form.verify({
-         pass: [
+    var layer = layui.layer;
+    form.verify({ pass: [
             /^[\S]{6,12}$/
             , '密码必须6到12位，且不能出现空格'
         ]
     });
-
-
     //监听提交表单
     form.on('submit(*)', function (data) {
-        console.log(data);return;
         layer.ready(function () {
             var post_data = data.field;
             if (post_data['pwd'] != post_data['repwd']) {
