@@ -24,10 +24,12 @@ layui.use(['form', 'layer'], function () {
             });
             $.post('/chart/login/doRegister', post_data, function(res){
                 layer.close(index);
-                if(1 == res.code){
+                if(100 == res.code){
                     layer.ready(function(){
                         layer.msg(res.msg, {time:2000});
-                        window.location.href = res.data;
+                        setTimeout(function(){
+                            window.location.href = '/chart/login/index';
+                        },2000);
                     });
                 }else{
                     layer.ready(function(){

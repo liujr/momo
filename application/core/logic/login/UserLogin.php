@@ -39,8 +39,6 @@ class UserLogin{
             'is_online' => 1,
             'addtime' =>time(),
         ];
-        echo '<pre>';
-        print_r($insertData);die;
         return Common::D('user','User')->add($insertData);
 
     }
