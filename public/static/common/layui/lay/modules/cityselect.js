@@ -23,10 +23,6 @@ layui.config({
             city: function () { return $(citySelect.$form).find('select[name=city]'); },
         },
         Init: function (myform,pCode,cCode,aCode) {
-            console.log(myform);
-            console.log(pCode);
-            console.log(cCode);
-            console.log(aCode);
             var othis = this;
             if (pCode)
                 othis.$defaultVal.pCode = pCode;
@@ -108,7 +104,6 @@ layui.config({
             //选中
             province.val(othis.$defaultVal.pCode);
             var data = province.find('[value=' + othis.$defaultVal.pCode + ']');
-            console.log(data);
             if (data.attr('data-subsetnum') == 0 || !othis.$defaultVal.cCode) {
                 return;
             }
