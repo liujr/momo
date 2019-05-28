@@ -44,6 +44,8 @@ class Login extends Base{
     public function doRegister() {
         if(request()->isAjax()){
             $param = input('post.');
+            $obj = new \logic\login\UserLogin();
+            $obj->register($param);
             echo '<pre>';
             print_r($param);die;
             //TODO 理论上应该对所有的传入参数做正则校验,此处为了节省时间，暂时未做
