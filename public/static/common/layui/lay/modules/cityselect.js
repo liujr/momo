@@ -47,6 +47,7 @@ layui.config({
             if (!othis.$form)
                 return;
             var html = laytpl(othis.$tpl).render(areaData);
+            console.log(html);
             //初始化省数据
             othis.$selects.province().append(html);
             //默认选中
