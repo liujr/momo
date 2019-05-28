@@ -139,8 +139,20 @@ class WsChart{
      * @param $worker_id
      */
     public function onMessage($ws, $frame){
-        echo "Message: {$frame->data}\n";
-        $ws->push($frame->fd, "server: {$frame->data}");
+        $message = json_decode($frame->data, true);
+        $message_type = $message['type'];
+
+        switch ($message_type)
+        {
+            case 'init':
+                app\chart\controller\Init::index($ws,$frame->fd,$message);
+                return;
+            case 'chart':
+
+                return;
+            default:
+
+        }
     }
     /**
      * onClose回调 连接被关闭时回调此函数
