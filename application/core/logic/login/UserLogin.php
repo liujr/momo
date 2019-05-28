@@ -13,10 +13,9 @@ class UserLogin{
         if($param['city']) $areaids[] = $param['city'];
         if($param['area']) $areaids[] = $param['area'];
         $lists = Common::D('area','AreaList')->getlist(['ids'=>implode(',',$areaids)]);
-        echo '<pre>';
-        print_r($lists);die;
+
         $areaStr = '';
-        if(!empty($area)){
+        if(!empty($lists['list'])){
             foreach($lists['list'] as $key=>$vo){
                 $areaStr .= $vo['area_name'] . '-';
             }
