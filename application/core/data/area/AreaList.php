@@ -6,12 +6,11 @@ class AreaList{
 
     public function getlist($param){
 
-        if($param['ids']) $where['id'] ='110100';
+        $where['level'] = 1;
         $list = Db::name('area')->where($where)->select();
-        echo Db::name('area')->fetchSql();die;
-        $total = Db::name('area')->where($where)->count();
+        $total  = Db::name('area')->where($where)->count();
         return [
-            'list' =>$list,
+            'list'=>$list,
             'total' =>$total
         ];
     }
