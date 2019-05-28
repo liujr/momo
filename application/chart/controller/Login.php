@@ -19,6 +19,8 @@ class Login extends Base{
             $param = input('post.');
             $obj = new \logic\login\UserLogin();
             $info = $obj->login($param);
+            echo '<pre>';
+            print_r($info);
             if(!$info) Common::E('用户不存在');
             $pwd = md5(md5($param['password']).$param['mobile']);
             echo $pwd.'---'.$info['password'];die;
