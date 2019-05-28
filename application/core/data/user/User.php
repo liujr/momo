@@ -62,7 +62,7 @@ class User{
     private function data($param){
         $data = array(
             'account' =>$param['account'],
-            'mobile' => $param['account'],
+            'mobile' => $param['mobile'],
             'password' => $param['password'],
             'sign' => $param['sign'],
             'avatar' =>$param['avatar'],
