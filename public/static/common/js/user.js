@@ -9,8 +9,8 @@ layui.use(['form', 'layer', 'upload'], function () {
         ,success: function(res){
             console.log(res);
             if(100 == res.code){
-                $("#LAY_demo_upload").attr('src', res.url);
-                $("#user_avatar").val(res.url);
+                $("#LAY_demo_upload").attr('src', res.data.img);
+                $("#user_avatar").val(res.data.img);
             }else{
                 layer.msg(res.msg, {time:2000});
             }
