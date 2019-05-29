@@ -21,19 +21,19 @@ layui.use(['form', 'layer', 'upload'], function () {
     $("#btn").click(function(){
 
         layer.ready(function(){
-            console.log(1234567);
+
             var mobile = $("#mobile").val();
             if('' == mobile){
-                layer.tips('用户名不能为空', '#mobile');
+                layer.tips('手机号码不能为空', '#mobile');
                 return ;
             }
-            console.log(2222);
+
             var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
             if (!myreg.test(mobile)) {
                 layer.tips('请输入正确的手机号', '#mobile');
                 return ;
             }
-            console.log(3333);
+
             var user_avatar = $("#user_avatar").val();
 
             var pwd = $("#pwd").val();
@@ -43,18 +43,18 @@ layui.use(['form', 'layer', 'upload'], function () {
                 layer.tips('新密码不能为空', '#pwd');
                 return ;
             }
-            console.log(444);
+
             if('' != pwd && '' == repwd){
                 layer.tips('重复密码不能为空', '#repwd');
                 return ;
             }
 
-            console.log(555);
+
             if('' != pwd && '' != repwd  && pwd != repwd){
                 layer.tips('两次密码不一致', '#pwd');
                 return ;
             }
-            console.log(66);
+
             if('' != pwd && '' != repwd  && pwd == repwd){
                 if(!/^[\S]{6,12}$/.test(pwd)){
                     layer.tips('密码必须6到12位，且不能出现空格', '#pwd');
@@ -65,7 +65,7 @@ layui.use(['form', 'layer', 'upload'], function () {
                     return ;
                 }
             }
-            console.log(777);
+
             var sex = $("input[name='sex']:checked").val();
             var age = $("#age").val();
 
@@ -77,7 +77,7 @@ layui.use(['form', 'layer', 'upload'], function () {
                 layer.msg('居住地不能空');
                 return ;
             }
-            console.log(888);
+
             $.post('/chart/User/edit',
                 {
                     'mobile' : mobile,
@@ -86,9 +86,9 @@ layui.use(['form', 'layer', 'upload'], function () {
                     'avatar' : user_avatar,
                     'sex' : sex,
                     'age' : age,
-                    'pid' : pid,
-                    'cid' : cid,
-                    'aid' : aid
+                    'province' : pid,
+                    'city' : cid,
+                    'area' : aid
                 }, function(res){
                     layer.close(index);
                     if(1 == res.code){
