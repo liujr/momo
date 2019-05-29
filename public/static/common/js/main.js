@@ -459,7 +459,6 @@ layui.use(['layim', 'laytpl'], function(layim){
 
         //在线状态切换
         layim.on('online', function(status){
-            console.log(status);
             var change_data = '{"type":"online", "status":"' + status + '", "uid":"' + uid + '"}';
             socket.send(change_data);
         });

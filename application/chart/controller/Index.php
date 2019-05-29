@@ -250,8 +250,13 @@ class Index extends Base{
     public function  msgBoxUrl(){
 
     }
-    public function  findUrl(){
 
+    /**
+     * 添加好友
+     */
+    public function  findUrl(){
+        $this->assign(get_defined_vars());
+        return $this->fetch();
     }
     public function  chatlogUrl(){
 
