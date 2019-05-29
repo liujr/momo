@@ -129,7 +129,7 @@ layui.define('layer' , function(exports){
     var iframe = $('#'+elemIframe), timer = setInterval(function() {
       var res;
       try {
-        res = iframe.contents().find('body').text();
+        res = JSON.stringify(iframe.contents().find('body').text());
         console.log(res);
       } catch(e) {
         layer.msg('上传接口存在跨域', msgConf);
