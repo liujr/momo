@@ -1,7 +1,7 @@
 <?php
 namespace app\chart\controller;
 use app\common\Common;
-use think\validate\ValidateRule;
+
 
 class Login{
 
