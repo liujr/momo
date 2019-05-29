@@ -4,6 +4,10 @@ namespace app\chart\controller;
 class User extends Base{
 
     public function info(){
+        $obj = new \logic\login\UserLogin();
+        $info = $obj->info(session('userid'));
+        echo '<pre>';
+        print_r($obj);die;
         $user = [
             'username' =>'纸飞机',
             'id'       =>100000,

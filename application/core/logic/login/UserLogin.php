@@ -65,4 +65,10 @@ class UserLogin{
         if(!$param['userid']) Common::E('用户不存在');
         return Common::D('user','User')->saveisonline($param);
     }
+
+    public function info($id){
+        if(!$id) Common::E('用户不存在');
+        $info = Common::D('user','User')->info(['mobile'=>0,'userid'=>$id]);
+        return $info;
+    }
 }
