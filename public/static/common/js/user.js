@@ -3,11 +3,12 @@ layui.use(['form', 'layer', 'upload'], function () {
     var layer = layui.layer;
     //修改头像
     layui.upload({
-        url: up_avatar_url
+        url: '/chart/upload/index'
         ,title: '修改头像'
         ,ext: 'jpg|png'
         ,success: function(res){
-            if(1 == res.code){
+            console.log(res);
+            if(100 == res.code){
                 $("#LAY_demo_upload").attr('src', res.url);
                 $("#user_avatar").val(res.url);
             }else{
