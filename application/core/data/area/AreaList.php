@@ -15,8 +15,7 @@ class AreaList{
         ];
     }
 
-    public function getlistByParentId($parentid){
-        if(!$parentid) Common::E('父亲id不存在');
+    public function getlistByParentId($parentid=0){
         $where['parent_id'] = $parentid;
         $list = Db::name('area')->where($where)->select();
         $total  = Db::name('area')->where($where)->count();
