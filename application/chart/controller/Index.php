@@ -258,6 +258,8 @@ class Index extends Base{
         try{
             $friendsObj = new \logic\friends\Friends();
             $friends =$friendsObj->lists(session('userid'));
+            echo '<pre>';
+            print_r($friends);;die;
             if(!empty($friends)){
                 foreach($friends as $vo){
                     $fArr[] = $vo['friendid'];
