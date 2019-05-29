@@ -280,7 +280,7 @@ class Index extends Base{
             ]);
             return $this->fetch();
         }catch (\Exception $e){
-            $this->error($e->getMessage());
+            $this->error($e->getMessage(),'/chart/index/index');
         }
 
 
