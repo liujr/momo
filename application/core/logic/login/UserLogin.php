@@ -67,6 +67,7 @@ class UserLogin{
     }
 
     public function info($id){
+        echo $id;die;
         if(!$id) Common::E('用户不存在');
         $info = Common::D('user','User')->info(['mobile'=>0,'userid'=>$id]);
         return $info;
