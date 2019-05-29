@@ -3,7 +3,7 @@ namespace app\chart\controller;
 use app\common\Common;
 use think\validate\ValidateRule;
 
-class Login extends Base{
+class Login{
 
     /**
      * 登录页面
