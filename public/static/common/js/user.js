@@ -1,21 +1,7 @@
 layui.use(['form', 'layer', 'upload'], function () {
     var form = layui.form();
     var layer = layui.layer;
-
-    var upload = layui.upload;
-
-    //执行实例
-    var uploadInst = upload.render({
-        elem: '#avatar' //绑定元素
-        ,url: '/chart/upload/index' //上传接口
-        ,done: function(res){
-            //上传完毕回调
-        }
-        ,error: function(){
-            //请求异常回调
-        }
-    });
-  /*  //修改头像
+    //修改头像
     layui.upload({
         url: '/chart/upload/index'
         ,title: '修改头像'
@@ -29,7 +15,7 @@ layui.use(['form', 'layer', 'upload'], function () {
                 layer.msg(res.msg, {time:2000});
             }
         }
-    });*/
+    });
 
     //提交修改项
     $("#btn").click(function(){
