@@ -80,6 +80,7 @@ layui.define('layer' , function(exports){
       
       //触发上传
       item.off('change').on('change', function(){
+        console.log(12345678);
         that.action(this, type);
       });
     });
