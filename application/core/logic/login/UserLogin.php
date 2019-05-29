@@ -18,6 +18,41 @@ class UserLogin{
      * @return mixed
      */
     public function register($param){
+        $insertData = $this->checkAndGet($param);
+        return Common::D('user','User')->add($insertData);
+
+    }
+
+    /**
+     * 修改用户上下线
+     * @param $param
+     * @return mixed
+     */
+    public function saveisonline($param){
+        if(!$param['userid']) Common::E('用户不存在');
+        return Common::D('user','User')->saveisonline($param);
+    }
+
+    /**
+     * 获取用户详情
+     * @param $id
+     * @return mixed
+     */
+    public function info($id){
+        if(!$id) Common::E('用户不存在');
+        $info = Common::D('user','User')->info(['mobile'=>0,'userid'=>$id]);
+        return $info;
+    }
+
+    public function edit($param){
+        $insertData = $this->checkAndGet($param);
+        echo '<pre>';
+        print_r($insertData);die;
+        return Common::D('user','User')->edit($insertData);
+
+    }
+
+    private function checkAndGet($param){
         if(!$param['mobile']) Common::E('电话号码不能为空');
         if(!$param['pwd']) Common::E('密码不能为空');
         if(!$param['repwd']) Common::E('确认密码不能为空');
@@ -42,7 +77,7 @@ class UserLogin{
             'mobile' => trim($param['mobile']),
             'password' => md5(md5($param['pwd']).trim($param['mobile'])),
             'sign' => '',
-            'avatar' => config('config.user_avatar'),
+            'avatar' => $param['avatar']?$param['avatar']:config('config.user_avatar'),
             'sex' => $param['sex'],
             'age' => $param['age'],
             'pid' => $param['province'],
@@ -52,23 +87,6 @@ class UserLogin{
             'is_online' => 1,
             'addtime' =>time(),
         ];
-        return Common::D('user','User')->add($insertData);
-
-    }
-
-    /**
-     * 修改用户上下线
-     * @param $param
-     * @return mixed
-     */
-    public function saveisonline($param){
-        if(!$param['userid']) Common::E('用户不存在');
-        return Common::D('user','User')->saveisonline($param);
-    }
-
-    public function info($id){
-        if(!$id) Common::E('用户不存在');
-        $info = Common::D('user','User')->info(['mobile'=>0,'userid'=>$id]);
-        return $info;
+        return $insertData;
     }
 }

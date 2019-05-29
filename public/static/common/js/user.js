@@ -22,31 +22,18 @@ layui.use(['form', 'layer', 'upload'], function () {
 
         layer.ready(function(){
 
-            var user_name = $("#user_name").val();
-            if('' == user_name){
-                layer.tips('用户名不能为空', '#user_name');
+            var mobile = $("#mobile").val();
+            if('' == mobile){
+                layer.tips('用户名不能为空', '#mobile');
                 return ;
             }
-            if (Nick.GetLength(user_name) < 4 || Nick.GetLength(user_name) > 18) {
-                layer.tips('用户名必须在4-18个字符之间', '#user_name');
-                return ;
-            }
-            if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(user_name)) {
-                layer.tips('用户名不能有特殊字符', '#user_name');
-                return ;
-            }
-            if (/(^\_)|(\__)|(\_+$)/.test(user_name)) {
-                layer.tips('用户名首尾不能出现下划线\'_\'', '#user_name');
-                return ;
-            }
-            if (/^\d+\d+\d$/.test(user_name)) {
-                layer.tips('用户名不能全为数字', '#user_name');
+            if (/^1\d{10}$/.test(mobile)) {
+                layer.tips('请输入正确的手机号', '#mobile');
                 return ;
             }
 
             var user_avatar = $("#user_avatar").val();
 
-            var oldpwd = $("#oldpwd").val(); //旧密码
             var pwd = $("#pwd").val();
             var repwd = $("#repwd").val();
 
@@ -65,10 +52,6 @@ layui.use(['form', 'layer', 'upload'], function () {
                 return ;
             }
 
-            if('' != pwd && '' != repwd && '' == oldpwd){
-                layer.tips('必须输入旧密码', '#oldpwd');
-                return ;
-            }
 
             if('' != pwd && '' != repwd && '' != oldpwd && pwd != repwd){
                 layer.tips('两次密码不一致', '#pwd');
@@ -98,10 +81,9 @@ layui.use(['form', 'layer', 'upload'], function () {
                 return ;
             }
 
-            $.post(do_change_url,
+            $.post('/chart/User/edit',
                 {
-                    'user_name' : user_name,
-                    'oldpwd' : oldpwd,
+                    'mobile' : mobile,
                     'pwd' : pwd,
                     'repwd' : repwd,
                     'avatar' : user_avatar,

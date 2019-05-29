@@ -1,6 +1,6 @@
 <?php
 namespace app\chart\controller;
-
+use app\common\Common;
 class User extends Base{
 
     public function info(){
@@ -8,6 +8,21 @@ class User extends Base{
         $user = $obj->info(session('userid'));
         $this->assign(get_defined_vars());
         return $this->fetch();
+    }
+
+    //修改个人资料
+    public function edit(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+            $param = input('post.');
+            $obj = new \logic\login\UserLogin();
+            $info = $obj->edit($param);
+            die;
+            Common::show(config('code.success'),'修改成功');
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+
     }
 
 
