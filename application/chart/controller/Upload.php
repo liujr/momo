@@ -12,7 +12,7 @@ class Upload{
 
             $file = request()->file('file');
             $info = $file->move('../public/static/upload');
-            var_dump($info);die;
+            var_dump($_FILES);die;
             if($info){
                 $data = ['img'=>config('url.host').'/upload/'.$info->getSaveName()];
                 return Common::show(config('code.success'),'上传成功',$data);
