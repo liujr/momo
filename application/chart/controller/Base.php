@@ -6,8 +6,8 @@ use \think\Controller;
 class Base extends Controller{
 
     public function initialize(){
-       /* if(empty(session('username'))){
+        if(empty(session('userid'))){
             $this->redirect(url('/chart/login/index'));
-        }*/
+        }
     }
 }
