@@ -258,9 +258,7 @@ class Index extends Base{
         try{
             $friendsObj = new \logic\friends\Friends();
             $friends =$friendsObj->lists(session('userid'));
-            echo '<pre>';
-            print_r($friends);;die;
-            if(!empty($friends)){
+            if(!empty($friends['lists'])){
                 foreach($friends as $vo){
                     $fArr[] = $vo['friendid'];
                 }
@@ -278,7 +276,7 @@ class Index extends Base{
                 'group' => $groupArr,
                 'age' => 18,
                 'province' => $province,
-                'user' => $userList
+                'user' => $userList['lists']
             ]);
             return $this->fetch();
         }catch (\Exception $e){
