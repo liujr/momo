@@ -9,7 +9,7 @@ class Upload{
     public function index(){
         try{
             echo '<pre>';
-
+            var_dump($_FILES);die;
             $file = request()->file('file');
             $info = $file->move('../public/static/upload');
             var_dump($_FILES);die;
