@@ -7,7 +7,7 @@ class User extends Base{
         $obj = new \logic\login\UserLogin();
         $info = $obj->info(session('userid'));
         echo '<pre>';
-        print_r($obj);die;
+        print_r($info);die;
         $user = [
             'username' =>'纸飞机',
             'id'       =>100000,
