@@ -37,7 +37,7 @@ class User{
         $insertData = $this->data($data);
         unset($insertData['is_online']);
         unset($insertData['addtime']);
-        $result = Db::name('user')->where(['id'=>$param['id']])->update($insertData);
+        $result = Db::name('user')->where(['userid'=>$param['id']])->update($insertData);
         return $result;
     }
 
