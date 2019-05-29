@@ -3,7 +3,10 @@ var socket;
 
 layui.use(['layim', 'laytpl'], function(layim){
     var laytpl = layui.laytpl;
-
+    uid = "{$userid}";
+    mobile = "{$mobile}";
+    avatar= "{$avatar}";
+    sign =  "{$sign}";
     //基础配置
     layim.config({
 
@@ -49,10 +52,6 @@ layui.use(['layim', 'laytpl'], function(layim){
     //连接成功时触发
     socket.onopen = function(){
         // 登录
-        uid = "{$userid}";
-        mobile = "{$mobile}";
-        avatar= "{$avatar}";
-        sign =  "{$sign}";
         var login_data = '{"type":"init","id":"' + uid + '", "mobile":"' + mobile + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
         socket.send( login_data );
         console.log("websocket握手成功!");
@@ -460,6 +459,7 @@ layui.use(['layim', 'laytpl'], function(layim){
 
         //在线状态切换
         layim.on('online', function(status){
+            console.log(status);
             var change_data = '{"type":"online", "status":"' + status + '", "uid":"' + uid + '"}';
             socket.send(change_data);
         });

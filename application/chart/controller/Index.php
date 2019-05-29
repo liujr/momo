@@ -18,7 +18,7 @@ class Index extends Base{
         $mine = [
             'username' =>$user['account'],
             'id'       =>$user['userid'],
-            'status'  =>$user['userid']==2?'online':'',
+            'status'  =>$user['userid']==2?'online':'offline',
             'sign'      =>$user['sign']?$user['sign']:'这家伙很懒！什么也没留',
             'avatar' =>$user['avatar'],
         ];
