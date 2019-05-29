@@ -37,11 +37,6 @@ layui.use(['form', 'layer', 'upload'], function () {
             var pwd = $("#pwd").val();
             var repwd = $("#repwd").val();
 
-            if('' != oldpwd && !/^[\S]{6,12}$/.test(oldpwd)){
-                layer.tips('密码必须6到12位，且不能出现空格', '#oldpwd');
-                return ;
-            }
-
             if('' == pwd && '' != repwd){
                 layer.tips('新密码不能为空', '#pwd');
                 return ;
