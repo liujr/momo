@@ -46,8 +46,7 @@ class UserLogin{
 
     public function edit($param){
         $insertData = $this->checkAndGet($param);
-        echo '<pre>';
-        print_r($insertData);die;
+        $insertData['id']  = session('userid');
         return Common::D('user','User')->edit($insertData);
 
     }

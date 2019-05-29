@@ -16,8 +16,7 @@ class User extends Base{
             if(!request()->isAjax()) Common::E('非法访问');
             $param = input('post.');
             $obj = new \logic\login\UserLogin();
-            $info = $obj->edit($param);
-            die;
+            $res = $obj->edit($param);
             Common::show(config('code.success'),'修改成功');
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());

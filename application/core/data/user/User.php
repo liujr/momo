@@ -35,6 +35,8 @@ class User{
         if(!$param['id']) Common::E('非法访问！');
         $data = $this->checkData($param);
         $insertData = $this->data($data);
+        unset($insertData['is_online']);
+        unset($insertData['addtime']);
         $result = Db::name('user')->where(['id'=>$param['id']])->update($insertData);
         return $result;
     }
