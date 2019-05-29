@@ -255,8 +255,35 @@ class Index extends Base{
      * 添加好友
      */
     public function  findUrl(){
-        $this->assign(get_defined_vars());
-        return $this->fetch();
+        try{
+            $friendsObj = new \logic\friends\Friends();
+            $friends =$friendsObj->lists(session('userid'));
+            if(!empty($friends)){
+                foreach($friends as $vo){
+                    $fArr[] = $vo['friendid'];
+                }
+            }
+            $friendsids = empty($fArr) ? implode(',',$fArr):'';
+            $userObj  = new \logic\user\User();
+            $userList  =$userObj->lists($friendsids,1,4);
+            //初始化省份
+            $areaObj = new \logic\area\Area();
+            $province =$areaObj->getlistByParentId(0);
+
+            //推荐新建的群组
+            $groupArr  =[];
+            $this->assign([
+                'group' => $groupArr,
+                'age' => 18,
+                'province' => $province,
+                'user' => $userList
+            ]);
+            return $this->fetch();
+        }catch (\Exception $e){
+            $this->error($e->getMessage());
+        }
+
+
     }
     public function  chatlogUrl(){
 
