@@ -357,8 +357,8 @@ layui.use(['layim', 'laytpl'], function(layim){
 
     //监听签名修改
     layim.on('sign', function(value){
-        $.post(change_sign_url, {'sign' : value}, function(res){
-            if(1 == res.code){
+        $.post('/chart/user/editsign', {'sign' : value}, function(res){
+            if(100 == res.code){
                 layer.msg(res.msg, {time:1500});
             }else{
                 layer.msg(res.msg, {time:1500});

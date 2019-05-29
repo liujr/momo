@@ -21,7 +21,18 @@ class User extends Base{
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
+    }
 
+    public function editsign(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+            $param = input('post.');
+            $obj = new \logic\login\UserLogin();
+            $res = $obj->editsign($param);
+            Common::show(config('code.success'),'修改成功');
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
     }
 
 

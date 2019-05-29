@@ -44,10 +44,26 @@ class UserLogin{
         return $info;
     }
 
+    /**
+     * 修改用户
+     * @param $param
+     * @return mixed
+     */
     public function edit($param){
         $insertData = $this->checkAndGet($param);
         $insertData['id']  = session('userid');
         return Common::D('user','User')->edit($insertData);
+
+    }
+
+    /**
+     * 修改签名
+     * @param $param
+     * @return mixed
+     */
+    public function editsign($param){
+        $param['userid']  = session('userid');
+        return Common::D('user','User')->editsign($param);
 
     }
 

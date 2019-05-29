@@ -53,6 +53,17 @@ class User{
     }
 
     /**
+     * 修改签名
+     * @param $param
+     * @return int|string
+     */
+    public function editsign($param){
+        if(!$param['userid']) Common::E('非法访问！');
+        $result = Db::name('user')->where(['userid'=>$param['userid']])->update(['sign'=>$param['sign']]);
+        return $result;
+    }
+
+    /**
      * 删除数据
      * @param $id
      */
