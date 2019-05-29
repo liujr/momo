@@ -9,9 +9,10 @@ class Upload{
     public function index(){
         try{
             echo '<pre>';
-            var_dump($_FILES);die;
+
             $file = request()->file('file');
             $info = $file->move('../public/static/upload');
+            var_dump($info);die;
             if($info){
                 $data = ['img'=>config('url.host').'/upload/'.$info->getSaveName()];
                 return Common::show(config('code.success'),'上传成功',$data);
