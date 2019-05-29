@@ -48,12 +48,12 @@ layui.use(['form', 'layer', 'upload'], function () {
             }
 
 
-            if('' != pwd && '' != repwd && '' != oldpwd && pwd != repwd){
+            if('' != pwd && '' != repwd  && pwd != repwd){
                 layer.tips('两次密码不一致', '#pwd');
                 return ;
             }
 
-            if('' != pwd && '' != repwd && '' != oldpwd && pwd == repwd){
+            if('' != pwd && '' != repwd  && pwd == repwd){
                 if(!/^[\S]{6,12}$/.test(pwd)){
                     layer.tips('密码必须6到12位，且不能出现空格', '#pwd');
                     return ;
