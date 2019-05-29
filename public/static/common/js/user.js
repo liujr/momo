@@ -28,7 +28,8 @@ layui.use(['form', 'layer', 'upload'], function () {
                 return ;
             }
             console.log(2222);
-            if (/^1\d{10}$/.test(mobile)) {
+            var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+            if (!myreg.test(mobile)) {
                 layer.tips('请输入正确的手机号', '#mobile');
                 return ;
             }
