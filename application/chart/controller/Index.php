@@ -259,7 +259,7 @@ class Index extends Base{
             $friendsObj = new \logic\friends\Friends();
             $friends =$friendsObj->lists(session('userid'));
             if(!empty($friends['lists'])){
-                foreach($friends as $vo){
+                foreach($friends['lists'] as $vo){
                     $fArr[] = $vo['friendid'];
                 }
             }
