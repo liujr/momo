@@ -91,7 +91,7 @@ layui.use(['form', 'layer', 'upload'], function () {
                     'area' : aid
                 }, function(res){
                     layer.close(index);
-                    if(1 == res.code){
+                    if(100 == res.code){
                         layer.msg(res.msg, {time:1500});
                         setTimeout(function(){
                             var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
