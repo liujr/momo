@@ -142,7 +142,7 @@ layui.define('layer' , function(exports){
           res = JSON.parse(res);
         } catch(e){
           res = {};
-          return layer.msg('请对上传接口返回JSON字符', msgConf);
+          return layer.msg('请对上传接口返回111JSON字符', msgConf);
         }
         typeof options.success === 'function' && options.success(res, input);
       }
