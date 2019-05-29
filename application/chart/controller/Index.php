@@ -13,12 +13,14 @@ class Index extends Base{
     }
 
     public function getList(){
+        $obj = new \logic\login\UserLogin();
+        $user = $obj->info(session('userid'));
         $mine = [
-            'username' =>'纸飞机',
-            'id'       =>100000,
-            'status'  =>'online',
-            'sign'      =>'在深邃的编码世界，做一枚轻盈的纸飞机',
-            'avatar' =>'http://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg',
+            'username' =>$user['account'],
+            'id'       =>$user['userid'],
+            'status'  =>$user['userid']==2?'online':'',
+            'sign'      =>$user['sign']?$user['sign']:'这家伙很懒！什么也没留',
+            'avatar' =>$user['avatar'],
         ];
 
         $friend = [
