@@ -19,7 +19,7 @@ layui.use(['form', 'layer', 'upload'], function () {
 
     //提交修改项
     $("#btn").click(function(){
-
+        console.log(1234567);
         layer.ready(function(){
 
             var mobile = $("#mobile").val();
