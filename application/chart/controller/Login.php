@@ -1,9 +1,9 @@
 <?php
 namespace app\chart\controller;
 use app\common\Common;
+use \think\Controller;
 
-
-class Login{
+class Login extends Controller{
 
     /**
      * 登录页面
