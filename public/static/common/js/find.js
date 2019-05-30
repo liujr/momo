@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://127.0.0.1:8282');
+var socket = new WebSocket('ws://momo.mmrui.cn:8811');
 
 $(document).ready(function(){
     var msgBox;
