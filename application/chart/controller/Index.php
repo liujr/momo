@@ -266,6 +266,8 @@ class Index extends Base{
             $friendsids = isset($fArr) && (!empty($fArr))? implode(',',$fArr):session('userid');
             $userObj  = new \logic\user\User();
             $userList  =$userObj->lists($friendsids,1,4);
+            echo '<pre>';
+            print_r($userList);die;
             //初始化省份
             $areaObj = new \logic\area\Area();
             $province =$areaObj->getlistByParentId(0);
