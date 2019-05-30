@@ -273,10 +273,12 @@ class Index extends Base{
             //推荐新建的群组
             $groupObj  = new \logic\chartgroup\ChartGroup();
             $groupArr  =$groupObj->lists(0,0,2,session('userid'),1,4);
-
-            $this->assign([
+            for ($x=1; $x<=100; $x++) {
+                $age[] = $x;
+            }
+                $this->assign([
                 'group' => $groupArr['lists'],
-                'age' => 18,
+                'age' => $age,
                 'province' => $province['list'],
                 'user' => $userList['lists']
             ]);
