@@ -22,8 +22,21 @@ class Index extends Base{
             'sign'      =>$user['sign']?$user['sign']:'这家伙很懒！什么也没留',
             'avatar' =>$user['avatar'],
         ];
-
-        $friend = [
+        //朋友
+        $categoryObj = new \logic\friendscategory\FriendsCategory();
+        $friend = $categoryObj->lists();
+        $friendsObj = new \logic\friend\Friends();
+        foreach ($friend['lists'] as $k=>&$v){
+            $res = $friendsObj->getFriendsByCateId(session('userid'),$v['id']);
+            if(!empty($res['lists'])){
+                foreach ($res['lists'] as $kk=>&$vv){
+                    $vv['status'] =='offline';
+                    if($vv['status'] ==2)$vv['status']='online';
+                }
+            }
+            $v['list'] = $res['lists'];
+        }
+       /* $friend = [
             [
                 'groupname' =>'知名人物',
                 'id'    =>0,
@@ -117,7 +130,7 @@ class Index extends Base{
                     ]
                 ]
             ],
-        ];
+        ];*/
 
         $group = [
             ['groupname'=>'前端群','id'=>101,'avatar'=>'http://tva1.sinaimg.cn/crop.0.0.200.200.50/006q8Q6bjw8f20zsdem2mj305k05kdfw.jpg'],
