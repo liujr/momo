@@ -6,10 +6,10 @@ use think\Db;
 class UserList{
     public function lists($ids,$page=1,$limit=20){
 
-        if($ids) $where['userid'] =array('not in',$ids);
+        if($ids) $where['userid'] =['userid','not in',$ids];
         $where['datastatus'] = 1;
         $list = Db::name('user')->where($where)->page($page)->limit($limit)->order('userid desc')->select();
-       // echo Db::name('user')->fetchSql();die;
+        //echo Db::name('user')->fetchSql();die;
         $total = Db::name('user')->where($where)->count();
         return [
             'lists' => $list,
