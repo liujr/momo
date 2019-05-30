@@ -67,6 +67,10 @@ class UserLogin{
 
     }
 
+    public function lists(){
+
+    }
+
     private function checkAndGet($param){
         if(!$param['mobile']) Common::E('电话号码不能为空');
         if(!$param['pwd']) Common::E('密码不能为空');

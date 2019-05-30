@@ -112,7 +112,7 @@ $(document).ready(function(){
 
             layer.ready(function(){
                 var loading = layer.load(0, {shade: false});
-                $.post(search_user_url, data, function(res){
+                $.post('/chart/user/ajaxlists', data, function(res){
                     layer.close(loading);
                     if(1 == res.code){
                         if( 0 == res.data.length ){
