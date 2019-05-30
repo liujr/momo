@@ -45,9 +45,9 @@ $(document).ready(function(){
            return ;
         }
         $.post('/chart/area/getlistByParentId', {'parentid' : pid}, function(res){
-            if(1 == res.code){
+            if(100 == res.code){
                 var _html = '<option value="0" data-id="0">选择城市</option>';
-                $.each(res.data, function(k, v){
+                $.each(res.data.list, function(k, v){
                     _html += '<option value="' + v.area_name + '" data-id="' + v.id + '">' + v.area_name + '</option>';
                 });
                 $('#c').html(_html);
@@ -72,10 +72,10 @@ $(document).ready(function(){
         if( '0' == cid ){
            return ;
         }
-        $.post(area_url, {'code' : cid}, function(res){
-            if(1 == res.code){
+        $.post('/chart/area/getlistByParentId', {'parentid' : cid}, function(res){
+            if(100 == res.code){
                 var _html = '<option value="0" data-id="0">选择区</option>';
-                $.each(res.data, function(k, v){
+                $.each(res.data.list, function(k, v){
                     _html += '<option value="' + v.area_name + '" data-id="' + v.id + '">' + v.area_name + '</option>';
                 });
                 $('#a').html(_html);
