@@ -6,6 +6,7 @@ class Friendscategory extends Base {
         try{
             $categoryObj = new \logic\friendscategory\FriendsCategory();
             $lists = $categoryObj->lists();
+
             $this->assign(get_defined_vars());
             return $this->fetch();
         }catch (\Exception $e){
