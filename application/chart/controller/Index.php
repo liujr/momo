@@ -25,7 +25,7 @@ class Index extends Base{
         //朋友
         $categoryObj = new \logic\friendscategory\FriendsCategory();
         $friends = $categoryObj->lists();
-        $friendsObj = new \logic\friend\Friends();
+        $friendsObj = new \logic\friends\Friends();
         foreach ($friends['lists'] as $k=>&$v){
             $res = $friendsObj->getFriendsByCateId(session('userid'),$v['id']);
             if(!empty($res['lists'])){
