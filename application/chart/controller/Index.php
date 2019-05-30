@@ -264,7 +264,6 @@ class Index extends Base{
                 }
             }
             $friendsids = isset($fArr) && (!empty($fArr))? implode(',',$fArr):session('userid');
-            echo $friendsids;die;
             $userObj  = new \logic\user\User();
             $userList  =$userObj->lists($friendsids,1,4);
             //初始化省份
