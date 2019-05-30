@@ -19,8 +19,9 @@ class FriendsList{
 
     public function getFriendsByCateId($userid,$cateid,$page=1,$limit=20){
         if(!$userid) Common::E('非法访问');
-        $where['f.userid'] = $userid;
-        $where['f.groupid'] = $cateid;
+        if(!$cateid) Common::E('分类id不存在');
+        $where[] =['f.userid','=',$userid];
+        $where[] =['f.groupid','=',$cateid];
         $list = Db::name('friends')
             ->alias('f')
             ->field(' u.userid as id,u.account as username,u.avatar,u.sign,u.is_online as status')
