@@ -8,7 +8,8 @@ class UserList{
         if($ids) $where[] =['userid','not in',$ids];
         if($mobile) $where[] =['mobile','=',$mobile];
         if($sex) $where[] =['sex','=',$sex];
-        if($age) $where[] =['age','=',$age];
+        if($age && (!is_array($age))) $where[] =['age','=',$age];
+        if($age && (is_array($age))) $where[] =['age','between',$age];
         if($pid) $where[] =['pid','=',$pid];
         if($cid) $where[] =['cid','=',$cid];
         if($aid) $where[] =['aid','=',$aid];

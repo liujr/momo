@@ -80,6 +80,7 @@ class UserLogin{
      * @return mixed
      */
     public function lists($mobile=0,$sex=0,$age=0,$pid=0,$cid=0,$aid=0,$limit=20,$page=1){
+        if(strstr($age,'-')) $age = explode('-',$age);
         return Common::D('user','UserList')->lists(0,$page,$limit,$mobile,$sex,$age,$pid,$cid,$aid);
     }
 
