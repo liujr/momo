@@ -1,0 +1,45 @@
+{extend name="public/base" /}
+{block name="title"}添加分类名称{/block}
+
+{block name="main"}
+<form class="layui-form layui-row" action="">
+    <div class="layui-col-xs12 layui-col-sm8">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="groupname" required  lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="savemenu">立即提交</button>
+                <a href="javascript:;" class="layui-btn layui-btn-primary closeBtn">取消</a>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block name="script"}
+<script>
+layui.use(['form'], function(){
+    var form = layui.form;
+    var index = parent.layer.getFrameIndex(window.name);
+
+    form.on('submit(savemenu)',function(obj){
+        $.post('/home/friendscategory/add',obj.field,function(data){
+            layer.msg(data.msg);
+            if(data.code==100){
+                setTimeout(function(){
+                    location.reload();
+                },1000);
+            }
+        },'json');
+        return false;
+    });
+    $('.closeBtn').click(function(){
+        parent.layer.close(index);
+    });
+});
+</script>
+{/block}

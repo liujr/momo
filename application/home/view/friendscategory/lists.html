@@ -1,0 +1,76 @@
+{extend name="public/base" /}
+{block name="title"}{/block}
+
+{block name="main"}
+<blockquote class="layui-elem-quote quoteBox">
+    <form class="layui-form"  action="" method="post">
+        <div class="layui-inline">
+            <a href="javascript:;" class="layui-btn layui-btn-normal addTopMenu">添加顶级节点</a>
+        </div>
+    </form>
+</blockquote>
+<!--列表-->
+<form class="layui-form">
+    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>分类名称</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {if condition="$lists['total'] eq 0 "}
+        <tr class="td_center"><td colspan="4">暂无数据</td></tr>
+        {/if}
+        {volist name="lists.lists" id="v"}
+        <tr class="nodelist">
+            <td class="td_left">{$v['id']}</td>
+            <td class="td_left">{$v['groupname']}</td>
+            <td class="td_left">{$v.addtime|date='Y-m-d'}</td>
+            <td class="td_center">
+                <a href="javascript:;" class="editNode layui-btn layui-btn-xs" data-id="{$v['id']}">修改</a>&nbsp;&nbsp;
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+</form>
+<!--列表E-->
+
+{/block}
+
+{block name="script"}
+<script>
+    layui.use(['layer','form'], function(){
+        var layer = layui.layer;
+        var form = layui.form;
+
+        $('.addTopMenu').click(function(){
+            var index = layer.open({
+                title : false,
+                type : 2,
+                content : ['/home/friendscategory/add/'],
+                end:function(){
+                    location.reload();
+                }
+            })
+            layer.full(index);
+        });
+        //修改节点
+        $(document).delegate('.editNode','click',function(){
+            var id = $(this).data('id');
+            var index = layer.open({
+                title : false,
+                type : 2,
+                content : ['/home/friendscategory/edit/id/'+id],
+                end:function(){
+                    location.reload();
+                }
+            });
+            layer.full(index);
+        });
+    });
+</script>
+{/block}
