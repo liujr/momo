@@ -26,7 +26,8 @@ class FriendsList{
             ->alias('f')
             ->field(' u.userid as id,u.account as username,u.avatar,u.sign,u.is_online as status')
             ->join('me_user u ','f.friendid= u.userid')
-            ->where($where)->page($page)->limit($limit)->select();
+            ->where($where)->page($page)->limit($limit)->buildSql();
+        echo $list;die;
         $total = Db::name('friends')->where($where)->count();
         return [
             'lists' => $list,
