@@ -26,11 +26,11 @@ class FriendsList{
             ->alias('f')
             ->field(' u.userid as id,u.account as username,u.avatar,u.sign,u.is_online as status')
             ->join('me_user u ','f.friendid= u.userid')
-            ->where($where)->page($page)->limit($limit)->select();
-        $total = Db::name('friends')->where($where)->count();
+            ->where($where)->page($page)->limit($limit)->fetchSql(true)->select();
+        $total = Db::name('friends')->where($where)->fetchSql(true)->count();
         return [
-            'lists' => $list,
-            'total' =>$total,
+            'lists' => Db::query($list),
+            'total' =>Db::query($total),
             'page'  => $page,
             'limit' => $limit
         ];
