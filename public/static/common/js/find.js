@@ -44,7 +44,7 @@ $(document).ready(function(){
         if('0' == pid){
            return ;
         }
-        $.post(area_url, {'code' : pid}, function(res){
+        $.post('/chart/area/getlistByParentId', {'parentid' : pid}, function(res){
             if(1 == res.code){
                 var _html = '<option value="0" data-id="0">选择城市</option>';
                 $.each(res.data, function(k, v){
