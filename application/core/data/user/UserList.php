@@ -5,7 +5,7 @@ use think\Db;
 
 class UserList{
     public function lists($ids,$page=1,$limit=20){
-        echo $ids;die;
+       
         if($ids) $where[] =['userid','in',$ids];
         //$where['datastatus'] = 1;
         $list = Db::name('user')->where($where)->page($page)->limit($limit)->order('userid desc')->select();
