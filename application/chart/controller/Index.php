@@ -24,9 +24,9 @@ class Index extends Base{
         ];
         //朋友
         $categoryObj = new \logic\friendscategory\FriendsCategory();
-        $friend = $categoryObj->lists();
+        $friends = $categoryObj->lists();
         $friendsObj = new \logic\friend\Friends();
-        foreach ($friend['lists'] as $k=>&$v){
+        foreach ($friends['lists'] as $k=>&$v){
             $res = $friendsObj->getFriendsByCateId(session('userid'),$v['id']);
             if(!empty($res['lists'])){
                 foreach ($res['lists'] as $kk=>&$vv){
@@ -36,6 +36,8 @@ class Index extends Base{
             }
             $v['list'] = $res['lists'];
         }
+        $friend = $friends['lists'];
+        
        /* $friend = [
             [
                 'groupname' =>'知名人物',
