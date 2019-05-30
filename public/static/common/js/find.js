@@ -114,13 +114,13 @@ $(document).ready(function(){
                 var loading = layer.load(0, {shade: false});
                 $.post('/chart/user/ajaxlists', data, function(res){
                     layer.close(loading);
-                    if(1 == res.code){
-                        if( 0 == res.data.length ){
+                    if(100 == res.code){
+                        if( 0 == res.data.total ){
                             $("#s_u_data").html('<p style="text-align: center;font-size: 18px">暂无符合条件的数据，换个条件试试！</p>');
                             return;
                         }
                         var _html = '';
-                        $.each(res.data, function(k, v){
+                        $.each(res.data.lists, function(k, v){
                             _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
                             _html += '<h5>' + v.user_name + '</h5><span style="margin-left: 10px">';
                             var style = 'style="color:#FDA357"';
