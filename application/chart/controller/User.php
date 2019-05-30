@@ -48,18 +48,15 @@ class User extends Base{
     public function ajaxlists(){
         try{
             if(!request()->isAjax()) Common::E('非法访问');
-            echo '<pre>';
-            print_r(input('post.'));die;
             $mobile = input('mobile');
-            $mobile = input('mobile');
-            $mobile = input('mobile');
-            $mobile = input('mobile');
-            $mobile = input('mobile');
-            $mobile = input('mobile');
-            $mobile = input('mobile');
+            $sex = input('sex');
+            $age = input('age');
+            $pid = input('pid');
+            $cid = input('cid');
+            $aid = input('aid');
             $obj = new \logic\login\UserLogin();
-            $res = $obj->lists($param);
-            Common::show(config('code.success'),'修改成功');
+            $res = $obj->lists($mobile,$sex,$age,$pid,$cid,$aid);
+            Common::show(config('code.success'),'修改成功',$res);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }

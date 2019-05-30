@@ -67,8 +67,20 @@ class UserLogin{
 
     }
 
-    public function lists(){
-
+    /**
+     * 获取用户列表
+     * @param int $mobile
+     * @param int $sex
+     * @param int $age
+     * @param int $pid
+     * @param int $cid
+     * @param int $aid
+     * @param int $limit
+     * @param int $page
+     * @return mixed
+     */
+    public function lists($mobile=0,$sex=0,$age=0,$pid=0,$cid=0,$aid=0,$limit=20,$page=1){
+        return Common::D('user','UserList')->lists(0,$page,$limit,$mobile,$sex,$age,$pid,$cid,$aid);
     }
 
     private function checkAndGet($param){
