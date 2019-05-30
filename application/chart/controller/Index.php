@@ -275,7 +275,7 @@ class Index extends Base{
             $this->assign([
                 'group' => $groupArr,
                 'age' => 18,
-                'province' => $province,
+                'province' => $province['list'],
                 'user' => $userList['lists']
             ]);
             return $this->fetch();
