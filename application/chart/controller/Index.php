@@ -271,9 +271,11 @@ class Index extends Base{
             $province =$areaObj->getlistByParentId(0);
 
             //推荐新建的群组
-            $groupArr  =[];
+            $groupObj  = new \logic\chartgroup\ChartGroup();
+            $groupArr  =$groupObj->lists(0,0,2,session('userid'),1,4);
+
             $this->assign([
-                'group' => $groupArr,
+                'group' => $groupArr['lists'],
                 'age' => 18,
                 'province' => $province['list'],
                 'user' => $userList['lists']

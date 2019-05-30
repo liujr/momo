@@ -102,7 +102,7 @@ $(document).ready(function(){
         layui.use(['layer'], function(){
             var layer = layui.layer;
 
-            if( '' == $("#user_name").val() && '' == $("#age").val()
+            if( '' == $("#mobile").val() && '' == $("#age").val()
                 && '' == $("#sex").val() && '' == $("#pid").val() && '' == $("#cid").val() && '' == $("#aid").val()){
                 layer.ready(function(){
                     layer.msg('请至填写一个搜索项', {'time' : 2000});
