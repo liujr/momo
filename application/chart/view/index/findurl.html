@@ -61,12 +61,12 @@
                                                 </button>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a href="javascript:chage('0');">不限</a>
+                                                        <a href="javascript:chage('0-0');">不限</a>
                                                     </li>
                                                     {if !empty($age)}
                                                     {foreach name="age" item="vo" key="key"}
                                                     <li>
-                                                        <a href="javascript:chage('{$key}');">{$vo}</a>
+                                                        <a href="javascript:chage('{$vo}');">{$vo}</a>
                                                     </li>
                                                     {/foreach}
                                                     {/if}
