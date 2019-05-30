@@ -319,7 +319,7 @@ function chsex(tag){
         $("#sex").val(1);
         $("#csex").text('男');
     }else{
-        $("#sex").val(-1);
+        $("#sex").val(2);
         $("#csex").text('女');
     }
 }
