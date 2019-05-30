@@ -122,7 +122,7 @@ $(document).ready(function(){
                         var _html = '';
                         $.each(res.data.lists, function(k, v){
                             _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
-                            _html += '<h5>' + v.user_name + '</h5><span style="margin-left: 10px">';
+                            _html += '<h5>' + v.mobile + '</h5><span style="margin-left: 10px">';
                             var style = 'style="color:#FDA357"';
                             if(1 == v.sex){
                                 style = 'style="color:#7CA3D2"';
@@ -130,8 +130,8 @@ $(document).ready(function(){
                             _html += '<i class="layui-icon" ' + style + '>&#xe612;</i></span>';
                             _html += '<span style="margin-left: 10px">' + v.age + '岁</span></div>';
                             _html += '<div class="ibox-content"><div style="margin: 0 auto"><img src="' + v.avatar + '" width="50px" height="50px"/>';
-                            _html += '<span style="font-size: 10px;margin-left: 5px;width:100px;overflow: hidden;display: inline-block">' + v.area + '</span></div>';
-                            _html += '<div style="margin:10px 50px"><button class="btn btn-primary" type="button" data-uid="' + v.id + '" onclick="addFriend(this)">';
+                            _html += '<span style="font-size: 10px;margin-left: 5px;width:100px;overflow: hidden;display: inline-block">' + v.address + '</span></div>';
+                            _html += '<div style="margin:10px 50px"><button class="btn btn-primary" type="button" data-uid="' + v.userid + '" onclick="addFriend(this)">';
                             _html += '加好友</button></div></div></div></div>';
                         });
                         $("#s_u_data").html(_html);
