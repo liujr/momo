@@ -226,6 +226,7 @@ function addFriend(obj){
                      ,from_group: group
                      ,remark: remark
                  }, function(res){
+                    console.log(res);
                     console.log(res.code);
                      if(res.code != 100){
                         return layer.msg(res.msg);
