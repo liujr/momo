@@ -227,8 +227,6 @@ function addFriend(obj){
                      ,remark: remark
                  }, function(res){
                     res = eval("("+res+")");
-                    console.log(res);
-                    console.log(res.code);
                      if(res.code != 100){
                         return layer.msg(res.msg);
                      }
