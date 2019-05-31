@@ -37,8 +37,6 @@ class Index extends Base{
             $v['list'] = $res['lists'];
         }
         $friend = $friends['lists'];
-        echo '<pre>';
-        print_r($friend);die;
        /* $friend = [
             [
                 'groupname' =>'知名人物',
