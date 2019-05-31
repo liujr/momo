@@ -221,12 +221,12 @@ function addFriend(obj){
             ,avatar: $(obj).parent().siblings().find('img').attr('src')
             ,submit: function(group, remark, index){
                 //通知对方
-                $.post(apply_friend_url, {
+                $.post('/chart/msgbox/applyFriend', {
                      uid: uid
                      ,from_group: group
                      ,remark: remark
                  }, function(res){
-                     if(res.code != 0){
+                     if(res.code != 100){
                         return layer.msg(res.msg);
                      }
                      layer.msg('好友申请已发送，请等待对方确认', {
