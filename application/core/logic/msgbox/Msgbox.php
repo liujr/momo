@@ -13,7 +13,7 @@ class Msgbox{
         if(!$friendid) Common::E('不存在该好友');
         if(!$userid) Common::E('用户id不存在');
         $data= $this->getdata(['content'=>$content,'uid'=>$friendid,'from'=>$from_group,'type'=>$type,'remark'=>$remark,'href'=>$url]);
-        return Common::D('msgbox','Msgbox')->lists();
+        return Common::D('msgbox','Msgbox')->add($data);
     }
 
     private function getdata($param){
@@ -21,7 +21,7 @@ class Msgbox{
             'content' =>$param['content'],
             'uid'    =>$param['uid'],
             'from' =>$param['from'],
-            'from_group'  => $param['from_group'],
+            'from_group'  => $param['from'],
             'type' =>$param['type'],
             'remark'    =>$param['remark'],
             'href' =>$param['href'],
