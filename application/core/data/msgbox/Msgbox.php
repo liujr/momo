@@ -25,6 +25,20 @@ class Msgbox{
     }
 
     /**
+     * 获取未读的数量
+     * @param $userid
+     * @return int|string
+     * @throws \think\Exception
+     */
+    public function noread($userid){
+        if(!$userid) Common::E('用户id不能为空');
+        $where['uid'] = $userid;
+        $where['read'] = 1;
+        $num = Db::name('message')->where($where)->count();
+        return $num;
+    }
+
+    /**
      * 检测数据合法性
      */
     private function checkData($param){

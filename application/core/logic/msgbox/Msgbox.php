@@ -16,6 +16,16 @@ class Msgbox{
         return Common::D('msgbox','Msgbox')->add($data);
     }
 
+    /**
+     * 获取未读的数量
+     * @param $userid
+     * @throws \think\Exception
+     */
+    public function noread($userid){
+        if(!$userid) Common::E('用户id不存在');
+        return Common::D('msgbox','Msgbox')->noread($userid);
+    }
+
     private function getdata($param){
         $data = array(
             'content' =>$param['content'],

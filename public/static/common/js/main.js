@@ -466,7 +466,7 @@ layui.use(['layim', 'laytpl'], function(layim){
 
     //获取未读的消息 120s读取一次
     setInterval(function(){
-        $.getJSON(get_noread_url, function(res){
+        $.getJSON('/chart/msgbox/noread', function(res){
             if(res.data > 0){
                 layim.msgbox(res.data);
             }
