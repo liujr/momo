@@ -262,8 +262,8 @@ class Index extends Base{
 
 
     public function  msgBoxUrl(){
-        $mobile =  session('mobile');
-        $userid =  session('userid');
+        $username =  session('mobile');
+        $uid =  session('userid');
         $sign =  session('sign')?session('sign'):'这家伙很懒！什么也没留';
         $avatar =  session('avatar');
         $this->assign(get_defined_vars());
