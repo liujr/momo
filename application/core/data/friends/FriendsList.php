@@ -20,13 +20,11 @@ class FriendsList{
     public function getFriendsByCateId($userid,$cateid,$page=1,$limit=20){
         if(!$userid) Common::E('非法访问');
         if(!$cateid) Common::E('分类id不存在');
-        $where[] =[' f.userid ','=',$userid];
-        $where[] =[' f.groupid ','=',$cateid];
         $list = Db::name('friends')
-            ->alias('f')
+            ->alias(' f ')
             ->field(' u.userid as id,u.account as username,u.avatar,u.sign,u.is_online as status')
             ->join('me_user u ','f.friendid= u.userid')
-            ->where($where)->page($page)->limit($limit)->select();
+            ->where("f.userid='$userid' and f.groupid='$cateid'")->page($page)->limit($limit)->select();
         $total = Db::name('friends')->where($where)->count();
         return [
             'lists' => $list,
