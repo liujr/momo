@@ -7,10 +7,8 @@ class Msgbox{
     /**
      * 获取一条用户信息
      */
-    public function info($param){
-        if($param['id']) $where['id'] = $param['id'];
-        if($param['pid']) $where['pid'] = $param['pid'];
-        $where['status'] = 1;
+    public function info(){
+        $where['read'] = 1;
         $info = Db::name('message')->where($where)->find();
         return $info;
     }
@@ -22,8 +20,6 @@ class Msgbox{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        echo '<pre>';
-        print_r($insertData);die;
         $result = Db::name('message')->insert($insertData);
         return $result;
     }
