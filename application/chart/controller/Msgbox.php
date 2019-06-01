@@ -31,7 +31,7 @@ class Msgbox extends Base {
                     $msg['lists'][$key]['user']['id'] = null;
                 }
             }
-            Common::show(config('code.success'),'申请成功',$msg);
+            Common::show(config('code.success'),'成功',$msg);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
@@ -88,7 +88,7 @@ class Msgbox extends Base {
             //添加申请数据
             $obj = new \logic\msgbox\Msgbox();
             $res = $obj->read(session('userid'));
-            Common::show(config('code.success'),'获取成功',$res);
+            Common::show(config('code.success'),'成功',$res);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
