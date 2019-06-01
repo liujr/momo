@@ -3,6 +3,9 @@ namespace app\chart\controller;
 use app\common\Common;
 class Msgbox extends Base {
 
+    /**
+     * 获取未读的信息
+     */
     public function getmsg(){
         try{
             if(!request()->isAjax()) Common::E('非法访问');
@@ -66,6 +69,25 @@ class Msgbox extends Base {
             //添加申请数据
             $obj = new \logic\msgbox\Msgbox();
             $res = $obj->noread(session('userid'));
+            Common::show(config('code.success'),'获取成功',$res);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+    }
+
+    /**
+     * 修改为 已读
+     * @param $userid
+     * @return mixed
+     * @throws \think\Exception
+     */
+    public function read(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+
+            //添加申请数据
+            $obj = new \logic\msgbox\Msgbox();
+            $res = $obj->read(session('userid'));
             Common::show(config('code.success'),'获取成功',$res);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());

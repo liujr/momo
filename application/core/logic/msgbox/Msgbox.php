@@ -31,6 +31,17 @@ class Msgbox{
         return Common::D('msgbox','Msgbox')->noread($userid);
     }
 
+    /**
+     * 修改为 已读
+     * @param $userid
+     * @return mixed
+     * @throws \think\Exception
+     */
+    public function read($userid){
+        if(!$userid) Common::E('用户id不存在');
+        return Common::D('msgbox','Msgbox')->read($userid);
+    }
+
     private function getdata($param){
         $data = array(
             'content' =>$param['content'],

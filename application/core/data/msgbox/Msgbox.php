@@ -37,6 +37,18 @@ class Msgbox{
         $num = Db::name('message')->where($where)->count();
         return $num;
     }
+    /**
+     * 修改为 已读
+     * @param $userid
+     * @return mixed
+     * @throws \think\Exception
+     */
+    public function read($userid){
+        if(!$userid) Common::E('用户id不能为空');
+        $where['uid'] = $userid;
+        $res = Db::name('message')->where($where)->update(['read' =>2]);
+        return $res;
+    }
 
     /**
      * 检测数据合法性
