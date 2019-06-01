@@ -18,6 +18,8 @@ class Msgbox extends Base {
                 $msg['lists'][$key]['time'] = date('Y-m-d H:i');
                 if(1 == $vo['type']){
                     $user = $usrObj->info($vo['from']);
+                    echo '<pre>';
+                    print_r($user);die;
                     $msg['lists'][$key]['user'] = [
                         'id' => $vo['from'],
                         'avatar' => $user['avatar'],
