@@ -75,7 +75,7 @@
         var renderMsg = function(page, callback){
 
             //获取消息盒子
-            $.post('getmsg', {
+            $.post('/chart/msgbox/getmsg', {
                 page: page || 1
             }, function(res){
                 if(res.code != 0){

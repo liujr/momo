@@ -3,6 +3,36 @@ namespace app\chart\controller;
 use app\common\Common;
 class Msgbox extends Base {
 
+    public function getmsg(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+
+            $obj = new \logic\msgbox\Msgbox();
+            $msg = $obj->lists(session('userid'));
+            if(empty($msg['lists'])){
+                Common::show(config('code.success'),'申请成功',$res);
+            }
+
+            $usrObj = new \logic\user\User();
+            foreach($msg['lists'] as $key=>$vo){
+                $msg[$key]['time'] = date('Y-m-d H:i');
+                if(1 == $vo['type']){
+                    $user = $usrObj->info($vo['from']);
+                    $msg[$key]['user'] = [
+                        'id' => $vo['from'],
+                        'avatar' => $user['avatar'],
+                        'username' => $user['mobile'],
+                        'sign' => $user['sign']
+                    ];
+                }else{
+                    $msg[$key]['user']['id'] = null;
+                }
+            }
+            Common::show(config('code.success'),'申请成功',$msg);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+    }
     /**
      * 提交申请
      */

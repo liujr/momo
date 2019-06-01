@@ -8,4 +8,9 @@ class User{
         return $lists;
     }
 
+    public function info($userid){
+        $info = Common::D('user','User')->info(['userid'=>$userid,'mobile'=>0]);
+        return $info;
+    }
+
 }

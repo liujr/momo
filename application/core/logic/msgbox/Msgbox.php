@@ -3,6 +3,11 @@ namespace logic\msgbox;
 use app\common\Common;
 class Msgbox{
 
+    public function lists($uid){
+        if(!$uid) Common::E('用户id不存在');
+        return Common::D('msgbox','MsgboxList')->lists($uid);
+    }
+
     /**
      * @param $friendid  朋友id
      * @param $remark  验证信息
