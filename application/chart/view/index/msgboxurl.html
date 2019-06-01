@@ -81,7 +81,7 @@
                 if(res.code != 100){
                     return layer.msg(res.msg);
                 }
-
+                console.log(res.data.lists);
                 //记录来源用户信息
                 layui.each(res.data.lists, function(index, item){
                     cache[item.from] = item.user;
