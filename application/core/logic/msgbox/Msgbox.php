@@ -3,9 +3,9 @@ namespace logic\msgbox;
 use app\common\Common;
 class Msgbox{
 
-    public function lists($uid){
+    public function lists($uid,$page=1,$limit=20){
         if(!$uid) Common::E('用户id不存在');
-        return Common::D('msgbox','MsgboxList')->lists($uid);
+        return Common::D('msgbox','MsgboxList')->lists($uid,$page,$limit);
     }
 
     /**

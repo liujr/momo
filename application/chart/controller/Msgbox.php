@@ -6,11 +6,11 @@ class Msgbox extends Base {
     public function getmsg(){
         try{
             if(!request()->isAjax()) Common::E('非法访问');
-
+            $page = input('page');
             $obj = new \logic\msgbox\Msgbox();
-            $msg = $obj->lists(session('userid'));
+            $msg = $obj->lists(session('userid'),$page,5);
             if(empty($msg['lists'])){
-                Common::show(config('code.success'),'申请成功',$res);
+                Common::show(config('code.success'),'申请成功','');
             }
 
             $usrObj = new \logic\user\User();
