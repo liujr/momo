@@ -78,6 +78,7 @@
             $.post('/chart/msgbox/getmsg', {
                 page: page || 1
             }, function(res){
+                res = eval("("+res+")");
                 if(res.code != 100){
                     return layer.msg(res.msg);
                 }
