@@ -78,16 +78,16 @@
             $.post('/chart/msgbox/getmsg', {
                 page: page || 1
             }, function(res){
-                if(res.code != 0){
+                if(res.code != 100){
                     return layer.msg(res.msg);
                 }
 
                 //记录来源用户信息
-                layui.each(res.data, function(index, item){
+                layui.each(res.data.lists, function(index, item){
                     cache[item.from] = item.user;
                 });
 
-                callback && callback(res.data, res.pages);
+                callback && callback(res.data.lists, res.data.pages);
             });
         };
 
