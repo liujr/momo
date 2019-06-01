@@ -11,7 +11,7 @@ class MsgboxList{
         return [
             'lists' => $list,
             'total' =>$total,
-            'pages'=>$total /$list,
+            'pages'=>$total /$limit,
             'page'  => $page,
             'limit' => $limit
         ];
