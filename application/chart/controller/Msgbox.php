@@ -15,17 +15,17 @@ class Msgbox extends Base {
 
             $usrObj = new \logic\user\User();
             foreach($msg['lists'] as $key=>$vo){
-                $msg[$key]['time'] = date('Y-m-d H:i');
+                $msg['lists'][$key]['time'] = date('Y-m-d H:i');
                 if(1 == $vo['type']){
                     $user = $usrObj->info($vo['from']);
-                    $msg[$key]['user'] = [
+                    $msg['lists'][$key]['user'] = [
                         'id' => $vo['from'],
                         'avatar' => $user['avatar'],
                         'username' => $user['mobile'],
                         'sign' => $user['sign']
                     ];
                 }else{
-                    $msg[$key]['user']['id'] = null;
+                    $msg['lists'][$key]['user']['id'] = null;
                 }
             }
             Common::show(config('code.success'),'申请成功',$msg);
