@@ -147,9 +147,6 @@ class WsChart{
             case 'init':
                 app\chart\controller\Init::index($ws,$frame->fd,$message);
                 return;
-            case 'online':
-                app\chart\controller\User::editIsLine($ws,$frame->fd,$message);
-                return;
             case 'addFriend':
                 app\chart\controller\Friend::noticeFriend($ws,$frame->fd,$message);
                 return;

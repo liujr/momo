@@ -4,10 +4,10 @@ use app\common\Redis;
 class Init extends Base{
 
     static public function index($ws,$fd,$data){
-        session('chart_mobile',$data['mobile']); //用户名
+        /*session('chart_mobile',$data['mobile']); //用户名
         session('chart_avatar',$data['avatar']); //头像
         session('chart_id',$data['id']); //用户id
-        session('chart_sign',$data['sign']); // 签名
+        session('chart_sign',$data['sign']); // 签名*/
 
         //将当前用户跟fd绑定
         Redis::getInstance()->set(config('redis.userid_association_fd').$data['id'],$fd);
