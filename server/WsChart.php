@@ -139,6 +139,8 @@ class WsChart{
      * @param $worker_id
      */
     public function onMessage($ws, $frame){
+        echo "当前fd:{$frame->fd}\n";
+        echo "当前fd:{$frame->data}\n";
         $message = json_decode($frame->data, true);
         $message_type = $message['type'];
 
