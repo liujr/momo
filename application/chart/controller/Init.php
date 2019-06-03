@@ -42,7 +42,7 @@ class Init extends Base{
 
         // 通知所有该用户好友，此用户上线，将此用户头像变亮
         $friendsObj = new \logic\friends\Friends();
-        $friends = $friendsObj->lists($data['id'],$page=1,$limit=999);
+        $friends = $friendsObj->lists(0,$page=1,$limit=999,$data['id']);
         if($friends['lists']){
             foreach ($friends['lists'] as $kk=>$vv){
                 $online_message = [
