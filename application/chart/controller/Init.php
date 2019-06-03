@@ -47,12 +47,12 @@ class Init extends Base{
                 $online_message = [
                     'message_type' => 'online',
                     'id' => $data['id'],
-                    'userid'=>$vv['userid']
                 ];
                 $senddata2 = array(
                     'controller' =>'InitTask',
                     'method'     =>'pushFriends',
-                    'data'          =>$online_message
+                    'data'          =>$online_message,
+                    'userid'=>$vv['userid']
                 );
                 $ws->task($senddata2);
             }

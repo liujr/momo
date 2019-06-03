@@ -2,7 +2,7 @@
 
 namespace task;
 
-
+use app\common\Redis;
 class InitTask{
 
     /**

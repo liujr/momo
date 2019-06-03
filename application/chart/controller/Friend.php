@@ -38,7 +38,6 @@ class Friend extends Base{
     static  public function noticeFriend($ws,$fd,$message){
         $add_message = [
             'message_type' => 'addFriend',
-            'userid'=>$message['toid'],
             'data' => [
                 'username' => $message['username'],
                 'avatar' => $message['avatar'],
@@ -49,9 +48,10 @@ class Friend extends Base{
             ]
         ];
         $senddata = array(
-            'controller' =>'InitTask',
-            'method'     =>'pushChartLog',
-            'data'          =>$add_message
+            'controller' =>'FriendsTask',
+            'method'     =>'noticeFriend',
+            'data'          =>$add_message,
+            'userid'=>$message['toid'],
         );
         $ws->task($senddata);
     }
