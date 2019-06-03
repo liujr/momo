@@ -3,10 +3,10 @@ var socket;
 
 layui.use(['layim', 'laytpl'], function(layim){
     var laytpl = layui.laytpl;
-    uid = "{$userid}";
-    mobile = "{$mobile}";
-    avatar= "{$avatar}";
-    sign =  "{$sign}";
+    uid =  $(".userid").val();
+    mobile = $(".mobile").val();
+    avatar= $(".avatar").val();
+    sign =  $(".sign").val();
     //基础配置
     layim.config({
 
