@@ -8,6 +8,8 @@ class Index extends Base{
         $userid =  session('userid');
         $sign =  session('sign')?session('sign'):'这家伙很懒！什么也没留';
         $avatar =  session('avatar');
+        echo '<pre>';
+        print_r(get_defined_vars());die;
         $this->assign(get_defined_vars());
         return $this->fetch();
     }
