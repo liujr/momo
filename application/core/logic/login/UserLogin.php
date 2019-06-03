@@ -109,7 +109,7 @@ class UserLogin{
             'mobile' => trim($param['mobile']),
             'password' => md5(md5($param['pwd']).trim($param['mobile'])),
             'sign' => '',
-            'avatar' => $param['avatar']?$param['avatar']:config('config.user_avatar'),
+            'avatar' => isset($param['avatar'])?$param['avatar']:config('config.user_avatar'),
             'sex' => $param['sex'],
             'age' => $param['age'],
             'pid' => $param['province'],
