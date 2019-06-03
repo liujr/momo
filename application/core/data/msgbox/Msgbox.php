@@ -70,7 +70,6 @@ class Msgbox{
     private function checkData($param){
         if(!$param['uid']) Common::E('朋友的id不能为空');
         if(!$param['from']) Common::E('发起好友申请的id不能为空');
-        if(!$param['from_group']) Common::E('朋友分类不能为空');
         return $param;
     }
 
