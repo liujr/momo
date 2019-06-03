@@ -15,8 +15,6 @@ class Init extends Base{
         //查询有无需要推送的离线信息
         $chatlogObj = new \logic\chatlog\Chatlog();
         $resMsg = $chatlogObj->lists($data['id'],'friend',$page=1,$limit=999);
-        echo '<pre>';
-        print_r($resMsg);
         if($resMsg['lists']){
             foreach ($resMsg['lists'] as $k=>$vo){
                 $log_message = [
@@ -45,7 +43,8 @@ class Init extends Base{
         // 通知所有该用户好友，此用户上线，将此用户头像变亮
         $friendsObj = new \logic\friends\Friends();
         $friends = $friendsObj->lists(0,$page=1,$limit=999,$data['id']);
-
+        echo '<pre>';
+        print_r($friends);
         if($friends['lists']){
             foreach ($friends['lists'] as $kk=>$vv){
                 $online_message = [
