@@ -5,6 +5,7 @@ use think\Db;
 class FriendsList{
 
     public function lists($userid=0,$page=1,$limit=20,$friendid=0){
+        echo $userid;
         if(!$userid)  $where['userid'] = $userid;
         if(!$friendid)  $where['friendid'] = $friendid;
         $list = Db::name('friends')->where($where)->page($page)->limit($limit)->select();
