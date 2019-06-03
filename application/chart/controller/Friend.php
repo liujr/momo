@@ -35,6 +35,12 @@ class Friend extends Base{
         }
     }
 
+    /**
+     * 通知好友已经同意添加
+     * @param $ws
+     * @param $fd
+     * @param $message
+     */
     static  public function noticeFriend($ws,$fd,$message){
         $add_message = [
             'message_type' => 'addFriend',
@@ -55,6 +61,23 @@ class Friend extends Base{
 
         );
         $ws->task($senddata);
+    }
+
+    public function refuseFriend(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+
+            $obj = new \logic\msgbox\Msgbox();
+            //将此消息标记为不同意
+            $obj->agree(input('id'),2);
+            //入库系统消息
+            $content = session('mobile') . ' 拒绝了你的好友申请';
+            $res = $obj->add( input('uid'),'',0,'-1',2,$content,'');
+
+            Common::show(config('code.success'),'拒绝成功',$res);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
     }
 
 }
