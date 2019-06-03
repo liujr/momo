@@ -21,7 +21,9 @@ class InitTask{
      * @param $param
      */
     public function pushFriends($server,$param){
+        print_r($param);
         $fd = Redis::getInstance()->get(config('redis.userid_association_fd').$param['data']['userid']);
+        echo $fd.'----';
         if($fd){
             $server->push($fd, json_encode($param));
         }
