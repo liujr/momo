@@ -30,8 +30,8 @@ class Index extends Base{
             $res = $friendsObj->getFriendsByCateId(session('userid'),$v['id']);
             if(!empty($res['lists'])){
                 foreach ($res['lists'] as $kk=>&$vv){
-                    if($vv['status'] ==1)$vv['status'] =='offline';
-                    if($vv['status'] ==2)$vv['status']='online';
+                   $vv['status'] ='offline';
+                    if($vv['status'] ==2)$vv['status'] ='online';
                 }
             }
             $v['list'] = $res['lists'];
