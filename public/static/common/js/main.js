@@ -53,6 +53,7 @@ layui.use(['layim', 'laytpl'], function(layim){
     socket.onopen = function(){
         // 登录
         var login_data = '{"type":"init","id":"' + uid + '", "mobile":"' + mobile + '", "avatar":"' + avatar + '", "sign":"' + sign + '"}';
+        console.log(login_data);return false;
         socket.send( login_data );
         console.log("websocket握手成功!");
     };
