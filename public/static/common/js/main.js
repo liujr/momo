@@ -60,7 +60,7 @@ layui.use(['layim', 'laytpl'], function(layim){
     //监听收到的消息
     socket.onmessage = function(res){
 
-        //var data = eval("("+res.data+")");
+        var data = eval("("+res.data+")");
         console.log(res);
         switch(data['message_type']){
             // 服务端ping客户端

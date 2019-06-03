@@ -166,10 +166,11 @@
                     , id = li.data('id');
 
                 layer.confirm('确定拒绝吗？', function(index){
-                    $.post('refuseFriend', {
+                    $.post('/chart/friend/refuseFriend', {
                         uid : uid, //对方用户ID
                         id : id
                     }, function(res){
+                        res = eval("("+res+")");
                         if(res.code != 0){
                             return layer.msg(res.msg);
                         }

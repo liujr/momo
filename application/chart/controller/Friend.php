@@ -4,6 +4,9 @@ use app\common\Common;
 class Friend extends Base{
 
 
+    /**
+     * 同意加为好友
+     */
     public function agree(){
         try{
             if(!request()->isAjax()) Common::E('非法访问');
@@ -26,10 +29,31 @@ class Friend extends Base{
             //将此消息标记为已经同意
             $obj->agree(input('id'),1);
 
-            Common::show(config('code.success'),'申请成功',$res);
+            Common::show(config('code.success'),'添加成功',$res);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
+    }
+
+    static  public function noticeFriend($ws,$fd,$message){
+        $add_message = [
+            'message_type' => 'addFriend',
+            'userid'=>$message['toid'],
+            'data' => [
+                'username' => $message['username'],
+                'avatar' => $message['avatar'],
+                'id' => $message['id'],
+                'type' => 'friend',
+                'sign' => $message['sign'],
+                'groupid' => $message['groupid'],
+            ]
+        ];
+        $senddata = array(
+            'controller' =>'InitTask',
+            'method'     =>'pushChartLog',
+            'data'          =>$add_message
+        );
+        $ws->task($senddata);
     }
 
 }
