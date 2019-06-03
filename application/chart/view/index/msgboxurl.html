@@ -134,6 +134,7 @@
                             , group: group //我设定的好友分组
                             , id : id
                         }, function(res){
+                            res = eval("("+res+")");
                             if(res.code != 100){
                                 return layer.msg(res.msg);
                             }

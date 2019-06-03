@@ -52,7 +52,7 @@ class Msgbox extends Base {
 
             //添加申请数据
             $obj = new \logic\msgbox\Msgbox();
-            $res = $obj->add($uid,$remark,$from_group,session('userid'),1,$content);
+            $res = $obj->add($uid,$remark,$from_group,0,1,$content);
             Common::show(config('code.success'),'申请成功',$res);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
