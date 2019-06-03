@@ -21,7 +21,7 @@
 
 <textarea title="消息模版" id="LAY_tpl" style="display:none;">
 {{# layui.each(d.data, function(index, item){
-  if(item.from){ }}
+  if(item.type == 1){ }}
     <li data-uid="{{ item.from }}" data-fromGroup="{{ item.from_group }}" data-id="{{ item.id }}">
         <a href="javascript:;">
             <img src="{{ item.user.avatar }}" class="layui-circle layim-msgbox-avatar">
@@ -82,7 +82,6 @@
                 if(res.code != 100){
                     return layer.msg(res.msg);
                 }
-                console.log(res.data.lists);
                 //记录来源用户信息
                 layui.each(res.data.lists, function(index, item){
                     cache[item.from] = item.user;
@@ -135,7 +134,7 @@
                             , group: group //我设定的好友分组
                             , id : id
                         }, function(res){
-                            if(res.code != 0){
+                            if(res.code != 100){
                                 return layer.msg(res.msg);
                             }
 
