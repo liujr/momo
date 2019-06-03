@@ -42,12 +42,24 @@ class Msgbox{
         return Common::D('msgbox','Msgbox')->read($userid);
     }
 
+    /**
+     * 修改为 同意
+     * @param $userid
+     * @return mixed
+     * @throws \think\Exception
+     */
+    public function agree($id,$agree){
+        if(!$id) Common::E('用户id不能为空');
+        if(!$agree) Common::E('agree参数不存在');
+        return Common::D('msgbox','Msgbox')->agree($id,$agree);
+    }
+
     private function getdata($param){
         $data = array(
             'content' =>$param['content'],
             'uid'    =>$param['uid'],
             'from' =>$param['from'],
-            'from_group'  => $param['from'],
+            'from_group'  => $param['from_group'],
             'type' =>$param['type'],
             'remark'    =>$param['remark'],
             'href' =>$param['href'],

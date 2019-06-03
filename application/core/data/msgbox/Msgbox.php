@@ -38,15 +38,29 @@ class Msgbox{
         return $num;
     }
     /**
-     * 修改为 已读
-     * @param $userid
-     * @return mixed
-     * @throws \think\Exception
-     */
+ * 修改为 已读
+ * @param $userid
+ * @return mixed
+ * @throws \think\Exception
+ */
     public function read($userid){
         if(!$userid) Common::E('用户id不能为空');
         $where['uid'] = $userid;
         $res = Db::name('message')->where($where)->update(['read' =>2]);
+        return $res;
+    }
+
+    /**
+     * 修改为 同意
+     * @param $userid
+     * @return mixed
+     * @throws \think\Exception
+     */
+    public function agree($id,$agree){
+        if(!$id) Common::E('用户id不能为空');
+        if(!$agree) Common::E('agree参数不存在');
+        $where['id'] = $id;
+        $res = Db::name('message')->where($where)->update(['agree' =>$agree]);
         return $res;
     }
 
