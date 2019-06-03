@@ -130,7 +130,7 @@ class WsChart{
      * @param $worker_id
      */
     public function onOpen($ws, $request){
-        //app\common\Redis::getInstance()->sAdd(config('redis.online_key'),$request->fd);
+        app\common\Redis::getInstance()->sAdd(config('redis.online_key'),$request->fd);
         echo "当前fd:{$request->fd}\n";
     }
     /**
