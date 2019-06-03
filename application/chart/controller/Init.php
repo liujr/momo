@@ -28,6 +28,7 @@ class Init extends Base{
                         'type' => 'friend',
                         'content' => htmlspecialchars($vo['content']),
                         'timestamp' => $vo['timeline'] * 1000,
+                        'userid'   =>$data['id']
                     ]
                 ];
                 $senddata = array(

@@ -11,7 +11,7 @@ class InitTask{
      * @param $param
      */
     public function pushChartLog($server,$param){
-        $fd = Redis::getInstance()->get(config('redis.userid_association_fd').session('userid'));
+        $fd = Redis::getInstance()->get(config('redis.userid_association_fd').$param['data']['userid']);
         $server->push($fd, json_encode($param));
     }
 
