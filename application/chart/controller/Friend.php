@@ -45,13 +45,14 @@ class Friend extends Base{
                 'type' => 'friend',
                 'sign' => $message['sign'],
                 'groupid' => $message['groupid'],
+                'userid'=>$message['toid'],
             ]
         ];
         $senddata = array(
             'controller' =>'FriendsTask',
             'method'     =>'noticeFriend',
             'data'          =>$add_message,
-            'userid'=>$message['toid'],
+
         );
         $ws->task($senddata);
     }
