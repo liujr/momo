@@ -31,7 +31,7 @@ class Index extends Base{
             if(!empty($res['lists'])){
                 foreach ($res['lists'] as $kk=>&$vv){
                     $vv['status'] =='offline';
-                    if($vv['is_online'] ==2)$vv['status']='online';
+                    if($v['is_online'] ==2)$vv['status']='online';
                 }
             }
             $v['list'] = $res['lists'];
