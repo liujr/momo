@@ -22,8 +22,7 @@ class Login extends Controller{
             if(!$info) Common::E('用户不存在');
             $pwd = md5(md5($param['password']).$param['mobile']);
             if($pwd != $info['password']) Common::E('密码错误');
-            //设置用户上线
-            $obj->saveisonline(['userid'=>$info['userid'],'is_online'=>2]);
+
             session('mobile', $info['mobile']);
             session('userid', $info['userid']);
             session('sign', $info['sign']);

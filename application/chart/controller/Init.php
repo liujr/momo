@@ -60,6 +60,11 @@ class Init extends Base{
             }
         }
 
+
+        //设置用户上线
+        $obj = new \logic\login\UserLogin();
+        $obj->saveisonline(['userid'=>$data['id'],'is_online'=>2]);
+
     }
 
 
