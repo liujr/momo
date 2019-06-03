@@ -471,5 +471,5 @@ layui.use(['layim', 'laytpl'], function(layim){
                 layim.msgbox(res.data);
             }
         });
-    }, parseInt(120) * 1000);
+    }, parseInt(60) * 1000);
 });
