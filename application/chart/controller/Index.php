@@ -28,13 +28,10 @@ class Index extends Base{
         $friendsObj = new \logic\friends\Friends();
         foreach ($friends['lists'] as $k=>&$v){
             $res = $friendsObj->getFriendsByCateId(session('userid'),$v['id']);
-            echo '<pre>';
-            print_r($res);die;
             if(!empty($res['lists'])){
                 foreach ($res['lists'] as $kk=>&$vv){
                     $vv['status'] =='offline';
-                    $user = $obj->info($vv['friendid']);
-                    if($user['is_online'] ==2)$vv['status']='online';
+                    if($vv['status'] ==2)$vv['status']='online';
                 }
             }
             $v['list'] = $res['lists'];
