@@ -21,7 +21,7 @@ class Friend extends Base{
             //入库系统消息
             $content = session('mobile') . ' 已经同意你的好友申请';
             $obj = new \logic\msgbox\Msgbox();
-            $res = $obj->add($friend_id,'',$from_group,$userid,2,$content,'');
+            $res = $obj->add($friend_id,'',$from_group,'-1',2,$content,'');
 
             //将此消息标记为已经同意
             $obj->agree(input('id'),1);
