@@ -8,6 +8,7 @@ class FriendsList{
         if(!$userid)  $where['userid'] = $userid;
         if(!$friendid)  $where['friendid'] = $friendid;
         $list = Db::name('friends')->where($where)->page($page)->limit($limit)->select();
+        echo Db::name('friends')->buildSql();
         $total = Db::name('friends')->where($where)->count();
         return [
             'lists' => $list,
