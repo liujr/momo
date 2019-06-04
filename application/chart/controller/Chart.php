@@ -1,0 +1,58 @@
+<?php
+
+namespace app\chart\controller;
+use app\common\Common;
+
+class Chart extends Base{
+
+    static public function chart($ws,$fd,$message){
+
+        // 聊天消息
+        $type = $message['data']['to']['type'];
+        $to_id = $message['data']['to']['id'];
+        $uid = session('userid');
+
+        $chat_message = [
+            'message_type' => 'chatMessage',
+            'data' => [
+                'username' => session('mobile'),
+                'avatar' => session('avatar'),
+                'id' => $type === 'friend' ? $uid : $to_id,
+                'type' => $type,
+                'content' => htmlspecialchars($message['data']['mine']['content']),
+                'timestamp' => time() * 1000,
+            ]
+        ];
+
+        // 加入聊天log表
+        $from_id = $uid;
+        $from_name = session('mobile');
+        $from_avatar = session('avatar');
+        $to_id = $to_id;
+        $content = htmlspecialchars($message['data']['mine']['content']);
+        $time = time();
+        $need_send = 0;
+
+        $chatlogObj = new \logic\chatlog\Chatlog();
+
+        switch ($type) {
+            // 私聊
+            case 'friend':
+                // 插入
+                $type = 'friend';
+                if (empty(Redis::getInstance()->get(config('redis.userid_association_fd').$to_id))) {
+                    $need_send = 1;  //用户不在线,标记此消息推送
+                }
+
+                $chatlogObj->add($from_id,$from_name,$from_avatar,$to_id,$content,$time,$type,$need_send);
+                $ws->push($to_id, json_encode($chat_message));
+            // 群聊
+            case 'group':
+                $type = 'group';
+                $chatlogObj->add($from_id,$from_name,$from_avatar,$to_id,$content,$time,$type,$need_send);
+               // return Gateway::sendToGroup($to_id, json_encode($chat_message), $client_id);
+        }
+
+    }
+
+}

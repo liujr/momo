@@ -146,14 +146,17 @@ class WsChart{
 
         switch ($message_type)
         {
-            case 'init':
+            case 'init': //初始化执行
                 app\chart\controller\Init::index($ws,$frame->fd,$message);
                 return;
-            case 'addFriend':
+            case 'addFriend': //同意好友添加执行
                 app\chart\controller\Friend::noticeFriend($ws,$frame->fd,$message);
                 return;
-            case 'online':
+            case 'online': //切换在线状态
                 app\chart\controller\User::isOnline($ws,$frame->fd,$message);
+                return;
+            case 'chatMessage': //好友聊天执行
+                app\chart\controller\Chart::chart($ws,$frame->fd,$message);
                 return;
             default:
 
