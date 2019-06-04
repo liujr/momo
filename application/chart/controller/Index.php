@@ -4,7 +4,7 @@ namespace app\chart\controller;
 class Index extends Base{
 
     public function index(){
-        $mobile =  session('mobile');
+        $username =  session('username');
         $userid =  session('userid');
         $sign =  session('sign')?session('sign'):'这家伙很懒！什么也没留';
         $avatar =  session('avatar');

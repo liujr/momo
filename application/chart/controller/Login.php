@@ -23,7 +23,7 @@ class Login extends Controller{
             $pwd = md5(md5($param['password']).$param['mobile']);
             if($pwd != $info['password']) Common::E('密码错误');
 
-            session('mobile', $info['mobile']);
+            session('username', $info['account']);
             session('userid', $info['userid']);
             session('sign', $info['sign']);
             session('avatar', $info['avatar']);
