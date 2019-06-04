@@ -446,9 +446,8 @@ layui.use(['layim', 'laytpl'], function(layim){
         });
         //发送消息
         layim.on('sendMessage', function(res){
-            console.log(res);
-            return false;
-            if(To.type === 'friend'){
+            
+            if(res.to.type === 'friend'){
                 layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
             }
             // 发送消息
