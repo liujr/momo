@@ -10,8 +10,8 @@ class GroupdetailList{
             ->alias(' gd ')
             ->field('gd.*,g.group_name as groupname,g.avatar,g.id')
             ->join('me_chatgroup g ','gd.group_id= g.id')
-            ->where("gd.user_id='$userid''")->page($page)->limit($limit)->select();
-        $total = Db::table('me_friends')->alias('gd')->where("gd.user_id='$userid'")->count();
+            ->where("gd.user_id=$userid")->page($page)->limit($limit)->select();
+        $total = Db::table('me_friends')->alias('gd')->where("gd.user_id=$userid")->count();
         return [
             'lists' => $list,
             'total' =>$total,
