@@ -40,12 +40,13 @@ class Chart extends Base{
             case 'friend':
                 // 插入
                 $type = 'friend';
-                if (empty(Redis::getInstance()->get(config('redis.userid_association_fd').$to_id))) {
+                $nowfd = Redis::getInstance()->get(config('redis.userid_association_fd').$to_id);
+                if (empty($nowfd)) {
                     $need_send = 1;  //用户不在线,标记此消息推送
                 }
 
                 $chatlogObj->add($from_id,$from_name,$from_avatar,$to_id,$content,$time,$type,$need_send);
-                $ws->push($to_id, json_encode($chat_message));
+                $ws->push($nowfd, json_encode($chat_message));
                 return;
             // 群聊
             case 'group':
