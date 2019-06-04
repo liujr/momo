@@ -182,8 +182,8 @@ $(document).ready(function(){
         layui.use(['layer'], function(){
             var layer = layui.layer;
             layer.ready(function(){
-                $.getJSON(check_group_url, function(res){
-                    if(1 == res.code){
+                $.getJSON('/chart/group/check', function(res){
+                    if(100 == res.code){
                         //iframe层
                         layer.open({
                             type: 2,
@@ -191,7 +191,7 @@ $(document).ready(function(){
                             shade: [0.2, '#393D49'],
                             maxmin: false, //开启最大化最小化按钮
                             area: ['700px', '270px'],
-                            content: add_group_url
+                            content: '/chart/group/add'
                         });
                     }else{
                         layer.alert(res.msg, {closeBtn:0,icon:2,title:'友情提示'});
