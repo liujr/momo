@@ -56,7 +56,9 @@ $(function(){
                 }
 
                 $.post('/chart/group/doadd', {'group_name' : group_name, 'avatar' : avatar}, function(res){
-                    res = eval("("+res+")");
+                   /* res = eval("("+res+")");*/
+                    console.log(res);
+                    console.log(res.code);return false;
                     if(100 == res.code){
                         layer.msg(res.msg, {time:2000});
                         //推送给socket服务器，将管理员加入群组
