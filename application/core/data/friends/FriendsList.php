@@ -25,7 +25,7 @@ class FriendsList{
             ->field(' u.userid as id,u.account as username,u.avatar,u.sign,u.is_online as status')
             ->join('me_user u ','f.friendid= u.userid')
             ->where("f.userid='$userid' and f.groupid='$cateid'")->page($page)->limit($limit)->select();
-        $total = Db::table('me_friends')->alias('f')->where("f.userid='$userid' and f.groupid='$cateid'")->count();
+        $total = Db::table('me_friends')->alias('f') ->join('me_user u ','f.friendid= u.userid')->where("f.userid='$userid' and f.groupid='$cateid'")->count();
         return [
             'lists' => $list,
             'total' =>$total,
