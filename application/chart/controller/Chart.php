@@ -2,7 +2,7 @@
 
 namespace app\chart\controller;
 use app\common\Common;
-
+use app\common\Redis;
 class Chart extends Base{
 
     static public function chart($ws,$fd,$message){
