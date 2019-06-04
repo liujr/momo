@@ -8,7 +8,7 @@ class Groupdetail{
     public function add($param){
         $this->checkdata($param);
         $insertData = $this->getdata($param);
-        $result = Db::name('groupdetail')->insert($insertData);
+        $result = Db::name('groupdetail')->insertGetId($insertData);
         return $result;
     }
 

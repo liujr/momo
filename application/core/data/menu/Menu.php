@@ -34,7 +34,7 @@ class Menu{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        $result = Db::name('menu')->insert($insertData);
+        $result = Db::name('menu')->insertGetId($insertData);
         return $result;
     }
 

@@ -13,7 +13,7 @@ class Friends{
     public function add($userid,$friend_id,$group_id){
         $this->checkData($userid,$friend_id,$group_id);
         $insertData = $this->data($userid,$friend_id,$group_id);
-        $result = Db::name('friends')->insert($insertData);
+        $result = Db::name('friends')->insertGetId($insertData);
         return $result;
     }
 

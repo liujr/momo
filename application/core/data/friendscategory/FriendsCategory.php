@@ -24,7 +24,7 @@ class FriendsCategory{
     public function add($param){
         $data = $this->getdata($param);
         $data['addtime'] = time();
-        $ret =  Db::name("friendscategory")->insert($data);
+        $ret =  Db::name("friendscategory")->insertGetId($data);
         if(!$ret) Common::E("添加管理员失败");
         return true;
     }

@@ -8,7 +8,7 @@ class ChartGroup{
     public function add($param){
         $this->checkdata($param);
         $insertData = $this->getdata($param);
-        $result = Db::name('chatgroup')->insert($insertData);
+        $result = Db::name('chatgroup')->insertGetId($insertData);
         return $result;
     }
 

@@ -13,7 +13,7 @@ class Chatlog{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        $result = Db::name('chatlog')->insert($insertData);
+        $result = Db::name('chatlog')->insertGetId($insertData);
         return $result;
     }
 

@@ -20,7 +20,7 @@ class Msgbox{
     public function add($param){
         $data = $this->checkData($param);
         $insertData = $this->data($data);
-        $result = Db::name('message')->insert($insertData);
+        $result = Db::name('message')->insertGetId($insertData);
         return $result;
     }
 
