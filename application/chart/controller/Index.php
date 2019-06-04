@@ -38,7 +38,7 @@ class Index extends Base{
         }
         $friend = $friends['lists'];
 
-       
+
         //获取当前用户加入的群
         $groupdetailObj  = new \logic\groupdetail\Groupdetail();
         $groupList = $groupdetailObj->lists(session('userid'),1,999);
@@ -55,7 +55,10 @@ class Index extends Base{
     }
 
     public function memberListUrl(){
-        $list = [
+        $groupid = input('id');
+        $groupdetailObj  = new \logic\groupdetail\Groupdetail();
+        $list = $groupdetailObj->getlistsBygroupid($groupid);
+        /*$list = [
             [
                 'username'=>'贤心',
                 'id'  =>100001,
@@ -128,13 +131,13 @@ class Index extends Base{
                 'avatar' =>'http://tva3.sinaimg.cn/crop.0.0.750.750.180/5033b6dbjw8etqysyifpkj20ku0kuwfw.jpg',
                 'sign'     =>'我也爱贤心吖吖啊',
             ],
-        ];
+        ];*/
 
         $data =[
             'code'=>0,
             'msg' =>'',
             'data'=>[
-                'list' => $list
+                'list' => $list['lists']
             ]
         ];
 

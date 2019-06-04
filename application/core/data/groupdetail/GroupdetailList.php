@@ -21,4 +21,20 @@ class GroupdetailList{
         ];
     }
 
+    public function getlistsBygroupid($groupid=0,$page=1,$limit=20){
+        $where[]=['gd.group_id','=',$groupid];
+        $list = Db::table('me_groupdetail')
+            ->alias(' gd ')
+            ->field('gd.*,u.userid as id,u.mobile as username,u.avatar,u.sign')
+            ->join('me_user u ','gd.user_id= u.userid')
+            ->where($where)->page($page)->limit($limit)->select();
+        $total = Db::table('me_groupdetail')->alias('gd')->join('me_user u ','gd.user_id= u.userid')->where($where)->count();
+        return [
+            'lists' => $list,
+            'total' =>$total,
+            'page'  => $page,
+            'limit' => $limit
+        ];
+    }
+
 }

@@ -5,17 +5,17 @@ use app\common\Common;
 class Groupdetail{
 
     /**
-     * @param int $id
-     * @param int $owner_id
-     * @param int $status
-     * @param string $notownerid
-     * @param int $page
-     * @param int $limit
-     * @return mixed
+     * 获取群组
      */
     public function lists($usrid,$page=1,$limit=20){
         $lists = Common::D('groupdetail','GroupdetailList')->lists($usrid,$page,$limit);
         return $lists;
+    }
+
+    public function getlistsBygroupid($groupid,$page=1,$limit=20){
+        $lists = Common::D('groupdetail','GroupdetailList')->getlistsBygroupid($groupid,$page,$limit);
+        return $lists;
+
     }
 
     /**
