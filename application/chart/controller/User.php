@@ -82,6 +82,15 @@ class User extends Base{
                 $ws->task($senddata2);
             }
         }
+
+        //设置用户上下线
+        $obj = new \logic\login\UserLogin();
+        if('online' == $message['status'] ){
+            $obj->saveisonline(['userid'=>$message['uid'],'is_online'=>2]);
+        }else{
+            $obj->saveisonline(['userid'=>$message['uid'],'is_online'=>1]);
+        }
+
     }
 
 
