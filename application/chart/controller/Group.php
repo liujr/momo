@@ -38,6 +38,10 @@ class Group extends Base{
             $groupObj  = new \logic\chartgroup\ChartGroup();
             $groupid = $groupObj->add($group_name,$avatar,$owner_name,$owner_id,$owner_avatar,$owner_sign,$status);
 
+            //将自己加入群组
+            $groupdetailObj  = new \logic\groupdetail\Groupdetail();
+            $groupdetailObj->add($owner_id,$owner_name,$owner_avatar,$owner_sign,$groupid);
+
             Common::show(config('code.success'),'添加成功',['join_id'=>$owner_id,'group_id'=>$groupid]);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
