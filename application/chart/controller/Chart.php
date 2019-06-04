@@ -10,13 +10,13 @@ class Chart extends Base{
         // 聊天消息
         $type = $message['data']['to']['type'];
         $to_id = $message['data']['to']['id'];
-        $uid = session('userid');
+        $uid = $message['data']['mine']['id'];
 
         $chat_message = [
             'message_type' => 'chatMessage',
             'data' => [
-                'username' => session('mobile'),
-                'avatar' => session('avatar'),
+                'username' => $message['data']['mine']['mobile'],
+                'avatar' => $message['data']['mine']['avatar'],
                 'id' => $type === 'friend' ? $uid : $to_id,
                 'type' => $type,
                 'content' => htmlspecialchars($message['data']['mine']['content']),
@@ -26,8 +26,8 @@ class Chart extends Base{
 
         // 加入聊天log表
         $from_id = $uid;
-        $from_name = session('mobile');
-        $from_avatar = session('avatar');
+        $from_name = $message['data']['mine']['mobile'];
+        $from_avatar = $message['data']['mine']['avatar'];
         $to_id = $to_id;
         $content = htmlspecialchars($message['data']['mine']['content']);
         $time = time();

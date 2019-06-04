@@ -446,10 +446,10 @@ layui.use(['layim', 'laytpl'], function(layim){
         });
         //发送消息
         layim.on('sendMessage', function(res){
-            
-            if(res.to.type === 'friend'){
+
+           /* if(To.type === 'friend'){
                 layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
-            }
+            }*/
             // 发送消息
             var mine = JSON.stringify(res.mine);
             var to = JSON.stringify(res.to);
