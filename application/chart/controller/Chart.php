@@ -46,6 +46,7 @@ class Chart extends Base{
 
                 $chatlogObj->add($from_id,$from_name,$from_avatar,$to_id,$content,$time,$type,$need_send);
                 $ws->push($to_id, json_encode($chat_message));
+                return;
             // 群聊
             case 'group':
                 $type = 'group';
