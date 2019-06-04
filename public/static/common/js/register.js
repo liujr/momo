@@ -10,6 +10,11 @@ layui.use(['form', 'layer'], function () {
             /^[\S]{6,12}$/
             , '密码必须6到12位，且不能出现空格'
         ]
+        ,account:function(value){
+            if(value == ''){
+                return "账号不能为空";
+            }
+        }
     });
     //监听提交表单
     form.on('submit(*)', function (data) {
