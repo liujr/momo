@@ -12,7 +12,7 @@ class GroupdetailList{
             ->field('gd.*,g.group_name as groupname,g.avatar,g.id')
             ->join('me_chatgroup g ','gd.group_id= g.id')
             ->where($where)->page($page)->limit($limit)->select();
-        $total = Db::table('me_friends')->alias('gd')->join('me_chatgroup g ','gd.group_id= g.id')->where($where)->count();
+        $total = Db::table('me_groupdetail')->alias('gd')->join('me_chatgroup g ','gd.group_id= g.id')->where($where)->count();
         return [
             'lists' => $list,
             'total' =>$total,
