@@ -85,6 +85,7 @@ class UserLogin{
     }
 
     private function checkAndGet($param){
+        if(!$param['account']) Common::E('账号不能为空');
         if(!$param['mobile']) Common::E('电话号码不能为空');
         if(!$param['pwd']) Common::E('密码不能为空');
         if(!$param['repwd']) Common::E('确认密码不能为空');
@@ -105,7 +106,7 @@ class UserLogin{
         }
 
         $insertData = [
-            'account' =>'mm_'.$param['mobile'],
+            'account' =>$param['account'],
             'mobile' => trim($param['mobile']),
             'password' => md5(md5($param['pwd']).trim($param['mobile'])),
             'sign' => '',

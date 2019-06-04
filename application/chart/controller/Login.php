@@ -68,8 +68,6 @@ class Login extends Controller{
         try{
             if(!request()->isAjax()) Common::E('非法访问');
             $param = input('post.');
-            echo '<pre>';
-            print_r($param);die;
             $obj = new \logic\login\UserLogin();
             $res = $obj->register($param);
             Common::show(config('code.success'),'注册成功成功',['userid'=>$res]);
