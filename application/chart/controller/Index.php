@@ -38,10 +38,7 @@ class Index extends Base{
         }
         $friend = $friends['lists'];
 
-        /*$group = [
-            ['groupname'=>'前端群','id'=>101,'avatar'=>'http://tva1.sinaimg.cn/crop.0.0.200.200.50/006q8Q6bjw8f20zsdem2mj305k05kdfw.jpg'],
-            ['groupname'=>'PHP群','id'=>102,'avatar'=>'http://tva2.sinaimg.cn/crop.0.0.199.199.180/005Zseqhjw1eplix1brxxj305k05kjrf.jpg'],
-        ];*/
+       
         //获取当前用户加入的群
         $groupdetailObj  = new \logic\groupdetail\Groupdetail();
         $groupList = $groupdetailObj->lists(session('userid'),1,999);
