@@ -152,6 +152,9 @@ class WsChart{
             case 'addFriend':
                 app\chart\controller\Friend::noticeFriend($ws,$frame->fd,$message);
                 return;
+            case 'online':
+                app\chart\controller\User::isOnline($ws,$frame->fd,$message);
+                return;
             default:
 
         }

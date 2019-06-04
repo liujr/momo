@@ -62,6 +62,28 @@ class User extends Base{
         }
     }
 
+    static public function isOnline($ws,$fd,$message){
+        // 通知所有该用户好友，此用户上线，将此用户头像变亮
+        $friendsObj = new \logic\friends\Friends();
+        $friends = $friendsObj->lists(0,$page=1,$limit=999,$message['uid']);
+        if($friends['lists']){
+            foreach ($friends['lists'] as $kk=>$vv){
+                $online_message = [
+                    'message_type' =>('online' == $message['status']) ? 'online' : 'offline',
+                    'id' => $message['uid'],
+                    'userid'=>$vv['userid']
+                ];
+                $senddata2 = array(
+                    'controller' =>'InitTask',
+                    'method'     =>'pushFriends',
+                    'data'          =>$online_message,
+
+                );
+                $ws->task($senddata2);
+            }
+        }
+    }
+
 
 
 }
