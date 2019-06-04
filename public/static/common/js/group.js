@@ -8,9 +8,9 @@ layui.use(['upload', 'layer'], function(){
         ,elem: '#avatar' //指定原始元素，默认直接查找class="layui-upload-file"
         ,ext: 'jpg|png'
         ,success: function(res){
-            if(1 == res.code){
-                $("#upimg").html('<img src="' + res.url + '" width="38px" height="38px"/>');
-                $("#group_avatar").val(res.url);
+            if(100 == res.code){
+                $("#upimg").html('<img src="' + res.data.img+ '" width="38px" height="38px"/>');
+                $("#group_avatar").val(res.data.img);
             }else{
                 layer.msg(res.msg, {time:2000});
             }
