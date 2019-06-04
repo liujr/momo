@@ -15,7 +15,7 @@ class Chart extends Base{
         $chat_message = [
             'message_type' => 'chatMessage',
             'data' => [
-                'username' => $message['data']['mine']['mobile'],
+                'username' => $message['data']['mine']['username'],
                 'avatar' => $message['data']['mine']['avatar'],
                 'id' => $type === 'friend' ? $uid : $to_id,
                 'type' => $type,
@@ -26,7 +26,7 @@ class Chart extends Base{
 
         // 加入聊天log表
         $from_id = $uid;
-        $from_name = $message['data']['mine']['mobile'];
+        $from_name = $message['data']['mine']['username'];
         $from_avatar = $message['data']['mine']['avatar'];
         $to_id = $to_id;
         $content = htmlspecialchars($message['data']['mine']['content']);
