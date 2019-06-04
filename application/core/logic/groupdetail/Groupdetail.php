@@ -13,8 +13,8 @@ class Groupdetail{
      * @param int $limit
      * @return mixed
      */
-    public function lists($id=0,$owner_id=0,$status=2,$notownerid='',$page=1,$limit=20){
-        $lists = Common::D('groupdetail','GroupdetailList')->lists($id,$owner_id,$status,$notownerid,$page,$limit);
+    public function lists($usrid,$page=1,$limit=20){
+        $lists = Common::D('groupdetail','GroupdetailList')->lists($usrid,$page,$limit);
         return $lists;
     }
 
