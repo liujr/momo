@@ -55,8 +55,8 @@ $(function(){
                     return;
                 }
 
-                $.post(add_group_url, {'group_name' : group_name, 'avatar' : avatar}, function(res){
-                    if(1 == res.code){
+                $.post('/chart/group/doadd', {'group_name' : group_name, 'avatar' : avatar}, function(res){
+                    if(100 == res.code){
                         layer.msg(res.msg, {time:2000});
                         //推送给socket服务器，将管理员加入群组
                         var group_data = '{"type":"addGroup","join_id":"' + res.data.join_id + '", ' +
