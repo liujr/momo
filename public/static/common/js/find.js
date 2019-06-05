@@ -122,7 +122,7 @@ $(document).ready(function(){
                         var _html = '';
                         $.each(res.data.lists, function(k, v){
                             _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
-                            _html += '<h5>' + v.mobile + '</h5><span style="margin-left: 10px">';
+                            _html += '<h5>' + v.account + '</h5><span style="margin-left: 10px">';
                             var style = 'style="color:#FDA357"';
                             if(1 == v.sex){
                                 style = 'style="color:#7CA3D2"';
