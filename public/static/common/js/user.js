@@ -33,6 +33,11 @@ layui.use(['form', 'layer', 'upload'], function () {
                 layer.tips('请输入正确的手机号', '#mobile');
                 return ;
             }
+            var account = $("#account").val();
+            if('' == account){
+                layer.tips('账号不能为空', '#account');
+                return ;
+            }
 
             var user_avatar = $("#user_avatar").val();
 
@@ -88,7 +93,8 @@ layui.use(['form', 'layer', 'upload'], function () {
                     'age' : age,
                     'province' : pid,
                     'city' : cid,
-                    'area' : aid
+                    'area' : aid,
+                    'account':account
                 }, function(res){
                     layer.close(index);
                     if(100 == res.code){
