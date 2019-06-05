@@ -156,6 +156,7 @@ $(document).ready(function(){
             $.getJSON('/chart/group/ajaxlists', {'search_txt':search_txt}, function(res){
                 var _html = "";
                 $("#search_title").text('搜索结果：');
+                var res = eval("("+res+")");
                 if( 100 == res.code ){
                     console.log(res.code.tatal);
                     console.log(res.data.lists);
