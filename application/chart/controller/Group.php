@@ -65,6 +65,12 @@ class Group extends Base{
         }
     }
 
+    /**
+     * 群组添加成功渲染到页面
+     * @param $ws
+     * @param $fd
+     * @param $message
+     */
     static public function pushGroup($ws,$fd,$message){
         Redis::getInstance()->sAdd('group'.$message['groupid'],$message['userid']);
         $add_message = [
