@@ -36,7 +36,8 @@ class Group extends Base{
             $owner_avatar = session('avatar');
             $owner_sign = session('sign');
             $status = 2;
-
+            echo '<pre>';
+            print_r(input());die;
             //添加群组
             $groupObj  = new \logic\chartgroup\ChartGroup();
             $groupid = $groupObj->add($group_name,$avatar,$owner_name,$owner_id,$owner_avatar,$owner_sign,$status);
