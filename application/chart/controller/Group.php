@@ -31,7 +31,7 @@ class Group extends Base{
             if(!request()->isAjax()) Common::E('非法访问');
             $group_name = input('group_name');
             $avatar = input('avatar');
-            $owner_name = session('mobile');
+            $owner_name = session('username');
             $owner_id = session('userid');
             $owner_avatar = session('avatar');
             $owner_sign = session('sign');
