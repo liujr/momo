@@ -3,11 +3,12 @@ namespace data\chartgroup;
 use app\common\Common;
 use think\Db;
 class ChartGroupList{
-    public function lists($id=0,$owner_id=0,$status=2,$notownerid='',$page=1,$limit=20){
+    public function lists($id=0,$owner_id=0,$status=2,$notownerid='',$page=1,$limit=20,$groupname=''){
         if($id) $where[] = ['id','=',$id];
         if($owner_id) $where[] = ['owner_id','=',$owner_id];
         if($status) $where[] = ['status','=',$status];
         if($notownerid) $where[] = ['owner_id','not in',$notownerid];
+        if($groupname) $where[] = ['group_name','like','%'.$groupname.'%'];
         $list = Db::name('chatgroup')->where($where)->order('id desc')->page($page)->limit($limit)->select();
         $total = Db::name('chatgroup')->where($where)->count();
         return [

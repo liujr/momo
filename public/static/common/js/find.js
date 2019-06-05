@@ -153,7 +153,7 @@ $(document).ready(function(){
                 });
                 return;
             }
-            $.getJSON(search_group_url, {'search_txt':search_txt}, function(res){
+            $.getJSON('/chart/group/ajaxlists', {'search_txt':search_txt}, function(res){
                 var _html = "";
                 $("#search_title").text('搜索结果：');
                 if( 1 == res.code ){

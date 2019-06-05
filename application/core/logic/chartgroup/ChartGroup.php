@@ -13,8 +13,8 @@ class ChartGroup{
      * @param int $limit
      * @return mixed
      */
-    public function lists($id=0,$owner_id=0,$status=2,$notownerid='',$page=1,$limit=20){
-        $lists = Common::D('chartgroup','ChartGroupList')->lists($id,$owner_id,$status,$notownerid,$page,$limit);
+    public function lists($id=0,$owner_id=0,$status=2,$notownerid='',$page=1,$limit=20,$groupname=''){
+        $lists = Common::D('chartgroup','ChartGroupList')->lists($id,$owner_id,$status,$notownerid,$page,$limit,$groupname);
         return $lists;
     }
 

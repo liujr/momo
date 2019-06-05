@@ -23,6 +23,9 @@ class Group extends Base{
         return $this->fetch();
     }
 
+    /**
+     * 添加群组
+     */
     public function doadd(){
         try{
             if(!request()->isAjax()) Common::E('非法访问');
@@ -46,5 +49,18 @@ class Group extends Base{
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
+    }
+
+    public function ajaxlists(){
+        try{
+            $groupname= input('search_txt');
+            if($groupname =='') Common::E('群组名称不能为空');
+            $groupObj  = new \logic\chartgroup\ChartGroup();
+            $groupArr  =$groupObj->lists(0,0,2,'',1,20,$groupname);
+            Common::show(config('code.success'),'添加成功',$groupArr['lists']);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+
     }
 }
