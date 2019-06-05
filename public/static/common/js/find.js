@@ -156,14 +156,20 @@ $(document).ready(function(){
             $.getJSON('/chart/group/ajaxlists', {'search_txt':search_txt}, function(res){
                 var _html = "";
                 $("#search_title").text('搜索结果：');
-                if( 1 == res.code ){
-                    $.each(res.data, function(k, v){
-                        _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
-                        _html += '<h5>' + v.group_name + '</h5></div><div class="ibox-content"><div style="margin: 0 auto">';
-                        _html += '<img src="' + v.avatar + '" width="50px" height="50px" style="margin-left:50px"/>';
-                        _html += '</div><div style="margin:10px 50px"><button class="btn btn-primary" type="button" data-id="' + v.id + '" onclick="joinGroup(this)">加入</button></div>';
-                        _html += '</div></div></div>';
-                    });
+                if( 100 == res.code ){
+                    if(res.code.tatal <=0){
+                        _html += '<div class="col-sm-12"><div class="ibox float-e-margins"><div class="ibox-content">';
+                        _html += '<div class="form-group"><div class="col-sm-10"><label style="color: red">暂无查询数据</label>';
+                        _html += '</div></div></div></div></div>';
+                    }else{
+                        $.each(res.data, function(k, v){
+                            _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
+                            _html += '<h5>' + v.group_name + '</h5></div><div class="ibox-content"><div style="margin: 0 auto">';
+                            _html += '<img src="' + v.avatar + '" width="50px" height="50px" style="margin-left:50px"/>';
+                            _html += '</div><div style="margin:10px 50px"><button class="btn btn-primary" type="button" data-id="' + v.id + '" onclick="joinGroup(this)">加入</button></div>';
+                            _html += '</div></div></div>';
+                        });
+                    }
                     $("#search_data").html(_html);
 
                 }else{

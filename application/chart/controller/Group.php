@@ -57,7 +57,7 @@ class Group extends Base{
             if($groupname =='') Common::E('群组名称不能为空');
             $groupObj  = new \logic\chartgroup\ChartGroup();
             $groupArr  =$groupObj->lists(0,0,2,'',1,20,$groupname);
-            Common::show(config('code.success'),'添加成功',$groupArr['lists']);
+            Common::show(config('code.success'),'搜索成功',$groupArr);
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
