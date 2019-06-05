@@ -157,7 +157,9 @@ $(document).ready(function(){
                 var _html = "";
                 $("#search_title").text('搜索结果：');
                 if( 100 == res.code ){
-                    if(res.code.tatal <=0){
+                    console.log(res.code.tatal);
+                    console.log(res.data.lists);
+                    if(res.code.tatal ==0){
                         _html += '<div class="col-sm-12"><div class="ibox float-e-margins"><div class="ibox-content">';
                         _html += '<div class="form-group"><div class="col-sm-10"><label style="color: red">暂无查询数据</label>';
                         _html += '</div></div></div></div></div>';
