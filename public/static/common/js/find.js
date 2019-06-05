@@ -162,7 +162,7 @@ $(document).ready(function(){
                         _html += '<div class="form-group"><div class="col-sm-10"><label style="color: red">暂无查询数据</label>';
                         _html += '</div></div></div></div></div>';
                     }else{
-                        $.each(res.data, function(k, v){
+                        $.each(res.data.lists, function(k, v){
                             _html += '<div class="col-sm-3"><div class="ibox float-e-margins"><div class="ibox-title">';
                             _html += '<h5>' + v.group_name + '</h5></div><div class="ibox-content"><div style="margin: 0 auto">';
                             _html += '<img src="' + v.avatar + '" width="50px" height="50px" style="margin-left:50px"/>';
