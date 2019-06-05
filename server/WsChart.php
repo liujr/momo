@@ -158,6 +158,9 @@ class WsChart{
             case 'chatMessage': //好友聊天执行
                 app\chart\controller\Chart::chart($ws,$frame->fd,$message);
                 return;
+            case 'addGroup': //添加群组
+                app\chart\controller\Group::pushGroup($ws,$frame->fd,$message);
+                return;
             default:
 
         }

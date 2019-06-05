@@ -1,7 +1,7 @@
 <?php
 namespace app\chart\controller;
 use app\common\Common;
-
+use app\common\Redis;
 class Group extends Base{
 
     /**
@@ -51,6 +51,9 @@ class Group extends Base{
         }
     }
 
+    /**
+     * 搜索群组
+     */
     public function ajaxlists(){
         try{
             $groupname= input('search_txt');
@@ -61,6 +64,21 @@ class Group extends Base{
         }catch (\Exception $e){
             Common::show(config('code.error'),$e->getMessage());
         }
-
     }
+
+    static public function pushGroup($ws,$fd,$message){
+        Redis::getInstance()->sAdd('group'.$message['groupid'],$message['userid']);
+        $add_message = [
+            'message_type' => 'addGroup',
+            'data' => [
+                'type' => 'group',
+                'avatar'   => $message['avatar'],
+                'id'       => $message['groupid'],
+                'groupname'     => $message['groupname']
+            ]
+        ];
+        $nowfd = Redis::getInstance()->get(config('redis.userid_association_fd').$message['userid']);
+        $ws->push($nowfd, json_encode($add_message));
+    }
+
 }

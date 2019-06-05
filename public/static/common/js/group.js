@@ -59,8 +59,8 @@ $(function(){
                     if(100 == res.code){
                         layer.msg(res.msg, {time:2000});
                         //推送给socket服务器，将管理员加入群组
-                        var group_data = '{"type":"addGroup","join_id":"' + res.data.join_id + '", ' +
-                            '"avatar":"' + avatar + '", "id":"' + res.data.group_id + '", "groupname":"' + group_name + '"}';
+                        var group_data = '{"type":"addGroup","userid":"' + res.data.join_id + '", ' +
+                            '"avatar":"' + avatar + '", "groupid":"' + res.data.group_id + '", "groupname":"' + group_name + '"}';
                         socket.send(group_data);
 
                         setTimeout(function(){
