@@ -6,7 +6,7 @@ use think\Db;
 class UserList{
     public function lists($ids,$page=1,$limit=20,$mobile=0,$sex=0,$age=0,$pid=0,$cid=0,$aid=0){
         if($ids) $where[] =['userid','not in',$ids];
-        if($mobile) $where[] =['mobile','=',$mobile];
+        if($mobile) $where[] =['mobile|account','like','%'.$mobile.'%'];
         if($sex) $where[] =['sex','=',$sex];
         if($age && (!is_array($age))) $where[] =['age','=',$age];
         if($age && (is_array($age))) $where[] =['age','between',$age];
