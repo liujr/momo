@@ -161,6 +161,9 @@ class WsChart{
             case 'addGroup': //添加群组
                 app\chart\controller\Group::pushGroup($ws,$frame->fd,$message);
                 return;
+            case 'applyGroup': //申请加入群组
+                app\chart\controller\Group::applyGroup($ws,$frame->fd,$message);
+                return;
             default:
 
         }

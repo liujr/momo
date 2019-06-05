@@ -12,10 +12,22 @@ class Groupdetail{
         return $lists;
     }
 
+    /**
+     * 通过群组id获取群列表
+     * @param $groupid
+     * @param int $page
+     * @param int $limit
+     * @return mixed
+     */
     public function getlistsBygroupid($groupid,$page=1,$limit=20){
         $lists = Common::D('groupdetail','GroupdetailList')->getlistsBygroupid($groupid,$page,$limit);
         return $lists;
 
+    }
+
+    public function info($groupid=0,$userid=0){
+        $info = Common::D('groupdetail','Groupdetail')->info($groupid,$userid);
+        return $info;
     }
 
     /**

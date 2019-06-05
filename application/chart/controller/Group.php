@@ -86,4 +86,50 @@ class Group extends Base{
         $ws->push($nowfd, json_encode($add_message));
     }
 
+
+    /**
+     * 申请加入群组
+     */
+    public function checkgroup(){
+        try{
+            if(!request()->isAjax()) Common::E('非法访问');
+            $group_id = input('group');
+
+            //将自己加入群组
+            $groupdetailObj  = new \logic\groupdetail\Groupdetail();
+            $info = $groupdetailObj->info($group_id,session('userid'));
+            if(!empty($info)) Common::E('您已经加入了该群组');
+            $return = [
+                'uid' => session('userid'),
+                'uname' => session('username'),
+                'avatar' => session('avatar'),
+                'sign' => session('sign')
+            ];
+            Common::show(config('code.success'),'添加成功',$return);
+        }catch (\Exception $e){
+            Common::show(config('code.error'),$e->getMessage());
+        }
+    }
+
+    /**
+     * 申请 加入群
+     * @param $ws
+     * @param $fd
+     * @param $message
+     */
+    static public function applyGroup($ws,$fd,$message){
+        Redis::getInstance()->sAdd('group'.$message['groupid'],$message['userid']);
+        $add_message = [
+            'message_type' => 'addGroup',
+            'data' => [
+                'type' => 'group',
+                'avatar'   => $message['avatar'],
+                'id'       => $message['groupid'],
+                'groupname'     => $message['groupname']
+            ]
+        ];
+        $nowfd = Redis::getInstance()->get(config('redis.userid_association_fd').$message['userid']);
+        $ws->push($nowfd, json_encode($add_message));
+    }
+
 }

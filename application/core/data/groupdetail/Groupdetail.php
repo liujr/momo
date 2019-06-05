@@ -5,6 +5,13 @@ use think\Db;
 
 class Groupdetail{
 
+    public function info($groupid=0,$userid=0){
+        if($groupid) $where[] = ['group_id','=',$groupid];
+        if($userid) $where[] = ['user_id','=',$userid];
+        $result = Db::name('groupdetail')->where($where)->find();
+        return $result;
+    }
+
     public function add($param){
         $this->checkdata($param);
         $insertData = $this->getdata($param);

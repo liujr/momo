@@ -260,12 +260,12 @@ function joinGroup(obj){
             , avatar: $(obj).parent().siblings().find('img').attr('src')
             , submit: function(group, remark, index){
                 //通知对方
-                 $.post(apply_group_url, {
+                 $.post('/chart/group/checkgroup', {
                       owner : $(obj).attr('data-owner')
                      , group : $(obj).attr('data-id')
                      , remark: remark
                  }, function(res){
-                    if(1 == res.code){
+                    if(100 == res.code){
                         var group_name = $(obj).parent().parent().siblings().find('h5').text();
                         var group_avatar = $(obj).parent().siblings().find('img').attr('src');
                         var group_id = $(obj).attr('data-id');

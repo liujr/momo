@@ -126,7 +126,7 @@ class Index extends Base{
 
             //推荐新建的群组
             $groupObj  = new \logic\chartgroup\ChartGroup();
-            $groupArr  =$groupObj->lists(0,0,2,'',1,4);
+            $groupArr  =$groupObj->lists(0,0,2,session('userid'),1,4);
 
                 $this->assign([
                 'group' => $groupArr['lists'],
