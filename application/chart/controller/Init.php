@@ -11,6 +11,7 @@ class Init extends Base{
 
         //将当前用户跟fd绑定
         Redis::getInstance()->set(config('redis.userid_association_fd').$data['id'],$fd);
+        Redis::getInstance()->set('user'.$fd,$data['id']);
 
         //查询有无需要推送的离线信息
         $chatlogObj = new \logic\chatlog\Chatlog();

@@ -170,6 +170,9 @@ class WsChart{
     public function onClose($ws,$fd){
         $res = app\common\Redis::getInstance()->sIsmember(config('redis.online_key'),$fd);
         if($res) app\common\Redis::getInstance()->sRem(config('redis.online_key'),$fd);
+
+        $userid= app\common\Redis::getInstance()->get('user'.$fd);
+        if($userid !='nil') app\common\Redis::getInstance()->del(config('redis.userid_association_fd').$userid);
        echo "close---clientid:{$fd}\n";
     }
 

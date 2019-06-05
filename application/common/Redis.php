@@ -101,6 +101,23 @@ class Redis
     }
 
 
+    /**
+     * 是否存在该键
+     * @param $key
+     * @return bool
+     * @throws \think\Exception
+     */
+    public function exists($key){
+        if(!$key) Common::E('key不能为空');
+        return $this->redis->EXISTS($key);
+    }
+
+    public function del($key){
+        if(!$key) Common::E('key不能为空');
+        return $this->redis->del($key);
+    }
+
+
 
 }
 
