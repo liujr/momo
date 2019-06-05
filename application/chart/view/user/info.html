@@ -13,10 +13,12 @@
                     <input type="text" id="mobile" name="mobile" autocomplete="off"
                            class="layui-input" value="{$user.mobile}">
                 </div>
-                <label for="user_name" class="layui-form-label">账号</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="account" name="account" autocomplete="off"
-                           class="layui-input" value="{$user.account}">
+                <div class="layui-form-item">
+                    <label for="user_name" class="layui-form-label">账号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="account" name="account" autocomplete="off"
+                               class="layui-input" value="{$user.account}">
+                    </div>
                 </div>
                 <input type="hidden" id="user_avatar" name="user_avatar" value="{$user.avatar}"/>
                 <div class="site-demo-upload" style="float: right">
