@@ -156,11 +156,7 @@ $(document).ready(function(){
             $.getJSON('/chart/group/ajaxlists', {'search_txt':search_txt}, function(res){
                 var _html = "";
                 $("#search_title").text('搜索结果：');
-               // var res = eval("("+res+")");
                 if( 100 == res.code ){
-                    console.log(res.code);
-                    console.log(res.data.total);
-                    console.log(res.data.lists);
                     if(res.data.total ==0){
                         _html += '<div class="col-sm-12"><div class="ibox float-e-margins"><div class="ibox-content">';
                         _html += '<div class="form-group"><div class="col-sm-10"><label style="color: red">暂无查询数据</label>';
