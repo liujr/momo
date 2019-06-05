@@ -4,7 +4,7 @@ var socket;
 layui.use(['layim', 'laytpl'], function(layim){
     var laytpl = layui.laytpl;
     uid = $('.userid').val();
-    mobile = $('.mobile').val();
+    mobile = $('.username').val();
     avatar= $('.avatar').val();
     sign =  $('.sign').val();
     //基础配置
