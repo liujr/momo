@@ -11,7 +11,7 @@ class Diy extends Base {
      */
     public function index(){
         try{
-            $post = $this->request->post('data');
+            $post = input('data');
             echo '<pre>';
             print_r($post);die;
             return $this->fetch();
