@@ -48,7 +48,7 @@
 				
             },
             data: [{
-                imgUrl:  'http://momo.mmrui.cn/status/home/css/diy/img/diy/banner_01.jpg',
+                imgUrl:  'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 linkUrl: '',
                 advise: '建议尺寸750x360'
             },
