@@ -636,7 +636,6 @@
                 template.defaults.escape = false;
                 // 计算对象总数
                 template.defaults.imports.objectKeys = function(object) {
-                    console.log(Object.keys(object));
                     return Object.keys(object);
                 };
             },
