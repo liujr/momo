@@ -1,69 +1,137 @@
 {extend name="public/base" /}
 {block name="title"}添加节点{/block}
-
+{block name="css"}
+<link rel="stylesheet" href="/static/home/css/diy/css/diy.css">
+<link rel="stylesheet" href="/static/home/css/diy/css/ystep.css">
+<link rel="stylesheet" href="/static/home/css/diy/css/member.css">
+<link rel="stylesheet" href="/static/home/css/diy/css/tpl.css"/>
+{/block}
 {block name="main"}
-<div class="layui-tab" id="Js_title_navigation">
-    <ul class="layui-tab-title">
-        <li class="layui-this">{$pid==0?'添加顶级节点':'添加节点'}</li>
-    </ul>
-</div>
-<form class="layui-form layui-row" action="">
-    <input type="hidden" name="pid" value="{$pid}" />
-    <div class="layui-col-xs12 layui-col-sm8">
-        <div class="layui-form-item">
-            <label class="layui-form-label">上级节点：</label>
-            <div class="layui-form-mid">
-                {$menuinfo['menuname']}
+<div class="layui-container ">
+    <div class="layui-row">
+        <div class="layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="widget-head">
+                <div class="widget-title">编辑页面设计</div>
             </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点名称：</label>
-            <div class="layui-input-block">
-                <input type="text" name="menuname" required  lay-verify="required" placeholder="请输入节点名称" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点：</label>
-            <div class="layui-input-block">
-                <input type="text" name="menuurl" class="layui-input" lay-verify="required" placeholder="请输入节点路径  如：/home/menu/add 顶级节点或者目录添加：null">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">节点备注：</label>
-            <div class="layui-input-block">
-                <input type="text" name="remark" class="layui-input" placeholder="请输入节点备注">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="savemenu">立即提交</button>
-                <a href="javascript:;" class="layui-btn layui-btn-primary closeBtn">取消</a>
+            <div class="widget-body layui-col-sm12 layui-col-md12 layui-col-lg12">
+                <!-- diy 工作区 -->
+                <div class="work-diy dis-flex flex-x-between">
+                    <!-- 工具栏 -->
+                    <div id="diy-menu" class="diy-menu">
+                        <div class="menu-title"><span>组件库</span></div>
+                        <div class="navs">
+                            <div class="navs-group">
+                                <div class="title">媒体组件</div>
+                                <div class="navs-components">
+                                    <nav class="special" data-type="banner">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-image-multiple"></i></p>
+                                        <p>图片轮播</p>
+                                    </nav>
+                                    <nav class="special" data-type="imageSingle">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-image"></i></p>
+                                        <p>单图组</p>
+                                    </nav>
+                                    <nav class="special" data-type="window">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-newspaper"></i></p>
+                                        <p>图片橱窗</p>
+                                    </nav>
+                                    <nav class="special" data-type="video">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-video"></i></p>
+                                        <p>视频组</p>
+                                    </nav>
+                                </div>
+                                <div class="title">商城组件</div>
+                                <div class="navs-components">
+                                    <nav class="special" data-type="search">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-search-web"></i></p>
+                                        <p>搜索框</p>
+                                    </nav>
+                                    <nav class="special" data-type="notice">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-volume-high"></i></p>
+                                        <p>公告组</p>
+                                    </nav>
+                                    <nav class="special" data-type="navBar">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-apps"></i></p>
+                                        <p>导航组</p>
+                                    </nav>
+                                    <nav class="special" data-type="goods">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-shopping"></i></p>
+                                        <p>商品组</p>
+                                    </nav>
+                                    <nav class="special" data-type="coupon">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-ticket-percent"></i></p>
+                                        <p>优惠券组</p>
+                                    </nav>
+
+                                </div>
+                                <div class="title">工具组件</div>
+                                <div class="navs-components">
+                                    <nav class="special" data-type="blank">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-selection"></i></p>
+                                        <p>辅助空白</p>
+                                    </nav>
+                                    <nav class="special" data-type="guide">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-minus"></i></p>
+                                        <p>辅助线</p>
+                                    </nav>
+                                    <nav class="special" data-type="richText">
+                                        <p class="item-icon"><i class="mdi menu-icon mdi-size mdi-clipboard-text"></i></p>
+                                        <p>富文本</p>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button id="submit" type="button" class="layui-btn">
+                                保存页面
+                            </button>
+                        </div>
+                    </div>
+                    <!--手机diy容器-->
+                    <div class="diy-phone">
+                        <!-- 手机顶部标题 -->
+                        <div id="diy-page" class="phone-top optional __no-move" data-type="page"></div>
+                        <!-- 小程序内容区域 -->
+                        <div id="phone-main" class="phone-main layer-scrollable-vertical"></div>
+                    </div>
+                    <!-- 编辑器容器 -->
+                    <div id="diy-editor" class="diy-editor form-horizontal">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <!-- 提示 -->
+                <div class="tips">
+                    <div class="pre">
+                        <p>1. 设计完成后点击"保存页面"，在小程序端页面下拉刷新即可看到效果。</p>
+                        <p>2. 如需填写链接地址请参考<a href="{:url('tpl/links')}" target="_blank">页面链接</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</form>
+</div>
+
+<!-- 文件库弹窗 -->
+{include file="file_library" /}
+
+<!--diy元素-->
+{include file="diy" /}
+
+<!--编辑器: 搜索栏-->
+{include file="editor"/}
 {/block}
 
 {block name="script"}
+<script src="/static/home/css/diy/js/select.data.js"></script>
+<script src="/static/home/css/diy/js/ddsort.js"></script>
+<script src="/static/home/css/diy/js/diy.js"></script>
 <script>
-layui.use(['form'], function(){
-    var form = layui.form;
-    var index = parent.layer.getFrameIndex(window.name);
-    form.on('submit(savemenu)',function(obj){
-        $.post('/home/menu/add',obj.field,function(data){
-            layer.msg(data.msg);
-            if(data.code==100){
-                setTimeout(function(){
-                    location.reload();
-                },1000);
-            }
-        },'json');
-        return false;
+    $(function () {
+
+        // 渲染diy页面
+        new diyPhone(<?= $jsonData ?: '{}' ?>);
+
     });
-    $('.closeBtn').click(function(){
-        console.log(2313132);
-        parent.layer.close(index);
-    });
-});
 </script>
 {/block}
