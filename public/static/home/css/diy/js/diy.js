@@ -53,7 +53,7 @@
                 advise: '建议尺寸750x360'
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_02.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_02.jpg',
                 linkUrl: '',
                 advise: '建议尺寸750x360'
             }]
@@ -68,12 +68,12 @@
 				
             },
             data: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_01.jpg',
+                imgUrl:  'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 imgName: 'image-1.jpg',
                 linkUrl: ''
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_02.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_02.jpg',
                 imgName: 'banner-2.jpg',
                 linkUrl: ''
             }]
@@ -85,7 +85,7 @@
                 rowsNum: '4'
             },
             data: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/navbar/icon-1.png',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/navbar/icon-1.png',
                 imgName: 'icon-1.png',
                 linkUrl: '',
                 text: '按钮文字1',
@@ -93,7 +93,7 @@
                 advise: '建议尺寸100x100'
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/navbar/icon-2.png',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/navbar/icon-2.png',
                 imgName: 'icon-2.jpg',
                 linkUrl: '',
                 text: '按钮文字2',
@@ -101,7 +101,7 @@
                 advise: '建议尺寸100x100'
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/navbar/icon-3.png',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/navbar/icon-3.png',
                 imgName: 'icon-3.jpg',
                 linkUrl: '',
                 text: '按钮文字3',
@@ -109,7 +109,7 @@
                 advise: '建议尺寸100x100'
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/navbar/icon-4.png',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/navbar/icon-4.png',
                 imgName: 'icon-4.jpg',
                 linkUrl: '',
                 text: '按钮文字4',
@@ -138,7 +138,7 @@
             name: '视频组',
             params: {
                 videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400',
-                poster: BASE_URL + 'assets/user/img/diy/video_poster.jpg'
+                poster: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/video_poster.jpg'
             },
             style: {
                 paddingTop: '0',
@@ -151,7 +151,7 @@
             name: '公告组',
             params: {
                 text: '这里是第一条自定义公告的标题',
-                icon: BASE_URL + 'assets/user/img/diy/notice.png'
+                icon:'http://momo.mmrui.cn/static/home/css/diy/img/diy/notice.png'
             },
             style: {
                 paddingTop: '4',
@@ -180,19 +180,19 @@
                 layout: 2
             },
             data: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/window/01.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/window/01.jpg',
                 linkUrl: ''
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/window/02.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/window/02.jpg',
                 linkUrl: ''
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/window/03.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/window/03.jpg',
                 linkUrl: ''
             },
             {
-                imgUrl: BASE_URL + 'assets/user/img/diy/window/04.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/window/04.jpg',
                 linkUrl: ''
             }],
             dataNum: 4
@@ -223,34 +223,34 @@
             // 自动获取: 默认数据
             defaultData: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '99.00'
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '99.00'
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/03.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/03.jpg',
                 goods_price: '99.00'
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/04.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/04.jpg',
                 goods_price: '99.00'
             }],
             // 手动选择: 默认数据
             data: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '99.00',
                 is_default: true
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '99.00',
                 is_default: true
             }]
@@ -264,7 +264,7 @@
                 backtype: 'shape',
                 textAlign: 'eight',
                 background: '#f3f3f3',
-                backgroundimg: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                backgroundimg: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 auto: {
                     category: 0,
                     goodsSort: 'all',
@@ -284,21 +284,21 @@
                 }
             },
             defaulta: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_01.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 imgName: 'image-1.jpg',
                 linkUrl: ''
             }],
             // 手动选择: 默认数据
             data: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '99.00',
 				discount: '99.00',
                 is_default: true
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '99.00',
 				discount: '99.00',
                 is_default: true
@@ -314,7 +314,7 @@
                 backtype: 'shape',
                 textAlign: 'eight',
                 background: '#f3f3f3',
-                backgroundimg: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                backgroundimg: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 auto: {
                     category: 0,
                     goodsSort: 'all',
@@ -335,21 +335,21 @@
                 }
             },
             defaulta: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_01.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 imgName: 'image-1.jpg',
                 linkUrl: ''
             }],
             // 手动选择: 默认数据
             data: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image:  'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '100.00',
 				discount: '99.00',
                 is_default: true
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '100.00',
 				discount: '99.00',
                 is_default: true
@@ -364,7 +364,7 @@
                 backtype: 'shape',
                 textAlign: 'eight',
                 background: '#f3f3f3',
-                backgroundimg: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                backgroundimg: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 auto: {
                     category: 0,
                     goodsSort: 'all',
@@ -384,20 +384,20 @@
                 }
             },
             defaulta: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_01.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 imgName: 'image-1.jpg',
                 linkUrl: ''
             }],
             // 手动选择: 默认数据
             data: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '99.00',
                 is_default: true
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '99.00',
                 is_default: true
             }]
@@ -411,7 +411,7 @@
                 backtype: 'shape',
                 textAlign: 'eight',
                 background: '#f3f3f3',
-                backgroundimg: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                backgroundimg: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 auto: {
                     category: 0,
                     goodsSort: 'all',
@@ -431,20 +431,20 @@
                 }
             },
             defaulta: [{
-                imgUrl: BASE_URL + 'assets/user/img/diy/banner_01.jpg',
+                imgUrl: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/banner_01.jpg',
                 imgName: 'image-1.jpg',
                 linkUrl: ''
             }],
             // 手动选择: 默认数据
             data: [{
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/01.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/01.jpg',
                 goods_price: '99.00',
                 is_default: true
             },
             {
                 name: '此处显示商品名称',
-                image: BASE_URL + 'assets/user/img/diy/goods/02.jpg',
+                image: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/goods/02.jpg',
                 goods_price: '99.00',
                 is_default: true
             }]
@@ -461,7 +461,7 @@
             },
             style: {
                 background: '#f3f3f3',
-                backgroundimage: BASE_URL + 'assets/user/img/diy/window/01.jpg',
+                backgroundimage: 'http://momo.mmrui.cn/static/home/css/diy/img/diy/window/01.jpg',
                 display: 'list',
                 // list; slide
                 column: '2',
