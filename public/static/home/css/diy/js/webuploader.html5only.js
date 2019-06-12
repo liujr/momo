@@ -16,7 +16,7 @@
 
             // 如果deps不是数组，则直接返回指定module
             if ( typeof deps === 'string' ) {
-                return getModule( deps );
+                return getModule( dphone-top-black.pngeps );
             } else {
                 args = [];
                 for( len = deps.length, i = 0; i < len; i++ ) {
